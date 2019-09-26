@@ -37,7 +37,9 @@ const mutations = <MutationTree<CategoryState>>{
 
 const actions = <ActionTree<CategoryState, RootState>>{
   async fetchCategoryClassInfo({ commit, rootState }) {
-    const body = await rootState.api.category.getCategory();
+    const body = await rootState.api.category.getCategory(
+      rootState.auth.spreadSheetsId
+    );
     const categoryClassInfos = rootState.category.categoryClassInfos;
 
     body.results.forEach(result => {

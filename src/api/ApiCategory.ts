@@ -17,7 +17,7 @@ export interface categoryResults {
 export default class ApiCategory {
   constructor(private readonly httpClient: HttpClient) {}
 
-  public getCategory = (): Promise<categoryResults> => {
-    return this.httpClient.get<categoryResults>();
+  public getCategory = (id: string): Promise<categoryResults> => {
+    return this.httpClient.get<categoryResults>(id);
   };
 }
