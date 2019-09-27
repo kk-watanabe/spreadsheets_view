@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <div class="header__logo">Style guide views</div>
+    <h1 class="header__logo">Style guide views</h1>
   </div>
 </template>
 
