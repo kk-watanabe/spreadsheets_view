@@ -1,4 +1,4 @@
-import { MutationTree, ActionTree } from "vuex";
+import { MutationTree, GetterTree, ActionTree } from "vuex";
 import { RootState } from "@/store";
 
 export class AuthState {
@@ -8,6 +8,16 @@ export class AuthState {
 const mutations = <MutationTree<AuthState>>{
   setSpreadSheetsId(state: AuthState, id: string) {
     state.spreadSheetsId = id;
+  }
+};
+
+const getters = <GetterTree<AuthState, RootState>>{
+  loggedIn(state: AuthState): boolean {
+    if (state.spreadSheetsId.length > 0) {
+      return true;
+    }
+
+    return false;
   }
 };
 
