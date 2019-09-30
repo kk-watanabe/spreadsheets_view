@@ -2,18 +2,19 @@
   <div class="home">
     <InputPart v-model="value" placeholder="スプレットシートのIDを入力してください" />
 
-    <button @click="onClick">送信</button>
-    {{value}}
+    <Button>送信</Button>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Model, Prop } from "vue-property-decorator";
 import InputPart from "@/components/atoms/form/InputPart.vue";
+import Button from "@/components/atoms/Button.vue";
 
 @Component({
   components: {
-    InputPart
+    InputPart,
+    Button
   }
 })
 export default class Login extends Vue{
