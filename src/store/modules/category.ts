@@ -1,7 +1,7 @@
 import { MutationTree, ActionTree } from "vuex";
 import { RootState } from "@/store";
 import { ClassInfo } from "@/models/ClassInfo";
-import { Category } from "@/models/Category";
+import { Category, CategoryType } from "@/models/Category";
 
 interface CategoryClassInfos {
   [key: string]: ClassInfo[];
@@ -49,11 +49,12 @@ const actions = <ActionTree<CategoryState, RootState>>{
     const categoryClassInfoKeys: string[] = Object.keys(categoryClassInfos);
     const categories: Category[] = categoryClassInfoKeys.map(
       categoryClassInfoKey => {
+        const cateogoryType = CategoryType.categoryClassInfoKey;
         if (categoryClassInfos[categoryClassInfoKey].length) {
-          return new Category(categoryClassInfoKey, true);
+          return new Category(cateogoryType, categoryClassInfoKey, true);
         }
 
-        return new Category(categoryClassInfoKey, false);
+        return new Category(cateogoryType, categoryClassInfoKey, false);
       }
     );
 
