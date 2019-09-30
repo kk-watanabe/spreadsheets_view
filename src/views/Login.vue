@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <input v-model="value" type="text" name="spreadSheetsId" placeholder="スプレットシートのIDを入力してください" />
+    <InputPart v-model="value" placeholder="スプレットシートのIDを入力してください" />
 
     <button @click="onClick">送信</button>
     {{value}}
@@ -9,8 +9,13 @@
 
 <script lang="ts">
 import { Component, Vue, Model, Prop } from "vue-property-decorator";
+import InputPart from "@/components/atoms/form/InputPart.vue";
 
-@Component
+@Component({
+  components: {
+    InputPart
+  }
+})
 export default class Login extends Vue{
   value: string = "";
 
