@@ -7,19 +7,18 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import GlobalNavi from "@/views/GlobalNavi.vue"
+import GlobalNavi from "@/views/GlobalNavi.vue";
 
 @Component({
   components: {
     GlobalNavi
   }
 })
-export default class Header extends Vue{
-  get loggedIn(): boolean  {
+export default class Header extends Vue {
+  get loggedIn(): boolean {
     return this.$store.state.auth.spreadSheetsId.length;
   }
 }
 </script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

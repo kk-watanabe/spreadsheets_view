@@ -14,7 +14,7 @@
 import { Component, Prop, Model, Emit, Vue } from "vue-property-decorator";
 
 @Component
-export default class InputPart extends Vue{
+export default class InputPart extends Vue {
   @Model("input", { type: [String, Number], required: true })
   value!: string | number;
 
@@ -28,12 +28,11 @@ export default class InputPart extends Vue{
   disabled!: boolean;
 
   @Emit("input")
-  onInput(value: string | number) { }
+  onInput(value: string | number) {}
 
   @Emit("focus")
-  onFocus() { }
+  onFocus() {}
 }
 </script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

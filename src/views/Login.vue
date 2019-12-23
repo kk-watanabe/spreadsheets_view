@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <InputPart v-model="value" placeholder="スプレットシートのIDを入力してください" />
+    <InputPart
+      v-model="value"
+      placeholder="スプレットシートのIDを入力してください"
+    />
 
     <Button>送信</Button>
   </div>
@@ -17,11 +20,11 @@ import Button from "@/components/atoms/Button.vue";
     Button
   }
 })
-export default class Login extends Vue{
+export default class Login extends Vue {
   value: string = "";
 
-  onClick()  {
-    if (this.value.length > 0)    {
+  onClick() {
+    if (this.value.length > 0) {
       this.$store.dispatch("auth/login", this.value);
       this.$store.dispatch("category/fetchCategoryClassInfo");
     }
