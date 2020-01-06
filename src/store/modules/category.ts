@@ -1,7 +1,7 @@
 import { MutationTree, ActionTree } from "vuex";
 import { RootState } from "@/store";
 import { ClassInfo } from "@/models/ClassInfo";
-import { Category } from "@/models/Category";
+import { Category, CategoryType } from "@/models/Category";
 
 interface CategoryClassInfos {
   [key: string]: ClassInfo[];
@@ -36,10 +36,8 @@ const mutations = <MutationTree<CategoryState>>{
 };
 
 const actions = <ActionTree<CategoryState, RootState>>{
-  async fetchCategoryClassInfo({ commit, rootState }) {
-    const body = await rootState.api.category.getCategory(
-      rootState.auth.spreadSheetsId
-    );
+  async fetchCategoryClassInfo({ commit, rootState }, id: string) {
+    const body = await rootState.api.category.getCategory(id);
     const categoryClassInfos = rootState.category.categoryClassInfos;
 
     body.results.forEach(result => {
@@ -49,11 +47,12 @@ const actions = <ActionTree<CategoryState, RootState>>{
     const categoryClassInfoKeys: string[] = Object.keys(categoryClassInfos);
     const categories: Category[] = categoryClassInfoKeys.map(
       categoryClassInfoKey => {
+        const cateogoryType = CategoryType.categoryClassInfoKey;
         if (categoryClassInfos[categoryClassInfoKey].length) {
-          return new Category(categoryClassInfoKey, true);
+          return new Category(cateogoryType, categoryClassInfoKey, true);
         }
 
-        return new Category(categoryClassInfoKey, false);
+        return new Category(cateogoryType, categoryClassInfoKey, false);
       }
     );
 
