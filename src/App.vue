@@ -1,14 +1,14 @@
 <template>
-  <div id="app">
-    <Header />
+  <div id="app" class="app">
+    <Header :logged-in="loggedIn" />
     <router-view />
-    <Footer />
+    <Footer :logged-in="loggedIn" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Header from "@/views/Header.vue";
+import Header from "@/views/common/Header.vue";
 import Footer from "@/components/common/Footer.vue";
 
 @Component({
@@ -17,7 +17,16 @@ import Footer from "@/components/common/Footer.vue";
     Footer
   }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  get loggedIn(): boolean {
+    return this.$store.getters["auth/loggedIn"];
+  }
+}
 </script>
 
-<style lang="scss"></style>
+<style scoped lang="scss">
+.app {
+  display: flex;
+  flex-direction: column;
+}
+</style>
