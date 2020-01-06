@@ -1,11 +1,22 @@
 <template>
   <div class="login">
     <div class="login__container">
-      <InputPart
-        v-model="value"
-        :disabled="false"
-        placeholder="スプレットシートのIDを入力してください"
-      />
+      <div class="login__input-field">
+        <div class="login__icon login__icon--required">必須</div>
+        <InputPart
+          v-model="spreadSheetsId"
+          :error="disabledLogin"
+          placeholder="スプレットシートのIDを入力してください"
+        />
+      </div>
+
+      <div class="login__input-field">
+        <div class="login__icon login__icon--any">任意</div>
+        <InputPart
+          v-model="spreadSheetName"
+          placeholder="スプレットシート名を入力してください"
+        />
+      </div>
 
       <Button class="login__submit" :disabled="disableSubmit" @click="onClick"
         >送信</Button
@@ -21,6 +32,7 @@
 
 <script lang="ts">
 import { Component, Vue, Model, Prop } from "vue-property-decorator";
+import { LoginInfo } from "@/models/Login";
 import InputPart from "@/components/atoms/form/InputPart.vue";
 import Button from "@/components/atoms/Button.vue";
 
@@ -31,10 +43,11 @@ import Button from "@/components/atoms/Button.vue";
   }
 })
 export default class Login extends Vue {
-  value: string = "";
+  spreadSheetsId: string = "";
+  spreadSheetName: string = "";
 
   get disableSubmit(): boolean {
-    return this.value.length === 0;
+    return this.spreadSheetsId.length === 0;
   }
 
   get disabledLogin(): boolean {
@@ -42,7 +55,12 @@ export default class Login extends Vue {
   }
 
   onClick() {
-    this.$store.dispatch("auth/login", this.value);
+    const loginInfo: LoginInfo = {
+      id: this.spreadSheetsId,
+      name: this.spreadSheetName
+    };
+
+    this.$store.dispatch("auth/login", loginInfo);
   }
 }
 </script>

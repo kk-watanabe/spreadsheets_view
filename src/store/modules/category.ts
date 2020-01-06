@@ -37,37 +37,27 @@ const mutations = <MutationTree<CategoryState>>{
 
 const actions = <ActionTree<CategoryState, RootState>>{
   async fetchCategoryClassInfo({ commit, rootState }, id: string) {
-    try {
-      const body = await rootState.api.category.getCategory(id);
-      const categoryClassInfos = rootState.category.categoryClassInfos;
+    const body = await rootState.api.category.getCategory(id);
+    const categoryClassInfos = rootState.category.categoryClassInfos;
 
-      if (!body.results) {
-        throw true;
-      }
+    body.results.forEach(result => {
+      categoryClassInfos[result.category].push(ClassInfo.fromJson(result));
+    });
 
-      body.results.forEach(result => {
-        categoryClassInfos[result.category].push(ClassInfo.fromJson(result));
-      });
-
-      const categoryClassInfoKeys: string[] = Object.keys(categoryClassInfos);
-      const categories: Category[] = categoryClassInfoKeys.map(
-        categoryClassInfoKey => {
-          const cateogoryType = CategoryType.categoryClassInfoKey;
-          if (categoryClassInfos[categoryClassInfoKey].length) {
-            return new Category(cateogoryType, categoryClassInfoKey, true);
-          }
-
-          return new Category(cateogoryType, categoryClassInfoKey, false);
+    const categoryClassInfoKeys: string[] = Object.keys(categoryClassInfos);
+    const categories: Category[] = categoryClassInfoKeys.map(
+      categoryClassInfoKey => {
+        const cateogoryType = CategoryType.categoryClassInfoKey;
+        if (categoryClassInfos[categoryClassInfoKey].length) {
+          return new Category(cateogoryType, categoryClassInfoKey, true);
         }
-      );
 
-      commit("auth/setSpreadSheetsId", id, { root: true });
-      commit("auth/setDisabledLogin", false, { root: true });
-      commit("setCategoryClassInfo", categoryClassInfos);
-      commit("setCategories", categories);
-    } catch (e) {
-      commit("auth/setDisabledLogin", e, { root: true });
-    }
+        return new Category(cateogoryType, categoryClassInfoKey, false);
+      }
+    );
+
+    commit("setCategoryClassInfo", categoryClassInfos);
+    commit("setCategories", categories);
   }
 };
 
