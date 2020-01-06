@@ -53,7 +53,6 @@ export default class Login extends Vue {
     if (sessionStorage.spreadSheetsId) {
       this.spreadSheetsId = sessionStorage.spreadSheetsId;
       this.spreadSheetName = sessionStorage.spreadSheetsName;
-      console.log(sessionStorage, this.spreadSheetsId, this.spreadSheetName);
       this.loginSubmit();
     }
   }
