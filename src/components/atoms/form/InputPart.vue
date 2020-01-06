@@ -1,6 +1,6 @@
 <template>
   <input
-    v-model="value"
+    :value="value"
     :type="type"
     :placeholder="placeholder"
     :disabled="disabled"
@@ -35,4 +35,33 @@ export default class InputPart extends Vue {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.input-part {
+  padding: 10px;
+  width: 100%;
+  height: $input_height;
+  outline: none;
+  border: 1px solid $is_color_gray500;
+  border-radius: $border_radius;
+  vertical-align: middle;
+  line-height: $input_height;
+
+  @include font-size(16);
+  &:focus {
+    border-color: $is_base_color200;
+    box-shadow: 0 0 2px rgba($is_base_color200, 1);
+  }
+  &::placeholder {
+    color: $is_color_gray700;
+  }
+  &:disabled {
+    border-color: $is_color_gray400;
+    background-color: $is_color_gray200;
+    color: $is_color_gray400;
+
+    &::placeholder {
+      color: $is_color_gray400;
+    }
+  }
+}
+</style>
