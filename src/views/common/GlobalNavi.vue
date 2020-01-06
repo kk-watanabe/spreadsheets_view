@@ -1,6 +1,6 @@
 <template>
   <nav class="global-navi">
-    <div class="global-navi__wrapper">
+    <div class="global-navi__inner">
       <div
         v-for="category in categories"
         class="global-navi__item"
@@ -19,10 +19,24 @@ import { Category } from "@/models/Category";
 @Component
 export default class GlobalNavi extends Vue {
   get categories(): Category[] {
-    console.log("test");
     return this.$store.state.category.categories;
   }
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.global-navi {
+  background-color: $is_base_color200;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__item {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+</style>
