@@ -43,6 +43,10 @@ const actions = <ActionTree<AuthState, RootState>>{
       commit("setDisabledLogin", false);
       commit("setSpreadSheetsName", info.name);
       dispatch("category/fetchCategoryClassInfo", info.id, { root: true });
+
+      // Save until tab is closed
+      sessionStorage.setItem("spreadSheetsId", info.id);
+      sessionStorage.setItem("spreadSheetsName", info.name);
     } catch (e) {
       commit("setDisabledLogin", e);
     }

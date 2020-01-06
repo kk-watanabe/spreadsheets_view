@@ -18,7 +18,10 @@
         />
       </div>
 
-      <Button class="login__submit" :disabled="disableSubmit" @click="onClick"
+      <Button
+        class="login__submit"
+        :disabled="disableSubmit"
+        @click="loginSubmit"
         >送信</Button
       >
       <transition name="show">
@@ -46,6 +49,15 @@ export default class Login extends Vue {
   spreadSheetsId: string = "";
   spreadSheetName: string = "";
 
+  created() {
+    if (sessionStorage.spreadSheetsId) {
+      this.spreadSheetsId = sessionStorage.spreadSheetsId;
+      this.spreadSheetName = sessionStorage.spreadSheetsName;
+      console.log(sessionStorage, this.spreadSheetsId, this.spreadSheetName);
+      this.loginSubmit();
+    }
+  }
+
   get disableSubmit(): boolean {
     return this.spreadSheetsId.length === 0;
   }
@@ -54,7 +66,7 @@ export default class Login extends Vue {
     return this.$store.state.auth.disabledLogin;
   }
 
-  onClick() {
+  loginSubmit() {
     const loginInfo: LoginInfo = {
       id: this.spreadSheetsId,
       name: this.spreadSheetName
