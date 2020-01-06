@@ -7,6 +7,7 @@
     @input="onInput($event.target.value)"
     @focus="onFocus"
     class="input-part"
+    :class="{ 'input-part--error': error }"
   />
 </template>
 
@@ -26,6 +27,9 @@ export default class InputPart extends Vue {
 
   @Prop({ type: Boolean, default: false })
   disabled!: boolean;
+
+  @Prop({ type: Boolean, default: false })
+  error!: boolean;
 
   @Emit("input")
   onInput(value: string | number) {}
@@ -62,6 +66,10 @@ export default class InputPart extends Vue {
     &::placeholder {
       color: $is_color_gray400;
     }
+  }
+  &--error {
+    border-color: $is_sub1_color200;
+    color: $is_sub1_color200;
   }
 }
 </style>
