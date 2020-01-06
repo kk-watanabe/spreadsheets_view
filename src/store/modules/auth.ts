@@ -3,11 +3,15 @@ import { RootState } from "@/store";
 
 export class AuthState {
   spreadSheetsId: string = "";
+  disabledLogin: boolean = false;
 }
 
 const mutations = <MutationTree<AuthState>>{
   setSpreadSheetsId(state: AuthState, id: string) {
     state.spreadSheetsId = id;
+  },
+  setDisabledLogin(state: AuthState, disabledLogin: boolean) {
+    state.disabledLogin = disabledLogin;
   }
 };
 
@@ -22,8 +26,8 @@ const getters = <GetterTree<AuthState, RootState>>{
 };
 
 const actions = <ActionTree<AuthState, RootState>>{
-  async login({ commit, rootState }, id: string) {
-    commit("setSpreadSheetsId", id);
+  async login({ dispatch }, id: string) {
+    dispatch("category/fetchCategoryClassInfo", id, { root: true });
   }
 };
 
@@ -31,5 +35,6 @@ export const auth = {
   namespaced: true,
   state: new AuthState(),
   mutations: mutations,
+  getters: getters,
   actions: actions
 };
