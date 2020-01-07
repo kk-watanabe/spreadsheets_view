@@ -4,6 +4,9 @@ import { withInfo } from "storybook-addon-vue-info";
 
 import "@/assets/scss/style.scss";
 
+// Storybook調整CSS
+import "./storybook.scss";
+
 addDecorator(withInfo);
 addDecorator(withKnobs);
 
