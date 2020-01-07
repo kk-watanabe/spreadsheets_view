@@ -46,7 +46,7 @@ storiesOf("Atom/Form/InputPart", module).add(
   }),
   {
     info: {
-      summary: "Simple Button component"
+      summary: "Simple InputPart component"
     }
   }
 );
