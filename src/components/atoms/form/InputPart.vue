@@ -4,10 +4,10 @@
     :type="type"
     :placeholder="placeholder"
     :disabled="disabled"
-    @input="onInput($event.target.value)"
-    @focus="onFocus"
     class="input-part"
     :class="{ 'input-part--error': error }"
+    @input="onInput($event.target.value)"
+    @focus="onFocus"
   />
 </template>
 

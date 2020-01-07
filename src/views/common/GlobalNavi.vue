@@ -3,8 +3,8 @@
     <div class="global-navi__inner">
       <div
         v-for="category in categories"
-        class="global-navi__item"
         :key="category.id"
+        class="global-navi__item"
       >
         <RouterLink :to="'/' + category.name">{{ category.name }}</RouterLink>
       </div>

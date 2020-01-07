@@ -11,16 +11,11 @@
 
 <script lang="ts">
 import { Component, Prop, Emit, Vue } from "vue-property-decorator";
-
-export enum buttonType {
-  Dark = "dark",
-  Light = "light",
-  Green = "green"
-}
+import { ButtonType } from "@/const/Button";
 
 @Component
 export default class Button extends Vue {
-  @Prop({ type: String, default: buttonType.Dark })
+  @Prop({ type: String, default: ButtonType.Dark })
   color!: String;
 
   @Prop({ type: Boolean, default: false })
