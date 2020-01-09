@@ -225,7 +225,7 @@ describe("category", () => {
         );
         expect(getCategory.mock.calls.length).toEqual(1);
       });
-      it("action calls commit with a list of 'SearchEngine'", async () => {
+      it("action calls commit with a list of 'categories' and 'categoryClassInfos'", async () => {
         await fetchCategoryClassInfo(
           { commit, rootState } as ActionContext<CategoryState, RootState>,
           "id1"
