@@ -1,8 +1,7 @@
 import { ActionTree, ActionContext } from "vuex";
 import { RootState } from "@/store";
 import { inputClassInfo, categoryResults } from "@/api/ApiCategory";
-import { ClassInfo } from "@/models/ClassInfo";
-import { Category, CategoryType } from "@/models/Category";
+import { Category } from "@/models/Category";
 import {
   category,
   CategoryState,
