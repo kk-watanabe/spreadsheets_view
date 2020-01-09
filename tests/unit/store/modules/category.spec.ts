@@ -9,7 +9,7 @@ import {
   CategoryClassInfos
 } from "@/store/modules/category";
 
-describe("api", () => {
+describe("category", () => {
   const categories: Category[] = [];
   const categoryClassInfos: CategoryClassInfos = {
     title: [],
