@@ -10,32 +10,20 @@ on:
 
 jobs:
   commit:
+    runs-on: ubuntu-latest
+
     setup:
-      name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+      - run: npm install
 
     lint:
-      name: Lint
-      run: npm run lint
+      - name: Lint
+      - run: npm run lint
 
     build:
-      name: Build
-      run: npm run build
+      - name: Build
+      - run: npm run build
 
     test:
-      name: Unit test
-      run: npm run test:unit
-
-workflows:
-  ci:
-    jobs:
-      - setup
-      - lint:
-          requires:
-            - setup
-      - build:
-          requires:
-            - setup
-      - test:
-          requires:
-            - setup
+      - name: Unit test
+      - run: npm run test:unit
