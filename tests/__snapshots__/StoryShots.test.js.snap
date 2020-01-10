@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atom/Button default 1`] = `
+<button
+  class="button button--dark"
+  type="button"
+>
+  Hello!
+</button>
+`;
+
+exports[`Storyshots Atom/Form/InputPart default 1`] = `
+<input
+  class="input-part"
+  placeholder="Sample text"
+  type="text"
+/>
+`;
+
+exports[`Storyshots Common/Footer default 1`] = `
+<div
+  class="footer"
+>
+  <!---->
+   
+  <small
+    class="footer__copyright"
+  >
+    © 2019 Style guide views.
+  </small>
+</div>
+`;

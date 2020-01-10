@@ -3,7 +3,7 @@ import { RootState } from "@/store";
 import { ClassInfo } from "@/models/ClassInfo";
 import { Category, CategoryType } from "@/models/Category";
 
-interface CategoryClassInfos {
+export interface CategoryClassInfos {
   [key: string]: ClassInfo[];
 }
 
@@ -47,7 +47,7 @@ const actions = <ActionTree<CategoryState, RootState>>{
     const categoryClassInfoKeys: string[] = Object.keys(categoryClassInfos);
     const categories: Category[] = categoryClassInfoKeys.map(
       categoryClassInfoKey => {
-        const cateogoryType = CategoryType.categoryClassInfoKey;
+        const cateogoryType = CategoryType[categoryClassInfoKey];
         if (categoryClassInfos[categoryClassInfoKey].length) {
           return new Category(cateogoryType, categoryClassInfoKey, true);
         }
