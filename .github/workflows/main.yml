@@ -1,23 +1,30 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
-  setup:
-    name: Install dependencies
-    run: npm install
+  commit:
+    setup:
+      name: Install dependencies
+      run: npm install
 
-  lint:
-    name: Lint
-    run: npm run lint
+    lint:
+      name: Lint
+      run: npm run lint
 
-  build:
-    name: Build
-    run: npm run build
+    build:
+      name: Build
+      run: npm run build
 
-  test:
-    name: Unit test
-    run: npm run test:unit
+    test:
+      name: Unit test
+      run: npm run test:unit
 
 workflows:
   ci:
