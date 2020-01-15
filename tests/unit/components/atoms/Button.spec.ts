@@ -1,5 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 import { ButtonType } from "@/const/Button";
+import Vue from "vue";
 import Button from "@/components/atoms/Button.vue";
 
 const factory = (values = {}) => {
@@ -22,15 +23,17 @@ describe("Button.vue", () => {
   describe("Prop", () => {
     // Color prop がある時 color classが付与する
     // color class は ButtonType の数だけある
-    it("Has color prop is add color class", () => {
+    it("Has color prop is add color class", async () => {
       const wrapper = factory();
       // Dark
       expect(wrapper.classes()).toContain("button--" + ButtonType.Dark);
       // Light
       wrapper.setProps({ color: ButtonType.Light });
+      await Vue.nextTick();
       expect(wrapper.classes()).toContain("button--" + ButtonType.Light);
       // Green
       wrapper.setProps({ color: ButtonType.Green });
+      await Vue.nextTick();
       expect(wrapper.classes()).toContain("button--" + ButtonType.Green);
     });
 

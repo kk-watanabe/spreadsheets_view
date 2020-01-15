@@ -16,7 +16,7 @@ import { ButtonType } from "@/const/Button";
 @Component
 export default class Button extends Vue {
   @Prop({ type: String, default: ButtonType.Dark })
-  color!: String;
+  color!: string;
 
   @Prop({ type: Boolean, default: false })
   disabled!: boolean;
