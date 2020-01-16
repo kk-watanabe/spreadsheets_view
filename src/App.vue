@@ -1,6 +1,10 @@
 <template>
   <div id="app" class="app">
-    <Header :logged-in="loggedIn" />
+    <Header>
+      <template v-slot:navi>
+        <GlobalNavi v-if="loggedIn" />
+      </template>
+    </Header>
     <router-view />
     <Footer :logged-in="loggedIn" />
   </div>
@@ -8,13 +12,15 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Header from "@/views/common/Header.vue";
+import Header from "@/components/common/Header.vue";
 import Footer from "@/components/common/Footer.vue";
+import GlobalNavi from "@/views/common/GlobalNavi.vue";
 
 @Component({
   components: {
     Header,
-    Footer
+    Footer,
+    GlobalNavi
   }
 })
 export default class App extends Vue {
