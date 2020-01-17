@@ -3,7 +3,9 @@ import { Icons } from "@/const/Icons";
 import Icon from "@/components/atoms/Icon.vue";
 
 const factory = (values = {}) => {
-  return shallowMount(Icon, { ...values });
+  return shallowMount(Icon, {
+    propsData: { ...values }
+  });
 };
 
 describe("Icon.vue", () => {
@@ -11,9 +13,7 @@ describe("Icon.vue", () => {
     // Icon propがある時 icon classが付与する
     it("Has icon prop is add icon class", () => {
       const wrapper = factory({
-        propsData: {
-          icon: Icons.Books
-        }
+        icon: Icons.Books
       });
       expect(wrapper.classes()).toContain(Icons.Books);
     });
@@ -22,9 +22,7 @@ describe("Icon.vue", () => {
       const icons = Object.entries(Icons);
       icons.forEach(icon => {
         const wrapper = factory({
-          propsData: {
-            icon: icon[1]
-          }
+          icon: icon[1]
         });
         expect(wrapper.classes()).toContain(icon[1]);
       });
