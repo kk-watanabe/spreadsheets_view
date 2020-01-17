@@ -5,12 +5,7 @@
     :style="style"
     @click="onClick"
   >
-    <Icon
-      class="icon-button__icon"
-      :icon="icon"
-      :class="[addIconButtonIconColor]"
-      :style="iconStyle"
-    />
+    <Icon class="icon-button__icon" :icon="icon" :style="iconStyle" />
   </div>
 </template>
 
@@ -57,10 +52,6 @@ export default class IconButton extends Vue {
 
   get addIconButtonColor(): string {
     return "icon-button--" + this.color;
-  }
-
-  get addIconButtonIconColor(): string {
-    return "icon-button__icon--" + this.color;
   }
 }
 </script>
