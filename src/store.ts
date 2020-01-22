@@ -12,7 +12,11 @@ export interface RootState {
   category: CategoryState;
 }
 
-const actions = <ActionTree<RootState, RootState>>{};
+const actions = <ActionTree<RootState, RootState>>{
+  async initialize({ dispatch }) {
+    await Promise.all([dispatch("auth/fetchLoginInfos")]);
+  }
+};
 
 export default new Vuex.Store<RootState>({
   actions: actions,
