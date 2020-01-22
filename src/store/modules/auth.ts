@@ -2,10 +2,13 @@ import { MutationTree, GetterTree, ActionTree } from "vuex";
 import { RootState } from "@/store";
 import { LoginInfo } from "@/models/Login";
 
+const MAX_LOGIN_INFO_LENGTH: number = 5;
+
 export class AuthState {
   spreadSheetsId: string = "";
   spreadSheetsName: string = "";
   disabledLogin: boolean = false;
+  saveLoginInfos: LoginInfo[] = [];
 }
 
 const mutations = <MutationTree<AuthState>>{
@@ -17,6 +20,9 @@ const mutations = <MutationTree<AuthState>>{
   },
   setDisabledLogin(state: AuthState, disabledLogin: boolean) {
     state.disabledLogin = disabledLogin;
+  },
+  setSaveLoginInfo(state: AuthState, saveLoginInfos: LoginInfo[]) {
+    state.saveLoginInfos = saveLoginInfos;
   }
 };
 
@@ -47,8 +53,45 @@ const actions = <ActionTree<AuthState, RootState>>{
       // Save until tab is closed
       sessionStorage.setItem("spreadSheetsId", info.id);
       sessionStorage.setItem("spreadSheetsName", info.name);
+
+      dispatch("addLoginInfo", info);
     } catch (e) {
       commit("setDisabledLogin", e);
+    }
+  },
+  logout({ commit }) {
+    commit("setSpreadSheetsId", "");
+    commit("setSpreadSheetsName", "");
+
+    sessionStorage.removeItem("spreadSheetsId");
+    sessionStorage.removeItem("spreadSheetsName");
+  },
+  addLoginInfo({ rootState, commit }, info: LoginInfo) {
+    const loginInfos: LoginInfo[] = rootState.auth.saveLoginInfos;
+
+    if (!loginInfos.find(loginInfo => loginInfo.id === info.id)) {
+      // Remove leading if maximum
+      if (loginInfos.length === MAX_LOGIN_INFO_LENGTH) {
+        loginInfos.shift();
+      }
+
+      loginInfos.push({
+        id: info.id,
+        name: info.name
+      });
+
+      commit("setSaveLoginInfo", localStorage.liginInfos);
+      localStorage.setItem("loginInfos", JSON.stringify(loginInfos));
+    }
+  },
+  fetchLoginInfos({ commit }) {
+    if (sessionStorage.spreadSheetsId) {
+      commit("setSpreadSheetsId", sessionStorage.spreadSheetsId);
+      commit("setSpreadSheetsName", sessionStorage.spreadSheetsName);
+    }
+
+    if (localStorage.liginInfos) {
+      commit("setSaveLoginInfo", localStorage.liginInfos);
     }
   }
 };
