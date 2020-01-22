@@ -3,6 +3,15 @@
     <Header>
       <template v-slot:navi>
         <GlobalNavi v-if="loggedIn" />
+
+        <div v-if="loggedIn" class="app__logout">
+          <IconButton
+            :icon="icons.Exit"
+            :color="buttonType.Green"
+            :icon-size="24"
+            @click="onClick"
+          />
+        </div>
       </template>
     </Header>
     <router-view />
@@ -12,20 +21,36 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { ButtonType } from "@/const/Button";
+import { Icons } from "@/const/Icons";
 import Header from "@/components/common/Header.vue";
 import Footer from "@/components/common/Footer.vue";
+import IconButton from "@/components/atoms/IconButton.vue";
 import GlobalNavi from "@/views/common/GlobalNavi.vue";
 
 @Component({
   components: {
     Header,
     Footer,
+    IconButton,
     GlobalNavi
   }
 })
 export default class App extends Vue {
+  buttonType = ButtonType;
+  icons = Icons;
+
   get loggedIn(): boolean {
     return this.$store.getters["auth/loggedIn"];
+  }
+
+  async created() {
+    await this.$store.dispatch("initialize");
+  }
+
+  onClick() {
+    this.$store.dispatch("auth/logout");
+    this.$router.push("/login");
   }
 }
 </script>
@@ -34,5 +59,12 @@ export default class App extends Vue {
 .app {
   display: flex;
   flex-direction: column;
+
+  &__logout {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    margin-top: -(30px + $gnavi_height / 2);
+  }
 }
 </style>
