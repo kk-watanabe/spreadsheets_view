@@ -11,6 +11,7 @@
 
 <script lang="ts">
 import { Component, Prop, Emit, Vue } from "vue-property-decorator";
+import { MarginProperty } from "csstype";
 import { ButtonType } from "@/const/Button";
 import { Icons } from "@/const/Icons";
 import Icon from "@/components/atoms/Icon.vue";
@@ -31,6 +32,9 @@ export default class IconButton extends Vue {
   @Prop({ type: Number, default: 16 })
   iconSize!: number;
 
+  @Prop({ type: String, default: "0px" })
+  iconOffset!: MarginProperty<0>;
+
   @Prop({ type: Boolean, default: false })
   disabled!: boolean;
 
@@ -46,7 +50,8 @@ export default class IconButton extends Vue {
 
   get iconStyle() {
     return {
-      "font-size": this.iconSize + "px"
+      "font-size": this.iconSize + "px",
+      margin: this.iconOffset
     };
   }
 

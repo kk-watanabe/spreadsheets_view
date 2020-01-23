@@ -61,6 +61,17 @@ describe("IconButton.vue", () => {
       );
     });
 
+    // IconOffset propがある時 `icon-button__icon` に margin styleが付与する
+    it("Has icon-offset prop is add margin style to `icon-button__icon`", () => {
+      const iconOffset = "0px 5px 5px 0px";
+      const wrapper = factory({
+        iconOffset
+      });
+      expect(wrapper.find(".icon-button__icon").attributes().style).toContain(
+        "margin: " + iconOffset
+      );
+    });
+
     // Disabled propがある時 disabled classが付与する
     it("Has disabled prop is add disabled class", () => {
       const wrapper = factory({
