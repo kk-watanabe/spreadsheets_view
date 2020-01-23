@@ -5,12 +5,15 @@
         <GlobalNavi v-if="loggedIn" />
 
         <div v-if="loggedIn" class="app__logout">
-          <IconButton
-            :icon="icons.Exit"
-            :color="buttonType.Green"
-            :icon-size="24"
-            @click="onClick"
-          />
+          <Tooltip :placement="tooltipPlacement.Left" content="ログアウト">
+            <IconButton
+              :icon="icons.Exit"
+              :color="buttonType.Green"
+              :icon-size="24"
+              :icon-offset="'5px 0px 0px 5px'"
+              @click="onClick"
+            />
+          </Tooltip>
         </div>
       </template>
     </Header>
@@ -23,9 +26,11 @@
 import { Component, Vue } from "vue-property-decorator";
 import { ButtonType } from "@/const/Button";
 import { Icons } from "@/const/Icons";
+import { TooltipPlacement } from "@/const/Tooltip";
 import Header from "@/components/common/Header.vue";
 import Footer from "@/components/common/Footer.vue";
 import IconButton from "@/components/atoms/IconButton.vue";
+import Tooltip from "@/components/atoms/Tooltip.vue";
 import GlobalNavi from "@/views/common/GlobalNavi.vue";
 
 @Component({
@@ -33,12 +38,14 @@ import GlobalNavi from "@/views/common/GlobalNavi.vue";
     Header,
     Footer,
     IconButton,
+    Tooltip,
     GlobalNavi
   }
 })
 export default class App extends Vue {
   buttonType = ButtonType;
   icons = Icons;
+  tooltipPlacement = TooltipPlacement;
 
   get loggedIn(): boolean {
     return this.$store.getters["auth/loggedIn"];
