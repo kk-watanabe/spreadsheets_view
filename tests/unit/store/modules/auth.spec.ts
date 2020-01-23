@@ -304,7 +304,7 @@ describe("auth", () => {
       describe("success", () => {
         it("action calls commit", () => {
           fetchLoginInfos({ commit } as ActionContext<AuthState, RootState>);
-          expect(commit).toHaveBeenCalledTimes(0);
+          expect(commit).toHaveBeenCalledTimes(1);
         });
       });
     });
