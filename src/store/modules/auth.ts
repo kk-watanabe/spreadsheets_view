@@ -21,7 +21,7 @@ const mutations = <MutationTree<AuthState>>{
   setDisabledLogin(state: AuthState, disabledLogin: boolean) {
     state.disabledLogin = disabledLogin;
   },
-  setSaveLoginInfo(state: AuthState, saveLoginInfos: LoginInfo[]) {
+  setSaveLoginInfos(state: AuthState, saveLoginInfos: LoginInfo[]) {
     state.saveLoginInfos = saveLoginInfos;
   }
 };
@@ -80,7 +80,7 @@ const actions = <ActionTree<AuthState, RootState>>{
         name: info.name
       });
 
-      commit("setSaveLoginInfo", localStorage.liginInfos);
+      commit("setSaveLoginInfos", loginInfos);
       localStorage.setItem("loginInfos", JSON.stringify(loginInfos));
     }
   },
@@ -90,8 +90,8 @@ const actions = <ActionTree<AuthState, RootState>>{
       commit("setSpreadSheetsName", sessionStorage.spreadSheetsName);
     }
 
-    if (localStorage.liginInfos) {
-      commit("setSaveLoginInfo", localStorage.liginInfos);
+    if (localStorage.loginInfos) {
+      commit("setSaveLoginInfos", localStorage.loginInfos);
     }
   }
 };

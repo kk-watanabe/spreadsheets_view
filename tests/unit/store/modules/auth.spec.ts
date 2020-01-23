@@ -16,13 +16,15 @@ describe("auth", () => {
     expect(state.spreadSheetsId).toEqual("");
     expect(state.spreadSheetsName).toEqual("");
     expect(state.disabledLogin).toEqual(false);
+    expect(state.saveLoginInfos).toEqual([]);
   });
 
   describe("mutations", () => {
     const {
       setSpreadSheetsId,
       setSpreadSheetsName,
-      setDisabledLogin
+      setDisabledLogin,
+      setSaveLoginInfos
     } = auth.mutations;
 
     it("setSpreadSheetsId set given data to spreadSheetsId of state", () => {
@@ -44,6 +46,22 @@ describe("auth", () => {
       expect(state.disabledLogin).toEqual(false);
       setDisabledLogin(state, disabledLogin);
       expect(state.disabledLogin).toEqual(disabledLogin);
+    });
+
+    it("setSaveLoginInfos set given data to saveLoginInfo of state", () => {
+      const saveLoginInfos: LoginInfo[] = [
+        {
+          id: "sample1234",
+          name: "サンプル1"
+        },
+        {
+          id: "sample5678",
+          name: "サンプル2"
+        }
+      ];
+      expect(state.saveLoginInfos).toEqual([]);
+      setSaveLoginInfos(state, saveLoginInfos);
+      expect(state.saveLoginInfos).toEqual(saveLoginInfos);
     });
   });
 
@@ -199,7 +217,7 @@ describe("auth", () => {
           );
           expect(getCategory.mock.calls.length).toEqual(1);
         });
-        it("action calls commit with a list of 'spreadSheetsId' and 'spreadSheetsName' and 'disabledLogin'", async () => {
+        it("action calls commit with a list of 'spreadSheetsId' and 'spreadSheetsName' and 'disabledLogin' and 'addLoginInfo'", async () => {
           await login(
             { commit, dispatch, rootState } as ActionContext<
               AuthState,
@@ -218,7 +236,7 @@ describe("auth", () => {
           );
           expect(commit).toHaveBeenCalledWith("setDisabledLogin", false);
 
-          expect(dispatch).toHaveBeenCalledTimes(1);
+          expect(dispatch).toHaveBeenCalledTimes(2);
           expect(dispatch).toHaveBeenCalledWith(
             "category/fetchCategoryClassInfo",
             loginInfo.id,
@@ -226,6 +244,67 @@ describe("auth", () => {
               root: true
             }
           );
+          expect(dispatch).toHaveBeenCalledWith("addLoginInfo", loginInfo);
+        });
+      });
+    });
+
+    describe("logout", () => {
+      const logout = (auth.actions as ActionTree<AuthState, RootState>)
+        .logout as ({
+        commit
+      }: ActionContext<AuthState, RootState>) => Promise<void>;
+
+      describe("success", () => {
+        it("action calls commit with a list of 'spreadSheetsId' and 'spreadSheetsName' and 'disabledLogin'", () => {
+          logout({ commit } as ActionContext<AuthState, RootState>);
+          expect(commit).toHaveBeenCalledTimes(2);
+          expect(commit).toHaveBeenCalledWith("setSpreadSheetsId", "");
+          expect(commit).toHaveBeenCalledWith("setSpreadSheetsName", "");
+        });
+      });
+    });
+
+    describe("addLoginInfo", () => {
+      const addLoginInfo = (auth.actions as ActionTree<AuthState, RootState>)
+        .addLoginInfo as (
+        { commit, rootState }: ActionContext<AuthState, RootState>,
+        info: LoginInfo
+      ) => Promise<void>;
+
+      const loginInfo: LoginInfo = {
+        id: "test1234",
+        name: "テスト"
+      };
+
+      const saveLoginInfos: LoginInfo[] = [];
+
+      describe("success", () => {
+        const rootState = ({
+          auth: { saveLoginInfos }
+        } as unknown) as RootState;
+
+        it("action calls commit with a list of 'setSaveLoginInfos'", () => {
+          addLoginInfo(
+            { rootState, commit } as ActionContext<AuthState, RootState>,
+            loginInfo
+          );
+          expect(commit).toHaveBeenCalledTimes(1);
+          expect(commit).toHaveBeenCalledWith("setSaveLoginInfos", [loginInfo]);
+        });
+      });
+    });
+
+    describe("fetchLoginInfos", () => {
+      const fetchLoginInfos = (auth.actions as ActionTree<AuthState, RootState>)
+        .fetchLoginInfos as ({
+        commit
+      }: ActionContext<AuthState, RootState>) => Promise<void>;
+
+      describe("success", () => {
+        it("action calls commit", () => {
+          fetchLoginInfos({ commit } as ActionContext<AuthState, RootState>);
+          expect(commit).toHaveBeenCalledTimes(0);
         });
       });
     });
