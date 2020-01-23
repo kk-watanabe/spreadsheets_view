@@ -37,39 +37,15 @@ const getters = <GetterTree<AuthState, RootState>>{
 };
 
 const actions = <ActionTree<AuthState, RootState>>{
-  async login({ commit, dispatch, rootState }, info: LoginInfo) {
-    try {
-      const spreadSheets = await rootState.api.category.getCategory(info.id);
-
-      if (!spreadSheets.results) {
-        throw true;
-      }
-
-      commit("setSpreadSheetsId", info.id);
-      commit("setDisabledLogin", false);
-      commit("setSpreadSheetsName", info.name);
-      dispatch("category/fetchCategoryClassInfo", info.id, { root: true });
-
-      // Save until tab is closed
-      sessionStorage.setItem("spreadSheetsId", info.id);
-      sessionStorage.setItem("spreadSheetsName", info.name);
-
-      dispatch("addLoginInfo", info);
-    } catch (e) {
-      commit("setDisabledLogin", e);
-    }
-  },
-  logout({ commit }) {
-    commit("setSpreadSheetsId", "");
-    commit("setSpreadSheetsName", "");
-
-    sessionStorage.removeItem("spreadSheetsId");
-    sessionStorage.removeItem("spreadSheetsName");
-  },
-  addLoginInfo({ rootState, commit }, info: LoginInfo) {
+  async addLoginInfo({ rootState, commit }, info: LoginInfo) {
     const loginInfos: LoginInfo[] = rootState.auth.saveLoginInfos;
-
+    console.log(
+      "add",
+      info,
+      loginInfos.find(loginInfo => loginInfo.id === info.id)
+    );
     if (!loginInfos.find(loginInfo => loginInfo.id === info.id)) {
+      console.log("addLoginInfo");
       // Remove leading if maximum
       if (loginInfos.length === MAX_LOGIN_INFO_LENGTH) {
         loginInfos.shift();
@@ -84,15 +60,47 @@ const actions = <ActionTree<AuthState, RootState>>{
       localStorage.setItem("loginInfos", JSON.stringify(loginInfos));
     }
   },
-  fetchLoginInfos({ commit }) {
+  fetchLoginInfos({ commit, dispatch }) {
     if (sessionStorage.spreadSheetsId) {
       commit("setSpreadSheetsId", sessionStorage.spreadSheetsId);
       commit("setSpreadSheetsName", sessionStorage.spreadSheetsName);
+      dispatch("login", {
+        id: sessionStorage.spreadSheetsId,
+        name: sessionStorage.spreadSheetsName
+      });
     }
 
     if (localStorage.loginInfos) {
       commit("setSaveLoginInfos", localStorage.loginInfos);
     }
+  },
+  async login({ commit, dispatch, rootState }, info: LoginInfo) {
+    try {
+      const spreadSheets = await rootState.api.category.getCategory(info.id);
+
+      if (!spreadSheets.results) {
+        throw true;
+      }
+      console.log(info, dispatch);
+      commit("setSpreadSheetsId", info.id);
+      commit("setDisabledLogin", false);
+      commit("setSpreadSheetsName", info.name);
+      dispatch("category/fetchCategoryClassInfo", info.id, { root: true });
+      dispatch("addLoginInfo", info);
+
+      // Save until tab is closed
+      sessionStorage.setItem("spreadSheetsId", info.id);
+      sessionStorage.setItem("spreadSheetsName", info.name);
+    } catch (e) {
+      commit("setDisabledLogin", e);
+    }
+  },
+  logout({ commit }) {
+    commit("setSpreadSheetsId", "");
+    commit("setSpreadSheetsName", "");
+
+    sessionStorage.removeItem("spreadSheetsId");
+    sessionStorage.removeItem("spreadSheetsName");
   }
 };
 

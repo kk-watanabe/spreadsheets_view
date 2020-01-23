@@ -49,12 +49,8 @@ export default class Login extends Vue {
   id: string = "";
   name: string = "";
 
-  created() {
-    if (this.spreadSheetsId) {
-      this.id = this.spreadSheetsId;
-      this.name = this.spreadSheetsName;
-      this.loginSubmit();
-    }
+  get loggedIn(): boolean {
+    return this.$store.getters["auth/loggedIn"];
   }
 
   get spreadSheetsId(): string {
@@ -77,13 +73,13 @@ export default class Login extends Vue {
     return this.$store.state.auth.saveLoginInfos;
   }
 
-  loginSubmit() {
+  async loginSubmit() {
     const loginInfo: LoginInfo = {
       id: this.id,
       name: this.name
     };
 
-    this.$store.dispatch("auth/login", loginInfo);
+    await this.$store.dispatch("auth/login", loginInfo);
     this.$router.push("/styleguide");
   }
 }
