@@ -38,14 +38,9 @@ const getters = <GetterTree<AuthState, RootState>>{
 
 const actions = <ActionTree<AuthState, RootState>>{
   async addLoginInfo({ rootState, commit }, info: LoginInfo) {
-    const loginInfos: LoginInfo[] = rootState.auth.saveLoginInfos;
-    console.log(
-      "add",
-      info,
-      loginInfos.find(loginInfo => loginInfo.id === info.id)
-    );
-    if (!loginInfos.find(loginInfo => loginInfo.id === info.id)) {
-      console.log("addLoginInfo");
+    const loginInfos = rootState.auth.saveLoginInfos;
+
+    if (loginInfos.find(loginInfo => loginInfo.id === info.id) === undefined) {
       // Remove leading if maximum
       if (loginInfos.length === MAX_LOGIN_INFO_LENGTH) {
         loginInfos.shift();
@@ -71,7 +66,7 @@ const actions = <ActionTree<AuthState, RootState>>{
     }
 
     if (localStorage.loginInfos) {
-      commit("setSaveLoginInfos", localStorage.loginInfos);
+      commit("setSaveLoginInfos", JSON.parse(localStorage.loginInfos));
     }
   },
   async login({ commit, dispatch, rootState }, info: LoginInfo) {
@@ -81,7 +76,7 @@ const actions = <ActionTree<AuthState, RootState>>{
       if (!spreadSheets.results) {
         throw true;
       }
-      console.log(info, dispatch);
+
       commit("setSpreadSheetsId", info.id);
       commit("setDisabledLogin", false);
       commit("setSpreadSheetsName", info.name);
