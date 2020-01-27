@@ -1,6 +1,22 @@
 <template>
   <div id="app" class="app">
-    <Header :logged-in="loggedIn" />
+    <Header>
+      <template v-slot:navi>
+        <GlobalNavi v-if="loggedIn" />
+
+        <div v-if="loggedIn" class="app__logout">
+          <Tooltip :placement="tooltipPlacement.Left" content="ログアウト">
+            <IconButton
+              :icon="icons.Exit"
+              :color="buttonType.Green"
+              :icon-size="24"
+              :icon-offset="'5px 0px 0px 5px'"
+              @click="onClick"
+            />
+          </Tooltip>
+        </div>
+      </template>
+    </Header>
     <router-view />
     <Footer :logged-in="loggedIn" />
   </div>
@@ -8,18 +24,40 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Header from "@/views/common/Header.vue";
+import { ButtonType } from "@/const/Button";
+import { Icons } from "@/const/Icons";
+import { TooltipPlacement } from "@/const/Tooltip";
+import Header from "@/components/common/Header.vue";
 import Footer from "@/components/common/Footer.vue";
+import IconButton from "@/components/atoms/IconButton.vue";
+import Tooltip from "@/components/atoms/Tooltip.vue";
+import GlobalNavi from "@/views/common/GlobalNavi.vue";
 
 @Component({
   components: {
     Header,
-    Footer
+    Footer,
+    IconButton,
+    Tooltip,
+    GlobalNavi
   }
 })
 export default class App extends Vue {
+  buttonType = ButtonType;
+  icons = Icons;
+  tooltipPlacement = TooltipPlacement;
+
   get loggedIn(): boolean {
     return this.$store.getters["auth/loggedIn"];
+  }
+
+  async created() {
+    await this.$store.dispatch("initialize");
+  }
+
+  onClick() {
+    this.$store.dispatch("auth/logout");
+    this.$router.push("/login");
   }
 }
 </script>
@@ -28,5 +66,12 @@ export default class App extends Vue {
 .app {
   display: flex;
   flex-direction: column;
+
+  &__logout {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    margin-top: -(30px + $gnavi_height / 2);
+  }
 }
 </style>

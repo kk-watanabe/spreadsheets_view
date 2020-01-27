@@ -3,6 +3,7 @@ import { withKnobs } from "@storybook/addon-knobs";
 import { withInfo } from "storybook-addon-vue-info";
 
 import "@/assets/scss/style.scss";
+import "element-ui/lib/theme-chalk/index.css";
 
 // Storybook調整CSS
 import "./storybook.scss";

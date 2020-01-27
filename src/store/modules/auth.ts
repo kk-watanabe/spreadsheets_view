@@ -2,10 +2,13 @@ import { MutationTree, GetterTree, ActionTree } from "vuex";
 import { RootState } from "@/store";
 import { LoginInfo } from "@/models/Login";
 
+const MAX_LOGIN_INFO_LENGTH: number = 5;
+
 export class AuthState {
   spreadSheetsId: string = "";
   spreadSheetsName: string = "";
   disabledLogin: boolean = false;
+  saveLoginInfos: LoginInfo[] = [];
 }
 
 const mutations = <MutationTree<AuthState>>{
@@ -17,6 +20,9 @@ const mutations = <MutationTree<AuthState>>{
   },
   setDisabledLogin(state: AuthState, disabledLogin: boolean) {
     state.disabledLogin = disabledLogin;
+  },
+  setSaveLoginInfos(state: AuthState, saveLoginInfos: LoginInfo[]) {
+    state.saveLoginInfos = saveLoginInfos;
   }
 };
 
@@ -31,6 +37,38 @@ const getters = <GetterTree<AuthState, RootState>>{
 };
 
 const actions = <ActionTree<AuthState, RootState>>{
+  async addLoginInfo({ rootState, commit }, info: LoginInfo) {
+    const loginInfos = rootState.auth.saveLoginInfos;
+
+    if (loginInfos.find(loginInfo => loginInfo.id === info.id) === undefined) {
+      // Remove leading if maximum
+      if (loginInfos.length === MAX_LOGIN_INFO_LENGTH) {
+        loginInfos.shift();
+      }
+
+      loginInfos.push({
+        id: info.id,
+        name: info.name
+      });
+
+      commit("setSaveLoginInfos", loginInfos);
+      localStorage.setItem("loginInfos", JSON.stringify(loginInfos));
+    }
+  },
+  fetchLoginInfos({ commit, dispatch }) {
+    if (sessionStorage.spreadSheetsId) {
+      commit("setSpreadSheetsId", sessionStorage.spreadSheetsId);
+      commit("setSpreadSheetsName", sessionStorage.spreadSheetsName);
+      dispatch("login", {
+        id: sessionStorage.spreadSheetsId,
+        name: sessionStorage.spreadSheetsName
+      });
+    }
+
+    if (localStorage.loginInfos) {
+      commit("setSaveLoginInfos", JSON.parse(localStorage.loginInfos));
+    }
+  },
   async login({ commit, dispatch, rootState }, info: LoginInfo) {
     try {
       const spreadSheets = await rootState.api.category.getCategory(info.id);
@@ -43,6 +81,7 @@ const actions = <ActionTree<AuthState, RootState>>{
       commit("setDisabledLogin", false);
       commit("setSpreadSheetsName", info.name);
       dispatch("category/fetchCategoryClassInfo", info.id, { root: true });
+      dispatch("addLoginInfo", info);
 
       // Save until tab is closed
       sessionStorage.setItem("spreadSheetsId", info.id);
@@ -50,6 +89,13 @@ const actions = <ActionTree<AuthState, RootState>>{
     } catch (e) {
       commit("setDisabledLogin", e);
     }
+  },
+  logout({ commit }) {
+    commit("setSpreadSheetsId", "");
+    commit("setSpreadSheetsName", "");
+
+    sessionStorage.removeItem("spreadSheetsId");
+    sessionStorage.removeItem("spreadSheetsName");
   }
 };
 

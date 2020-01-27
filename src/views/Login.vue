@@ -4,7 +4,7 @@
       <div class="login__input-field">
         <div class="login__icon login__icon--required">必須</div>
         <InputPart
-          v-model="spreadSheetsId"
+          v-model="id"
           :error="disabledLogin"
           placeholder="スプレットシートのIDを入力してください"
         />
@@ -13,7 +13,7 @@
       <div class="login__input-field">
         <div class="login__icon login__icon--any">任意</div>
         <InputPart
-          v-model="spreadSheetName"
+          v-model="name"
           placeholder="スプレットシート名を入力してください"
         />
       </div>
@@ -46,32 +46,41 @@ import Button from "@/components/atoms/Button.vue";
   }
 })
 export default class Login extends Vue {
-  spreadSheetsId: string = "";
-  spreadSheetName: string = "";
+  id: string = "";
+  name: string = "";
 
-  created() {
-    if (sessionStorage.spreadSheetsId) {
-      this.spreadSheetsId = sessionStorage.spreadSheetsId;
-      this.spreadSheetName = sessionStorage.spreadSheetsName;
-      this.loginSubmit();
-    }
+  get loggedIn(): boolean {
+    return this.$store.getters["auth/loggedIn"];
+  }
+
+  get spreadSheetsId(): string {
+    return this.$store.state.auth.spreadSheetsId;
+  }
+
+  get spreadSheetsName(): string {
+    return this.$store.state.auth.spreadSheetsName;
   }
 
   get disableSubmit(): boolean {
-    return this.spreadSheetsId.length === 0;
+    return this.id.length === 0;
   }
 
   get disabledLogin(): boolean {
     return this.$store.state.auth.disabledLogin;
   }
 
-  loginSubmit() {
+  get saveLoginInfos(): LoginInfo[] {
+    return this.$store.state.auth.saveLoginInfos;
+  }
+
+  async loginSubmit() {
     const loginInfo: LoginInfo = {
-      id: this.spreadSheetsId,
-      name: this.spreadSheetName
+      id: this.id,
+      name: this.name
     };
 
-    this.$store.dispatch("auth/login", loginInfo);
+    await this.$store.dispatch("auth/login", loginInfo);
+    this.$router.push("/styleguide");
   }
 }
 </script>

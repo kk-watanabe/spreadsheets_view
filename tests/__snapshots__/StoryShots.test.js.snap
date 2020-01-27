@@ -17,6 +17,2800 @@ exports[`Storyshots Atom/Form/InputPart default 1`] = `
 />
 `;
 
+exports[`Storyshots Atom/Icon All icon 1`] = `
+<div
+  style="display: flex; flex-wrap: wrap;"
+>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-home"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-home
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-home2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-home2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-home3"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-home3
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-pencil"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-pencil
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-image"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-image
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-images"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-images
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-connection"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-connection
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-book"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-book
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-books"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-books
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-folder"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-folder
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-folder-open"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-folder-open
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-folder-plus"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-folder-plus
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-folder-minus"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-folder-minus
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-folder-download"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-folder-download
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-folder-upload"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-folder-upload
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-price-tag"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-price-tag
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-price-tags"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-price-tags
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-phone"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-phone
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-phone-hang-up"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-phone-hang-up
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-compass"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-compass
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-clock"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-clock
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-clock2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-clock2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-display"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-display
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-laptop"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-laptop
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-mobile"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-mobile
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-mobile2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-mobile2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-tablet"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-tablet
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-box-add"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-box-add
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-box-remove"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-box-remove
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-download"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-download
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-upload"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-upload
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-floppy-disk"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-floppy-disk
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-database"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-database
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-undo"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-undo
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-redo"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-redo
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-undo2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-undo2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-redo2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-redo2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-forward"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-forward
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-reply"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-reply
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-bubble"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-bubble
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-bubbles"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-bubbles
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-bubbles2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-bubbles2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-bubble2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-bubble2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-bubbles3"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-bubbles3
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-bubbles4"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-bubbles4
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-user"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-user
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-users"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-users
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-user-plus"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-user-plus
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-user-minus"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-user-minus
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-user-check"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-user-check
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-user-tie"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-user-tie
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-quotes-left"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-quotes-left
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-quotes-right"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-quotes-right
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-hour-glass"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-hour-glass
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-spinner"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-spinner
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-spinner2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-spinner2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-spinner3"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-spinner3
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-spinner4"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-spinner4
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-spinner5"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-spinner5
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-spinner6"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-spinner6
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-spinner7"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-spinner7
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-spinner8"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-spinner8
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-spinner9"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-spinner9
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-spinner10"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-spinner10
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-spinner11"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-spinner11
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-search"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-search
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-zoom-in"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-zoom-in
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-zoom-out"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-zoom-out
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-enlarge"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-enlarge
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-shrink"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-shrink
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-enlarge2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-enlarge2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-shrink2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-shrink2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-key"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-key
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-lock"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-lock
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-unlocked"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-unlocked
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-wrench"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-wrench
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-equalizer"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-equalizer
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-cog"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-cog
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-cogs"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-cogs
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-stats-dots"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-stats-dots
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-stats-bars"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-stats-bars
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-stats-bars2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-stats-bars2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-meter"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-meter
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-meter2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-meter2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-fire"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-fire
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-bin"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-bin
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-bin2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-bin2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-shield"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-shield
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-power"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-power
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-list-numbered"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-list-numbered
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-list"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-list
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-list2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-list2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-tree"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-tree
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-menu"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-menu
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-menu2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-menu2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-menu3"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-menu3
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-menu4"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-menu4
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-cloud"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-cloud
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-cloud-download"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-cloud-download
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-cloud-upload"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-cloud-upload
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-cloud-check"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-cloud-check
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-download2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-download2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-upload2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-upload2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-download3"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-download3
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-upload3"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-upload3
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-sphere"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-sphere
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-earth"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-earth
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-link"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-link
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-flag"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-flag
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-attachment"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-attachment
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-bookmark"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-bookmark
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-bookmarks"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-bookmarks
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-star-empty"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-star-empty
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-star-half"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-star-half
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-star-full"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-star-full
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-heart"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-heart
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-heart-broken"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-heart-broken
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-warning"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-warning
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-notification"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-notification
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-plus"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-plus
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-minus"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-minus
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-blocked"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-blocked
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-cross"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-cross
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-checkmark"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-checkmark
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-checkmark2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-checkmark2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-enter"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-enter
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-exit"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-exit
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-play3"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-play3
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-pause2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-pause2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-stop2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-stop2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-backward2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-backward2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-forward3"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-forward3
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-first"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-first
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-last"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-last
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-previous2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-previous2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-next2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-next2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-eject"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-eject
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-volume-high"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-volume-high
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-volume-medium"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-volume-medium
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-volume-low"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-volume-low
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-volume-mute"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-volume-mute
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-volume-mute2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-volume-mute2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-volume-increase"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-volume-increase
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-volume-decrease"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-volume-decrease
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-loop"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-loop
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-loop2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-loop2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-infinite"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-infinite
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-shuffle"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-shuffle
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-arrow-up-left"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-arrow-up-left
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-arrow-up"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-arrow-up
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-arrow-up-right"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-arrow-up-right
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-arrow-right"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-arrow-right
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-arrow-down-right"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-arrow-down-right
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-arrow-down"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-arrow-down
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-arrow-down-left"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-arrow-down-left
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-arrow-left"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-arrow-left
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-arrow-up-left2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-arrow-up-left2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-arrow-up2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-arrow-up2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-arrow-up-right2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-arrow-up-right2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-arrow-right2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-arrow-right2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-arrow-down-right2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-arrow-down-right2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-arrow-down2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-arrow-down2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-arrow-down-left2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-arrow-down-left2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-arrow-left2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-arrow-left2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-circle-up"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-circle-up
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-circle-right"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-circle-right
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-circle-down"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-circle-down
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-circle-left"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-circle-left
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-tab"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-tab
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-move-up"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-move-up
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-move-down"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-move-down
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-sort-alpha-asc"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-sort-alpha-asc
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-sort-alpha-desc"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-sort-alpha-desc
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-sort-numeric-asc"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-sort-numeric-asc
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-sort-numberic-desc"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-sort-numberic-desc
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-sort-amount-asc"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-sort-amount-asc
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-sort-amount-desc"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-sort-amount-desc
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-checkbox-checked"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-checkbox-checked
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-checkbox-unchecked"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-checkbox-unchecked
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-table"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-table
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-table2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-table2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-insert-template"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-insert-template
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-paragraph-left"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-paragraph-left
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-paragraph-center"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-paragraph-center
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-paragraph-right"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-paragraph-right
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-paragraph-justify"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-paragraph-justify
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-indent-increase"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-indent-increase
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-indent-decrease"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-indent-decrease
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-share"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-share
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-new-tab"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-new-tab
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-embed"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-embed
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-embed2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-embed2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-terminal"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-terminal
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-share2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-share2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-mail"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-mail
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-mail2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-mail2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-mail3"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-mail3
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-mail4"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-mail4
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-amazon"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-amazon
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-google"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-google
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-google-drive"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-google-drive
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-facebook"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-facebook
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-facebook2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-facebook2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-instagram"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-instagram
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-whatsapp"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-whatsapp
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-twitter"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-twitter
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-rss"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-rss
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-youtube2"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-youtube2
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-github"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-github
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-chrome"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-chrome
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-firefox"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-firefox
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-IE"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-IE
+    </div>
+  </div>
+  <div
+    style="width: 90px; text-align: center; border: 1px solid #999; padding: 6px;"
+  >
+    <i
+      class="icon-edge"
+    />
+     
+    <div
+      style="font-size: 12px; color: rgb(102, 102, 102); align-self: flex-end;"
+    >
+      icon-edge
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Atom/Icon default 1`] = `
+<i
+  class="icon-home"
+/>
+`;
+
+exports[`Storyshots Atom/IconButton default 1`] = `
+<div
+  class="icon-button icon-button--dark"
+  style="width: 60px; height: 60px;"
+>
+  <i
+    class="icon-button__icon icon-home"
+    style="font-size: 26px; margin: 0px;"
+  />
+</div>
+`;
+
 exports[`Storyshots Common/Footer default 1`] = `
 <div
   class="footer"
@@ -28,5 +2822,18 @@ exports[`Storyshots Common/Footer default 1`] = `
   >
     © 2019 Style guide views.
   </small>
+</div>
+`;
+
+exports[`Storyshots Common/Header default 1`] = `
+<div
+  class="header"
+>
+  <h1
+    class="header__logo"
+  >
+    Style guide views
+  </h1>
+   navi slot
 </div>
 `;
