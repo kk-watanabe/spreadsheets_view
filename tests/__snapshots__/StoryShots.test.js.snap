@@ -1,50 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Atom | Tooltip Multi content 1`] = `
-<div
-  style="padding: 50px;"
->
-  <span
-    aria-describedby="el-tooltip-1213"
-    class="el-tooltip tooltip"
-    tabindex="0"
-  >
-    
-          Mouse over text!
-    <br />
-    
-          Mouse over text!
-    <br />
-    
-          Mouse over text!
-
-          
-  </span>
-</div>
-`;
-
-exports[`Storyshots Atom | Tooltip default 1`] = `
-<div
-  style="padding: 50px;"
->
-  <span
-    aria-describedby="el-tooltip-1804"
-    class="el-tooltip tooltip"
-    tabindex="0"
-  >
-    
-          Mouse over text!
-    <br />
-    
-          Mouse over text!
-    <br />
-    
-          Mouse over text!
-        
-  </span>
-</div>
-`;
-
 exports[`Storyshots Atom/Button default 1`] = `
 <button
   class="button button--dark"
