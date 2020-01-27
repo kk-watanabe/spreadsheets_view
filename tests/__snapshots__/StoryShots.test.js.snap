@@ -5,7 +5,7 @@ exports[`Storyshots Atom | Tooltip Multi content 1`] = `
   style="padding: 50px;"
 >
   <span
-    aria-describedby="el-tooltip-9877"
+    aria-describedby="el-tooltip-1213"
     class="el-tooltip tooltip"
     tabindex="0"
   >
@@ -28,7 +28,7 @@ exports[`Storyshots Atom | Tooltip default 1`] = `
   style="padding: 50px;"
 >
   <span
-    aria-describedby="el-tooltip-9200"
+    aria-describedby="el-tooltip-1804"
     class="el-tooltip tooltip"
     tabindex="0"
   >
