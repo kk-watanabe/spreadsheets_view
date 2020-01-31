@@ -16,6 +16,9 @@ storiesOf("Atom/IconButton", module).add(
       color: {
         default: select("Color", ButtonType, ButtonType.Dark)
       },
+      size: {
+        default: number("Size", 60)
+      },
       iconSize: {
         default: number("Icon size", 26)
       },
@@ -29,6 +32,7 @@ storiesOf("Atom/IconButton", module).add(
     template: `<IconButton
      :icon="icon"
      :color="color"
+     :size="size"
      :icon-size="iconSize"
      :icon-offset="iconOffset"
      :disabled="disabled"
