@@ -34,6 +34,18 @@
         </div>
       </transition>
     </div>
+
+    <div v-if="showLoginInfos" class="login__loginInfos">
+      <div class="login__title">以前ログインしたID一覧</div>
+      <div class="login__loginInfo-container">
+        <LoginInfoItem
+          v-for="saveLoginInfo in saveLoginInfos"
+          :key="saveLoginInfo.id"
+          class="login__loginInfo-item"
+          :login-info="saveLoginInfo"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -42,12 +54,13 @@ import { Component, Vue, Model, Prop } from "vue-property-decorator";
 import { LoginInfo } from "@/models/Login";
 import InputPart from "@/components/atoms/form/InputPart.vue";
 import Button from "@/components/atoms/Button.vue";
-import { ActionContext } from "vuex";
+import LoginInfoItem from "@/components/login/LoginInfoItem.vue";
 
 @Component({
   components: {
     InputPart,
-    Button
+    Button,
+    LoginInfoItem
   }
 })
 export default class Login extends Vue {
@@ -78,6 +91,10 @@ export default class Login extends Vue {
     return this.$store.state.auth.saveLoginInfos;
   }
 
+  get showLoginInfos(): boolean {
+    return this.saveLoginInfos.length > 0;
+  }
+
   async loginSubmit() {
     const loginInfo: LoginInfo = {
       id: this.id,
@@ -94,7 +111,8 @@ export default class Login extends Vue {
 .login {
   position: relative;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   padding-top: 50px;
   height: calc(100vh - #{$header_height} - #{$footer_height});
   &__container {
@@ -138,6 +156,24 @@ export default class Login extends Vue {
     color: $is_sub1_color200;
     text-align: center;
     transform: translateY(-10%);
+  }
+
+  &__loginInfos {
+    margin-top: 50px;
+    width: 400px;
+  }
+  &__title {
+    font-weight: bold;
+
+    @include font-size(18);
+  }
+  &__loginInfo-container {
+    margin-top: 15px;
+  }
+  &__loginInfo-item {
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
   }
 }
 
