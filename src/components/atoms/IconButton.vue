@@ -84,10 +84,11 @@ export default class IconButton extends Vue {
   }
 
   &--light:not(.icon-button--disabled) {
-    border: 1px solid $is_color_gray400;
+    border: 1px solid $is_color_white;
     background-color: $is_color_white;
     color: $is_color_gray600;
     &:hover {
+      border-color: $is_color_gray100;
       background-color: $is_color_gray100;
     }
   }
