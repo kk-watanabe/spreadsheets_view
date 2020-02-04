@@ -2,8 +2,8 @@ import { configure, addDecorator } from "@storybook/vue";
 import { withKnobs } from "@storybook/addon-knobs";
 import { withInfo } from "storybook-addon-vue-info";
 
-import "@/assets/scss/style.scss";
 import "element-ui/lib/theme-chalk/index.css";
+import "@/assets/scss/style.scss";
 
 // Storybook調整CSS
 import "./storybook.scss";
