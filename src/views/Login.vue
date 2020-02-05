@@ -52,6 +52,11 @@ export default class Login extends Vue {
     name: ""
   };
 
+  created() {
+    this.loginInfo.id = this.spreadSheetsId;
+    this.loginInfo.name = this.spreadSheetsName;
+  }
+
   get loggedIn(): boolean {
     return this.$store.getters["auth/loggedIn"];
   }
