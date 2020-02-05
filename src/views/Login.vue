@@ -6,7 +6,7 @@
       <Button
         class="login__submit"
         :disabled="disableSubmit"
-        @click="loginSubmit"
+        @click="loginSubmit(loginInfo)"
         >送信</Button
       >
       <transition name="show">
@@ -153,7 +153,7 @@ export default class Login extends Vue {
     return this.showLoginDialog || this.showDeleteDialog;
   }
 
-  async loginSubmit() {
+  async loginSubmit(loginInfo: LoginInfo) {
     await this.$store.dispatch("auth/login", this.loginInfo);
     this.$router.push("/styleguide");
   }
