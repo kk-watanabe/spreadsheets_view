@@ -45,7 +45,7 @@
       }}</span
       >{{ dialogText }}
       <div slot="footer" class="login__dialog-footer">
-        <Button class="login__dialog-button" @click="loginSubmit">{{
+        <Button class="login__dialog-button" @click="onDialogButton">{{
           dialogButton
         }}</Button>
         <Button
@@ -154,7 +154,7 @@ export default class Login extends Vue {
   }
 
   async loginSubmit(loginInfo: LoginInfo) {
-    await this.$store.dispatch("auth/login", this.loginInfo);
+    await this.$store.dispatch("auth/login", loginInfo);
     this.$router.push("/styleguide");
   }
 
@@ -180,6 +180,12 @@ export default class Login extends Vue {
     this.showLoginDialog = false;
     this.showDeleteDialog = false;
     this.currentLoginInfo = initLoginInfo;
+  }
+
+  onDialogButton() {
+    if (this.showLoginDialog) {
+      this.loginSubmit(this.currentLoginInfo);
+    }
   }
 }
 </script>
