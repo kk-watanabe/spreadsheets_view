@@ -85,6 +85,12 @@ export default class Login extends Vue {
     return this.saveLoginInfos.length > 0;
   }
 
+  get hasLoginInfo(): LoginInfo | undefined {
+    return this.saveLoginInfos.find(
+      saveLoginInfo => saveLoginInfo.id === this.loginInfo.id
+    );
+  }
+
   async loginSubmit() {
     await this.$store.dispatch("auth/login", this.loginInfo);
     this.$router.push("/styleguide");
