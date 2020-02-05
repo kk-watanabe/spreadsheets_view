@@ -17,7 +17,7 @@
 
           <template v-if="hasLoginInfo !== undefined">
             すでに<span class="login__have-info-name">{{
-              hasLoginInfo.name
+              loginInfoName(hasLoginInfo)
             }}</span
             >という名前で登録されています。
           </template>
@@ -40,7 +40,7 @@
     </div>
 
     <Dialog :visible="showDialog" :title="dialogTitle" @close="onCancel">{{
-      currentLoginInfo.name
+      loginInfoName(currentLoginInfo)
     }}</Dialog>
   </div>
 </template>
@@ -131,6 +131,14 @@ export default class Login extends Vue {
   async loginSubmit() {
     await this.$store.dispatch("auth/login", this.loginInfo);
     this.$router.push("/styleguide");
+  }
+
+  loginInfoName(loginInfo: LoginInfo): string {
+    if (loginInfo.name.length > 0) {
+      return loginInfo.name;
+    }
+
+    return loginInfo.id;
   }
 
   onLogin(loginInfo: LoginInfo) {
