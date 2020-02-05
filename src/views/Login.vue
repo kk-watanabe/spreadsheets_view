@@ -33,9 +33,15 @@
           :key="saveLoginInfo.id"
           class="login__loginInfo-item"
           :login-info="saveLoginInfo"
+          @login="onLogin"
+          @delete="onDelete"
         />
       </div>
     </div>
+
+    <Dialog :visible="showDialog" :title="dialogTitle" @close="onCancel">{{
+      currentLoginInfo.name
+    }}</Dialog>
   </div>
 </template>
 
@@ -44,22 +50,30 @@ import { Component, Vue, Model, Prop } from "vue-property-decorator";
 import { LoginInfo } from "@/models/Login";
 import InputPart from "@/components/atoms/form/InputPart.vue";
 import Button from "@/components/atoms/Button.vue";
+import Dialog from "@/components/atoms/Dialog.vue";
 import LoginForm from "@/components/login/LoginForm.vue";
 import LoginInfoItem from "@/components/login/LoginInfoItem.vue";
+
+const initLoginInfo: LoginInfo = {
+  id: "",
+  name: ""
+};
 
 @Component({
   components: {
     InputPart,
     Button,
+    Dialog,
     LoginForm,
     LoginInfoItem
   }
 })
 export default class Login extends Vue {
-  loginInfo: LoginInfo = {
-    id: "",
-    name: ""
-  };
+  loginInfo = initLoginInfo;
+  currentLoginInfo = initLoginInfo;
+
+  showLoginDialog: boolean = false;
+  showDeleteDialog: boolean = false;
 
   created() {
     this.loginInfo.id = this.spreadSheetsId;
@@ -104,9 +118,35 @@ export default class Login extends Vue {
     return this.hasLoginInfo !== undefined;
   }
 
+  get dialogTitle(): string {
+    return this.showLoginDialog
+      ? "既存ログインIDでログイン"
+      : "ログインIDを削除";
+  }
+
+  get showDialog(): boolean {
+    return this.showLoginDialog || this.showDeleteDialog;
+  }
+
   async loginSubmit() {
     await this.$store.dispatch("auth/login", this.loginInfo);
     this.$router.push("/styleguide");
+  }
+
+  onLogin(loginInfo: LoginInfo) {
+    this.showLoginDialog = true;
+    this.currentLoginInfo = loginInfo;
+  }
+
+  onDelete(loginInfo: LoginInfo) {
+    this.showDeleteDialog = true;
+    this.currentLoginInfo = loginInfo;
+  }
+
+  onCancel() {
+    this.showLoginDialog = false;
+    this.showDeleteDialog = false;
+    this.currentLoginInfo = initLoginInfo;
   }
 }
 </script>
