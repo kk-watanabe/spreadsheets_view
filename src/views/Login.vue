@@ -10,8 +10,17 @@
         >送信</Button
       >
       <transition name="show">
-        <div v-if="disabledLogin" class="login__error">
-          読み込みできませんでした。<br />入力内容をご確認の上、再度ご入力下さい。
+        <div class="login__notice">
+          <div v-if="disabledLogin" class="login__error">
+            読み込みできませんでした。<br />入力内容をご確認の上、再度ご入力下さい。
+          </div>
+
+          <template v-if="hasLoginInfo !== undefined">
+            すでに<span class="login__have-info-name">{{
+              hasLoginInfo.name
+            }}</span
+            >という名前で登録されています。
+          </template>
         </div>
       </transition>
     </div>
@@ -70,7 +79,7 @@ export default class Login extends Vue {
   }
 
   get disableSubmit(): boolean {
-    return this.loginInfo.id.length === 0;
+    return this.loginInfo.id.length === 0 || this.isHasLoginInfo;
   }
 
   get disabledLogin(): boolean {
@@ -89,6 +98,10 @@ export default class Login extends Vue {
     return this.saveLoginInfos.find(
       saveLoginInfo => saveLoginInfo.id === this.loginInfo.id
     );
+  }
+
+  get isHasLoginInfo(): boolean {
+    return this.hasLoginInfo !== undefined;
   }
 
   async loginSubmit() {
@@ -113,14 +126,26 @@ export default class Login extends Vue {
     margin: 30px auto 0;
     max-width: 150px;
   }
-  &__error {
+  &__notice {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    color: $is_sub1_color200;
     text-align: center;
     transform: translateY(-10%);
+  }
+  &__error {
+    color: $is_sub1_color200;
+  }
+  &__have-info-name {
+    margin-right: 5px;
+    margin-left: 5px;
+    color: $is_base_color200;
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   &__loginInfos {
