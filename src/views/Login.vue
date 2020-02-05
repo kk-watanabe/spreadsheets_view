@@ -45,7 +45,9 @@
       }}</span
       >{{ dialogText }}
       <div slot="footer" class="login__dialog-footer">
-        <Button class="login__dialog-button" @click="loginSubmit">送信</Button>
+        <Button class="login__dialog-button" @click="loginSubmit">{{
+          dialogButton
+        }}</Button>
         <Button
           class="login__dialog-button"
           :color="buttonType.Light"
@@ -141,6 +143,10 @@ export default class Login extends Vue {
 
   get dialogText(): string {
     return this.showLoginDialog ? "でログインしますか？" : "を削除しますか？";
+  }
+
+  get dialogButton(): string {
+    return this.showLoginDialog ? "ログイン" : "削除";
   }
 
   get showDialog(): boolean {
