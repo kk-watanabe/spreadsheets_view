@@ -1,26 +1,7 @@
 <template>
   <div class="login">
     <div class="login__container">
-      <div class="login__input-field">
-        <div class="login__icon login__icon--required">必須</div>
-        <div class="login__input">
-          <InputPart
-            v-model="id"
-            :error="disabledLogin"
-            placeholder="スプレットシートのIDを入力してください"
-          />
-        </div>
-      </div>
-
-      <div class="login__input-field">
-        <div class="login__icon login__icon--any">任意</div>
-        <div class="login__input">
-          <InputPart
-            v-model="name"
-            placeholder="スプレットシート名を入力してください"
-          />
-        </div>
-      </div>
+      <LoginForm v-model="loginInfo" :disabled-login="disabledLogin" />
 
       <Button
         class="login__submit"
@@ -54,18 +35,22 @@ import { Component, Vue, Model, Prop } from "vue-property-decorator";
 import { LoginInfo } from "@/models/Login";
 import InputPart from "@/components/atoms/form/InputPart.vue";
 import Button from "@/components/atoms/Button.vue";
+import LoginForm from "@/components/login/LoginForm.vue";
 import LoginInfoItem from "@/components/login/LoginInfoItem.vue";
 
 @Component({
   components: {
     InputPart,
     Button,
+    LoginForm,
     LoginInfoItem
   }
 })
 export default class Login extends Vue {
-  id: string = "";
-  name: string = "";
+  loginInfo: LoginInfo = {
+    id: "",
+    name: ""
+  };
 
   get loggedIn(): boolean {
     return this.$store.getters["auth/loggedIn"];
@@ -80,7 +65,7 @@ export default class Login extends Vue {
   }
 
   get disableSubmit(): boolean {
-    return this.id.length === 0;
+    return this.loginInfo.id.length === 0;
   }
 
   get disabledLogin(): boolean {
@@ -96,12 +81,7 @@ export default class Login extends Vue {
   }
 
   async loginSubmit() {
-    const loginInfo: LoginInfo = {
-      id: this.id,
-      name: this.name
-    };
-
-    await this.$store.dispatch("auth/login", loginInfo);
+    await this.$store.dispatch("auth/login", this.loginInfo);
     this.$router.push("/styleguide");
   }
 }
@@ -117,32 +97,6 @@ export default class Login extends Vue {
   height: calc(100vh - #{$header_height} - #{$footer_height});
   &__container {
     width: 450px;
-  }
-  &__input-field {
-    display: flex;
-    align-items: center;
-    &:not(:first-child) {
-      margin-top: 20px;
-    }
-  }
-  &__input {
-    margin-left: 10px;
-    width: 100%;
-  }
-  &__icon {
-    padding: 5px;
-    width: 55px;
-    border-radius: $border_radius;
-    color: $is_color_white;
-    text-align: center;
-
-    @include font-size(12);
-    &--required {
-      background-color: $is_sub1_color200;
-    }
-    &--any {
-      background-color: $is_color_gray700;
-    }
   }
   &__submit {
     margin: 30px auto 0;
