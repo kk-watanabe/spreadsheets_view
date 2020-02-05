@@ -44,6 +44,15 @@
         loginInfoName(currentLoginInfo)
       }}</span
       >{{ dialogText }}
+      <div slot="footer" class="login__dialog-footer">
+        <Button class="login__dialog-button" @click="loginSubmit">送信</Button>
+        <Button
+          class="login__dialog-button"
+          :color="buttonType.Light"
+          @click="onCancel"
+          >キャンセル</Button
+        >
+      </div>
     </Dialog>
   </div>
 </template>
@@ -51,6 +60,7 @@
 <script lang="ts">
 import { Component, Vue, Model, Prop } from "vue-property-decorator";
 import { LoginInfo } from "@/models/Login";
+import { ButtonType } from "@/const/Button";
 import InputPart from "@/components/atoms/form/InputPart.vue";
 import Button from "@/components/atoms/Button.vue";
 import Dialog from "@/components/atoms/Dialog.vue";
@@ -77,6 +87,8 @@ export default class Login extends Vue {
 
   showLoginDialog: boolean = false;
   showDeleteDialog: boolean = false;
+
+  buttonType = ButtonType;
 
   created() {
     this.loginInfo.id = this.spreadSheetsId;
@@ -224,7 +236,20 @@ export default class Login extends Vue {
   &__dialog-login-info-name {
     margin-right: 5px;
     margin-left: 5px;
+    color: $is_base_color200;
     font-weight: bold;
+  }
+  &__dialog-footer {
+    display: flex;
+    margin-top: 30px;
+  }
+  &__dialog-button {
+    &:first-child {
+      margin-right: 5px;
+    }
+    &:not(:first-child) {
+      margin-left: 5px;
+    }
   }
 }
 
