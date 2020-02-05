@@ -1,7 +1,7 @@
 <template>
   <div class="login-info-item">
     <div class="login-info-item__name">
-      <div class="login-info-item__text" @click="onLogin">
+      <div class="login-info-item__text" @click="onLogin(loginInfo)">
         {{ loginInfoName(loginInfo) }}
       </div>
     </div>
@@ -12,7 +12,7 @@
         :size="24"
         :icon-size="12"
         :icon-offset="'1px 0 0 1px'"
-        @click="onDelete"
+        @click="onDelete(loginInfo)"
       />
     </div>
   </div>
@@ -35,10 +35,10 @@ export default class LoginInfoItem extends Vue {
   loginInfo!: LoginInfo;
 
   @Emit("login")
-  onLogin() {}
+  onLogin(loginInfo: LoginInfo) {}
 
   @Emit("delete")
-  onDelete() {}
+  onDelete(loginInfo: LoginInfo) {}
 
   icons = Icons;
   buttonType = ButtonType;
