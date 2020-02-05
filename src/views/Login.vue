@@ -39,9 +39,12 @@
       </div>
     </div>
 
-    <Dialog :visible="showDialog" :title="dialogTitle" @close="onCancel">{{
-      loginInfoName(currentLoginInfo)
-    }}</Dialog>
+    <Dialog :visible="showDialog" :title="dialogTitle" @close="onCancel">
+      この<span class="login__dialog-login-info-name">{{
+        loginInfoName(currentLoginInfo)
+      }}</span
+      >{{ dialogText }}
+    </Dialog>
   </div>
 </template>
 
@@ -122,6 +125,10 @@ export default class Login extends Vue {
     return this.showLoginDialog
       ? "既存ログインIDでログイン"
       : "ログインIDを削除";
+  }
+
+  get dialogText(): string {
+    return this.showLoginDialog ? "でログインしますか？" : "を削除しますか？";
   }
 
   get showDialog(): boolean {
@@ -212,6 +219,12 @@ export default class Login extends Vue {
     &:not(:first-child) {
       margin-top: 10px;
     }
+  }
+
+  &__dialog-login-info-name {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-weight: bold;
   }
 }
 
