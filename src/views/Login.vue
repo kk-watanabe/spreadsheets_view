@@ -1,53 +1,96 @@
 <template>
   <div class="login">
     <div class="login__container">
-      <div class="login__input-field">
-        <div class="login__icon login__icon--required">必須</div>
-        <InputPart
-          v-model="id"
-          :error="disabledLogin"
-          placeholder="スプレットシートのIDを入力してください"
-        />
-      </div>
-
-      <div class="login__input-field">
-        <div class="login__icon login__icon--any">任意</div>
-        <InputPart
-          v-model="name"
-          placeholder="スプレットシート名を入力してください"
-        />
-      </div>
+      <LoginForm v-model="loginInfo" :disabled-login="disabledLogin" />
 
       <Button
         class="login__submit"
         :disabled="disableSubmit"
-        @click="loginSubmit"
+        @click="loginSubmit(loginInfo)"
         >送信</Button
       >
       <transition name="show">
-        <div v-if="disabledLogin" class="login__error">
-          読み込みできませんでした。<br />入力内容をご確認の上、再度ご入力下さい。
+        <div class="login__notice">
+          <div v-if="disabledLogin" class="login__error">
+            読み込みできませんでした。<br />入力内容をご確認の上、再度ご入力下さい。
+          </div>
+
+          <template v-if="hasLoginInfo !== undefined">
+            すでに<span class="login__have-info-name">{{
+              loginInfoName(hasLoginInfo)
+            }}</span
+            >という名前で登録されています。
+          </template>
         </div>
       </transition>
     </div>
+
+    <div v-if="showLoginInfos" class="login__loginInfos">
+      <div class="login__title">以前ログインしたID一覧</div>
+      <div class="login__loginInfo-container">
+        <LoginInfoItem
+          v-for="saveLoginInfo in saveLoginInfos"
+          :key="saveLoginInfo.id"
+          class="login__loginInfo-item"
+          :login-info="saveLoginInfo"
+          @login="onLogin"
+          @delete="onDelete"
+        />
+      </div>
+    </div>
+
+    <Dialog :visible="showDialog" :title="dialogTitle" @close="onCancel">
+      この<span class="login__dialog-login-info-name">{{
+        loginInfoName(currentLoginInfo)
+      }}</span
+      >{{ dialogText }}
+      <div slot="footer" class="login__dialog-footer">
+        <Button class="login__dialog-button" @click="onDialogButton">{{
+          dialogButton
+        }}</Button>
+        <Button
+          class="login__dialog-button"
+          :color="buttonType.Light"
+          @click="onCancel"
+          >キャンセル</Button
+        >
+      </div>
+    </Dialog>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Model, Prop } from "vue-property-decorator";
 import { LoginInfo } from "@/models/Login";
+import { ButtonType } from "@/const/Button";
 import InputPart from "@/components/atoms/form/InputPart.vue";
 import Button from "@/components/atoms/Button.vue";
+import Dialog from "@/components/atoms/Dialog.vue";
+import LoginForm from "@/components/login/LoginForm.vue";
+import LoginInfoItem from "@/components/login/LoginInfoItem.vue";
+
+const initLoginInfo: LoginInfo = {
+  id: "",
+  name: ""
+};
 
 @Component({
   components: {
     InputPart,
-    Button
+    Button,
+    Dialog,
+    LoginForm,
+    LoginInfoItem
   }
 })
 export default class Login extends Vue {
-  id: string = "";
-  name: string = "";
+  loginInfo = initLoginInfo;
+  currentLoginInfo = initLoginInfo;
+
+  showLoginDialog: boolean = false;
+  showDeleteDialog: boolean = false;
+
+  buttonType = ButtonType;
 
   get loggedIn(): boolean {
     return this.$store.getters["auth/loggedIn"];
@@ -62,7 +105,7 @@ export default class Login extends Vue {
   }
 
   get disableSubmit(): boolean {
-    return this.id.length === 0;
+    return this.loginInfo.id.length === 0 || this.isHasLoginInfo;
   }
 
   get disabledLogin(): boolean {
@@ -73,14 +116,74 @@ export default class Login extends Vue {
     return this.$store.state.auth.saveLoginInfos;
   }
 
-  async loginSubmit() {
-    const loginInfo: LoginInfo = {
-      id: this.id,
-      name: this.name
-    };
+  get showLoginInfos(): boolean {
+    return this.saveLoginInfos.length > 0;
+  }
 
+  get hasLoginInfo(): LoginInfo | undefined {
+    return this.saveLoginInfos.find(
+      saveLoginInfo => saveLoginInfo.id === this.loginInfo.id
+    );
+  }
+
+  get isHasLoginInfo(): boolean {
+    return this.hasLoginInfo !== undefined;
+  }
+
+  get dialogTitle(): string {
+    return this.showLoginDialog
+      ? "既存ログインIDでログイン"
+      : "ログインIDを削除";
+  }
+
+  get dialogText(): string {
+    return this.showLoginDialog ? "でログインしますか？" : "を削除しますか？";
+  }
+
+  get dialogButton(): string {
+    return this.showLoginDialog ? "ログイン" : "削除";
+  }
+
+  get showDialog(): boolean {
+    return this.showLoginDialog || this.showDeleteDialog;
+  }
+
+  async loginSubmit(loginInfo: LoginInfo) {
     await this.$store.dispatch("auth/login", loginInfo);
     this.$router.push("/styleguide");
+  }
+
+  loginInfoName(loginInfo: LoginInfo): string {
+    if (loginInfo.name.length > 0) {
+      return loginInfo.name;
+    }
+
+    return loginInfo.id;
+  }
+
+  onLogin(loginInfo: LoginInfo) {
+    this.showLoginDialog = true;
+    this.currentLoginInfo = loginInfo;
+  }
+
+  onDelete(loginInfo: LoginInfo) {
+    this.showDeleteDialog = true;
+    this.currentLoginInfo = loginInfo;
+  }
+
+  onCancel() {
+    this.showLoginDialog = false;
+    this.showDeleteDialog = false;
+    this.currentLoginInfo = initLoginInfo;
+  }
+
+  onDialogButton() {
+    if (this.showLoginDialog) {
+      this.loginSubmit(this.currentLoginInfo);
+    } else {
+      this.$store.dispatch("auth/removeLoginInfo", this.currentLoginInfo);
+      this.onCancel();
+    }
   }
 }
 </script>
@@ -89,8 +192,9 @@ export default class Login extends Vue {
 .login {
   position: relative;
   display: flex;
-  justify-content: center;
-  padding-top: 100px;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 50px;
   height: calc(100vh - #{$header_height} - #{$footer_height});
   &__container {
     width: 450px;
@@ -99,14 +203,63 @@ export default class Login extends Vue {
     margin: 30px auto 0;
     max-width: 150px;
   }
-  &__error {
+  &__notice {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    color: $is_sub1_color200;
     text-align: center;
     transform: translateY(-10%);
+  }
+  &__error {
+    color: $is_sub1_color200;
+  }
+  &__have-info-name {
+    margin-right: 5px;
+    margin-left: 5px;
+    color: $is_base_color200;
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__loginInfos {
+    margin-top: 50px;
+    width: 400px;
+  }
+  &__title {
+    font-weight: bold;
+
+    @include font-size(18);
+  }
+  &__loginInfo-container {
+    margin-top: 15px;
+  }
+  &__loginInfo-item {
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+
+  &__dialog-login-info-name {
+    margin-right: 5px;
+    margin-left: 5px;
+    color: $is_base_color200;
+    font-weight: bold;
+  }
+  &__dialog-footer {
+    display: flex;
+    margin-top: 30px;
+  }
+  &__dialog-button {
+    &:first-child {
+      margin-right: 5px;
+    }
+    &:not(:first-child) {
+      margin-left: 5px;
+    }
   }
 }
 

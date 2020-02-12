@@ -308,5 +308,42 @@ describe("auth", () => {
         });
       });
     });
+
+    describe("removeLoginInfo", () => {
+      const removeLoginInfo = (auth.actions as ActionTree<AuthState, RootState>)
+        .removeLoginInfo as (
+        { commit, rootState }: ActionContext<AuthState, RootState>,
+        info: LoginInfo
+      ) => Promise<void>;
+
+      const loginInfo: LoginInfo = {
+        id: "test1234",
+        name: "テスト"
+      };
+
+      const loginInfo2: LoginInfo = {
+        id: "test",
+        name: "sub"
+      };
+
+      const saveLoginInfos: LoginInfo[] = [loginInfo, loginInfo2];
+
+      describe("success", () => {
+        const rootState = ({
+          auth: { saveLoginInfos }
+        } as unknown) as RootState;
+
+        it("action calls commit with a list of 'setSaveLoginInfos'", () => {
+          removeLoginInfo(
+            { rootState, commit } as ActionContext<AuthState, RootState>,
+            loginInfo
+          );
+          expect(commit).toHaveBeenCalledTimes(1);
+          expect(commit).toHaveBeenCalledWith("setSaveLoginInfos", [
+            loginInfo2
+          ]);
+        });
+      });
+    });
   });
 });

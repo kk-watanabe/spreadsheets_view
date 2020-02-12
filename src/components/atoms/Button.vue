@@ -55,7 +55,7 @@ export default class Button extends Vue {
   }
 
   &--light:not(.button--disabled) {
-    border: 1px solid $is_color_gray800;
+    border: 1px solid $is_color_gray400;
     background-color: $is_color_white;
     &:hover {
       background-color: $is_color_gray100;
