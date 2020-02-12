@@ -180,6 +180,9 @@ export default class Login extends Vue {
   onDialogButton() {
     if (this.showLoginDialog) {
       this.loginSubmit(this.currentLoginInfo);
+    } else {
+      this.$store.dispatch("auth/removeLoginInfo", this.currentLoginInfo);
+      this.onCancel();
     }
   }
 }
