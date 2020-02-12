@@ -69,6 +69,18 @@ const actions = <ActionTree<AuthState, RootState>>{
       commit("setSaveLoginInfos", JSON.parse(localStorage.loginInfos));
     }
   },
+  removeLoginInfo({ rootState, commit }, info: LoginInfo) {
+    const loginInfos = rootState.auth.saveLoginInfos;
+
+    if (loginInfos.find(loginInfo => loginInfo.id === info.id)) {
+      const filetrLoginInfos = loginInfos.filter(
+        loginInfo => loginInfo.id !== info.id
+      );
+
+      commit("setSaveLoginInfos", filetrLoginInfos);
+      localStorage.setItem("loginInfos", JSON.stringify(filetrLoginInfos));
+    }
+  },
   async login({ commit, dispatch, rootState }, info: LoginInfo) {
     try {
       const spreadSheets = await rootState.api.category.getCategory(info.id);
