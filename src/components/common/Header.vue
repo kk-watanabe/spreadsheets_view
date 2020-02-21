@@ -1,8 +1,14 @@
 <template>
   <div class="header">
-    <h1 class="header__logo" :class="{ 'header__logo--logged-in': loggedIn }">
-      Style guide views
-    </h1>
+    <div
+      class="header__inner"
+      :class="{ 'header__inner--logged-in': loggedIn }"
+    >
+      <h1 class="header__logo" :class="{ 'header__logo--logged-in': loggedIn }">
+        Style guide views
+      </h1>
+      <div v-if="loggedIn" class="header__sheet-name">{{ name }}</div>
+    </div>
     <slot name="navi"></slot>
   </div>
 </template>
@@ -14,6 +20,9 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 export default class Header extends Vue {
   @Prop({ type: Boolean, required: true })
   loggedIn!: boolean;
+
+  @Prop({ type: String, default: "" })
+  name!: string;
 }
 </script>
 
@@ -22,9 +31,22 @@ export default class Header extends Vue {
   position: relative;
   background-color: $is_color_white;
 
-  &__logo {
+  &__inner {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    &:not(&--logged-in) {
+      align-items: center;
+      height: $header_height;
+    }
+
+    &--logged-in {
+      height: calc(#{$header_height} - 50px);
+    }
+  }
+
+  &__logo {
     background: linear-gradient(180deg, $is_base_color300, $is_base_color100);
     background-clip: text; //テキストでくり抜く
     color: $is_base_color200;
@@ -32,15 +54,16 @@ export default class Header extends Vue {
     -webkit-text-fill-color: transparent;
 
     &:not(&--logged-in) {
-      justify-content: center;
-      height: $header_height;
-
       @include font-size(30);
     }
 
     &--logged-in {
-      height: calc(#{$header_height} / 2);
+      @include font-size(14);
     }
+  }
+
+  &__sheet-name {
+    @include font-size(30);
   }
 }
 </style>

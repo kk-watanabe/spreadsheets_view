@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { boolean } from "@storybook/addon-knobs";
+import { boolean, text } from "@storybook/addon-knobs";
 import Header from "@/components/common/Header.vue";
 
 storiesOf("Common/Header", module).add(
@@ -9,9 +9,14 @@ storiesOf("Common/Header", module).add(
     props: {
       loggedIn: {
         default: boolean("Logged in", false)
+      },
+      name: {
+        default: text("Name", "sample text")
       }
     },
-    template: `<Header :logged-in="loggedIn"><template v-slot:navi>navi slot</template></Header>`
+    template: `<Header :logged-in="loggedIn" :name="name">
+      <template v-slot:navi>navi slot</template>
+    </Header>`
   }),
   {
     info: {
