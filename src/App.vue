@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="app">
-    <Header>
+    <Header :logged-in="loggedIn">
       <template v-slot:navi>
         <GlobalNavi v-if="loggedIn" />
 
