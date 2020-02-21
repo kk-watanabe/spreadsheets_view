@@ -2889,11 +2889,19 @@ exports[`Storyshots Common/Header default 1`] = `
 <div
   class="header"
 >
-  <h1
-    class="header__logo"
+  <div
+    class="header__inner"
   >
-    Style guide views
-  </h1>
+    <h1
+      class="header__logo"
+    >
+      
+      Style guide views
+    
+    </h1>
+     
+    <!---->
+  </div>
    navi slot
 </div>
 `;
