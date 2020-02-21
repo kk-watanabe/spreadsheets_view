@@ -96,14 +96,6 @@ export default class Login extends Vue {
     return this.$store.getters["auth/loggedIn"];
   }
 
-  get spreadSheetsId(): string {
-    return this.$store.state.auth.spreadSheetsId;
-  }
-
-  get spreadSheetsName(): string {
-    return this.$store.state.auth.spreadSheetsName;
-  }
-
   get disableSubmit(): boolean {
     return this.loginInfo.id.length === 0 || this.isHasLoginInfo;
   }

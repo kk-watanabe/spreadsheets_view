@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="app">
-    <Header>
+    <Header :logged-in="loggedIn" :name="showLoginInfoName">
       <template v-slot:navi>
         <GlobalNavi v-if="loggedIn" />
 
@@ -24,6 +24,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { LoginInfo } from "@/models/Login";
 import { ButtonType } from "@/const/Button";
 import { Icons } from "@/const/Icons";
 import { TooltipPlacement } from "@/const/Tooltip";
@@ -47,8 +48,20 @@ export default class App extends Vue {
   icons = Icons;
   tooltipPlacement = TooltipPlacement;
 
+  get loggedInInfo(): LoginInfo {
+    return this.$store.state.auth.loggedInInfo;
+  }
+
   get loggedIn(): boolean {
     return this.$store.getters["auth/loggedIn"];
+  }
+
+  get showLoginInfoName(): string {
+    if (this.loggedInInfo.name.length > 0) {
+      return this.loggedInInfo.name;
+    }
+
+    return this.loggedInInfo.id;
   }
 
   async created() {
