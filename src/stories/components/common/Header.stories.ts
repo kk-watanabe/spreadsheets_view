@@ -6,7 +6,12 @@ storiesOf("Common/Header", module).add(
   "default",
   () => ({
     components: { Header },
-    template: `<Header><template v-slot:navi>navi slot</template></Header>`
+    props: {
+      loggedIn: {
+        default: boolean("Logged in", false)
+      }
+    },
+    template: `<Header :logged-in="loggedIn"><template v-slot:navi>navi slot</template></Header>`
   }),
   {
     info: {
