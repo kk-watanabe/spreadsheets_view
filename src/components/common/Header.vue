@@ -1,6 +1,8 @@
 <template>
   <div class="header">
-    <h1 class="header__logo">Style guide views</h1>
+    <h1 class="header__logo" :class="{ 'header__logo--logged-in': loggedIn }">
+      Style guide views
+    </h1>
     <slot name="navi"></slot>
   </div>
 </template>
@@ -23,14 +25,22 @@ export default class Header extends Vue {
   &__logo {
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: $header_height;
     background: linear-gradient(180deg, $is_base_color300, $is_base_color100);
     background-clip: text; //テキストでくり抜く
     color: $is_base_color200;
 
     -webkit-text-fill-color: transparent;
-    @include font-size(30);
+
+    &:not(&--logged-in) {
+      justify-content: center;
+      height: $header_height;
+
+      @include font-size(30);
+    }
+
+    &--logged-in {
+      height: calc(#{$header_height} / 2);
+    }
   }
 }
 </style>
