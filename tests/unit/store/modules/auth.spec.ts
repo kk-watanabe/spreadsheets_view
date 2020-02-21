@@ -5,6 +5,11 @@ import { LoginInfo } from "@/models/Login";
 import { auth, AuthState } from "@/store/modules/auth";
 import { CategoryClassInfos } from "@/store/modules/category";
 
+const initLoginInfo: LoginInfo = {
+  id: "",
+  name: ""
+};
+
 describe("auth", () => {
   let state!: AuthState;
 
@@ -13,32 +18,24 @@ describe("auth", () => {
   });
 
   it("Check state", () => {
-    expect(state.spreadSheetsId).toEqual("");
-    expect(state.spreadSheetsName).toEqual("");
+    expect(state.loggedInInfo).toEqual(initLoginInfo);
     expect(state.disabledLogin).toEqual(false);
     expect(state.saveLoginInfos).toEqual([]);
   });
 
   describe("mutations", () => {
     const {
-      setSpreadSheetsId,
-      setSpreadSheetsName,
+      setLoggedInInfo,
       setDisabledLogin,
       setSaveLoginInfos
     } = auth.mutations;
 
-    it("setSpreadSheetsId set given data to spreadSheetsId of state", () => {
+    it("setLoggedInInfo set given data to loggedInInfo of state", () => {
       const id = "test1234";
-      expect(state.spreadSheetsId).toEqual("");
-      setSpreadSheetsId(state, id);
-      expect(state.spreadSheetsId).toEqual(id);
-    });
-
-    it("setSpreadSheetsName set given data to spreadSheetsName of state", () => {
       const name = "テスト";
-      expect(state.spreadSheetsName).toEqual("");
-      setSpreadSheetsName(state, name);
-      expect(state.spreadSheetsName).toEqual(name);
+      expect(state.loggedInInfo).toEqual(initLoginInfo);
+      setLoggedInInfo(state, { id, name });
+      expect(state.loggedInInfo).toEqual({ id, name });
     });
 
     it("setDisabledLogin set given data to disabledLogin of state", () => {
@@ -69,7 +66,7 @@ describe("auth", () => {
     describe("loggedIn", () => {
       const { loggedIn } = auth.getters;
       it("'loggedIn' returns false", () => {
-        state.spreadSheetsId = "";
+        state.loggedInInfo = initLoginInfo;
 
         const loggedInState: boolean = loggedIn(
           state,
@@ -81,7 +78,10 @@ describe("auth", () => {
         expect(loggedInState).toEqual(false);
       });
       it("'loggedIn' returns true", () => {
-        state.spreadSheetsId = "test1234";
+        state.loggedInInfo = {
+          id: "test1234",
+          name: ""
+        };
 
         const loggedInState: boolean = loggedIn(
           state,
@@ -217,7 +217,7 @@ describe("auth", () => {
           );
           expect(getCategory.mock.calls.length).toEqual(1);
         });
-        it("action calls commit with a list of 'spreadSheetsId' and 'spreadSheetsName' and 'disabledLogin' and 'addLoginInfo'", async () => {
+        it("action calls commit with a list of 'loggedInInfo' and 'disabledLogin' and 'addLoginInfo'", async () => {
           await login(
             { commit, dispatch, rootState } as ActionContext<
               AuthState,
@@ -225,15 +225,8 @@ describe("auth", () => {
             >,
             loginInfo
           );
-          expect(commit).toHaveBeenCalledTimes(3);
-          expect(commit).toHaveBeenCalledWith(
-            "setSpreadSheetsId",
-            loginInfo.id
-          );
-          expect(commit).toHaveBeenCalledWith(
-            "setSpreadSheetsName",
-            loginInfo.name
-          );
+          expect(commit).toHaveBeenCalledTimes(2);
+          expect(commit).toHaveBeenCalledWith("setLoggedInInfo", loginInfo);
           expect(commit).toHaveBeenCalledWith("setDisabledLogin", false);
 
           expect(dispatch).toHaveBeenCalledTimes(2);
@@ -256,11 +249,10 @@ describe("auth", () => {
       }: ActionContext<AuthState, RootState>) => Promise<void>;
 
       describe("success", () => {
-        it("action calls commit with a list of 'spreadSheetsId' and 'spreadSheetsName' and 'disabledLogin'", () => {
+        it("action calls commit with a list of 'loggedInInfo' and 'disabledLogin'", () => {
           logout({ commit } as ActionContext<AuthState, RootState>);
-          expect(commit).toHaveBeenCalledTimes(2);
-          expect(commit).toHaveBeenCalledWith("setSpreadSheetsId", "");
-          expect(commit).toHaveBeenCalledWith("setSpreadSheetsName", "");
+          expect(commit).toHaveBeenCalledTimes(1);
+          expect(commit).toHaveBeenCalledWith("setLoggedInInfo", initLoginInfo);
         });
       });
     });

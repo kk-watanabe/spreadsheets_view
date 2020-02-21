@@ -5,18 +5,17 @@ import { LoginInfo } from "@/models/Login";
 const MAX_LOGIN_INFO_LENGTH: number = 5;
 
 export class AuthState {
-  spreadSheetsId: string = "";
-  spreadSheetsName: string = "";
+  loggedInInfo: LoginInfo = {
+    id: "",
+    name: ""
+  };
   disabledLogin: boolean = false;
   saveLoginInfos: LoginInfo[] = [];
 }
 
 const mutations = <MutationTree<AuthState>>{
-  setSpreadSheetsId(state: AuthState, id: string) {
-    state.spreadSheetsId = id;
-  },
-  setSpreadSheetsName(state: AuthState, name: string) {
-    state.spreadSheetsName = name;
+  setLoggedInInfo(state: AuthState, loggedInInfo: LoginInfo) {
+    state.loggedInInfo = loggedInInfo;
   },
   setDisabledLogin(state: AuthState, disabledLogin: boolean) {
     state.disabledLogin = disabledLogin;
@@ -28,7 +27,7 @@ const mutations = <MutationTree<AuthState>>{
 
 const getters = <GetterTree<AuthState, RootState>>{
   loggedIn(state: AuthState): boolean {
-    if (state.spreadSheetsId.length > 0) {
+    if (state.loggedInInfo.id.length > 0) {
       return true;
     }
 
@@ -57,12 +56,13 @@ const actions = <ActionTree<AuthState, RootState>>{
   },
   fetchLoginInfos({ commit, dispatch }) {
     if (sessionStorage.spreadSheetsId) {
-      commit("setSpreadSheetsId", sessionStorage.spreadSheetsId);
-      commit("setSpreadSheetsName", sessionStorage.spreadSheetsName);
-      dispatch("login", {
+      const loginInfo: LoginInfo = {
         id: sessionStorage.spreadSheetsId,
         name: sessionStorage.spreadSheetsName
-      });
+      };
+
+      commit("setLoggedInInfo", loginInfo);
+      dispatch("login", loginInfo);
     }
 
     if (localStorage.loginInfos) {
@@ -89,9 +89,8 @@ const actions = <ActionTree<AuthState, RootState>>{
         throw true;
       }
 
-      commit("setSpreadSheetsId", info.id);
+      commit("setLoggedInInfo", { id: info.id, name: info.name });
       commit("setDisabledLogin", false);
-      commit("setSpreadSheetsName", info.name);
       dispatch("category/fetchCategoryClassInfo", info.id, { root: true });
       dispatch("addLoginInfo", info);
 
@@ -103,8 +102,7 @@ const actions = <ActionTree<AuthState, RootState>>{
     }
   },
   logout({ commit }) {
-    commit("setSpreadSheetsId", "");
-    commit("setSpreadSheetsName", "");
+    commit("setLoggedInInfo", { id: "", name: "" });
 
     sessionStorage.removeItem("spreadSheetsId");
     sessionStorage.removeItem("spreadSheetsName");
