@@ -42,6 +42,7 @@ export default class Header extends Vue {
     }
 
     &--logged-in {
+      padding-left: 40px;
       height: calc(#{$header_height} - 50px);
     }
   }
