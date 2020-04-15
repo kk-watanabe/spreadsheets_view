@@ -28,6 +28,5 @@ export function checkEmittedValue(
 ) {
   const emitted = wrapper.emitted(event) as any[];
   checkOneCalledEmitted(wrapper, event);
-  console.log(emitted[0]);
   expect(emitted[0]).toEqual([value]);
 }
