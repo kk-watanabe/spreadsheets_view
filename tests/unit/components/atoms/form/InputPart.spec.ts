@@ -1,9 +1,10 @@
 import { shallowMount } from "@vue/test-utils";
+import { checkEmittedValue } from "@test-utils/test-util";
 import InputPart from "@/components/atoms/form/InputPart.vue";
 
 const factory = (values = {}) => {
   return shallowMount(InputPart, {
-    propsData: { value: "", ...values }
+    propsData: { value: "", ...values },
   });
 };
 
@@ -13,7 +14,7 @@ describe("InputPart.vue", () => {
     it("Input emit works", () => {
       const VALUE = "sample text";
       const wrapper = factory({
-        value: VALUE
+        value: VALUE,
       });
 
       expect(wrapper.props().value).toBe(VALUE);
@@ -24,7 +25,7 @@ describe("InputPart.vue", () => {
     // type は HTML5のInputタグに対応している
     it("Has type prop is add type class", () => {
       const wrapper = factory({
-        type: "number"
+        type: "number",
       });
       expect(wrapper.attributes().type).toBe("number");
     });
@@ -33,7 +34,7 @@ describe("InputPart.vue", () => {
     it("Has placeholder prop is add placeholder class", () => {
       const PLACEHOLDER = "hogehoge text";
       const wrapper = factory({
-        placeholder: PLACEHOLDER
+        placeholder: PLACEHOLDER,
       });
       expect(wrapper.attributes().placeholder).toBe(PLACEHOLDER);
     });
@@ -41,7 +42,7 @@ describe("InputPart.vue", () => {
     // Disabled propがある時 disabled 属性が付与される
     it("Has disabled prop is add disabled class", () => {
       const wrapper = factory({
-        disabled: true
+        disabled: true,
       });
       expect(wrapper.attributes().disabled).toBe("disabled");
     });
@@ -49,7 +50,7 @@ describe("InputPart.vue", () => {
     // Error propがある時 eroor classが付与する
     it("Has error prop is add error class", () => {
       const wrapper = factory({
-        error: true
+        error: true,
       });
       expect(wrapper.classes()).toContain("input-part--error");
     });
@@ -59,13 +60,10 @@ describe("InputPart.vue", () => {
     it("Input emit works", () => {
       const VALUE = "sample text";
       const wrapper = factory({
-        VALUE
+        VALUE,
       });
       wrapper.trigger("input");
-
-      expect(wrapper.emitted("input")).toBeTruthy();
-      expect(wrapper.emitted("input").length).toBe(1);
-      expect(wrapper.emitted("input")[0][0]).toBe(VALUE);
+      checkEmittedValue(wrapper, "input", VALUE);
     });
   });
 });
