@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <a v-if="loggedIn" href="#container" class="footer__pagetop">ページTOP</a>
-    <small class="footer__copyright">© 2019 Style guide views.</small>
+    <small class="footer__copyright">© 2020 Spreadsheets View.</small>
   </div>
 </template>
 

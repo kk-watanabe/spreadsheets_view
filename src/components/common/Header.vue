@@ -5,7 +5,7 @@
       :class="{ 'header__inner--logged-in': loggedIn }"
     >
       <h1 class="header__logo" :class="{ 'header__logo--logged-in': loggedIn }">
-        Style guide views
+        Spreadsheets View
       </h1>
       <div v-if="loggedIn" class="header__sheet-name">{{ name }}</div>
     </div>
