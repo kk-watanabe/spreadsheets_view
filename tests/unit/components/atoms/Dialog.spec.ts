@@ -1,4 +1,5 @@
 import { shallowMount, mount, createLocalVue } from "@vue/test-utils";
+import { checkOneCalledEmitted } from "@test-utils/test-util";
 import Vue from "vue";
 import ElementUI from "element-ui";
 import Dialog from "@/components/atoms/Dialog.vue";
@@ -14,8 +15,8 @@ const shallowFactory = (slot = {}) => {
     localVue,
     ...slot,
     propsData: {
-      visible: DEFAULT_VISIBLE
-    }
+      visible: DEFAULT_VISIBLE,
+    },
   });
 };
 
@@ -24,8 +25,8 @@ const factory = (slot = {}) => {
     localVue,
     ...slot,
     propsData: {
-      visible: DEFAULT_VISIBLE
-    }
+      visible: DEFAULT_VISIBLE,
+    },
   });
 };
 
@@ -36,8 +37,8 @@ describe("Dialog.vue", () => {
       const slotText = "defaultText";
       const wrapper = shallowFactory({
         slots: {
-          default: slotText
-        }
+          default: slotText,
+        },
       });
       expect(wrapper.text()).toBe(slotText);
     });
@@ -46,8 +47,8 @@ describe("Dialog.vue", () => {
       const slotText = "titleText";
       const wrapper = factory({
         slots: {
-          title: slotText
-        }
+          title: slotText,
+        },
       });
       expect(wrapper.props().title).toBe("");
       expect(wrapper.find(".el-dialog__header").text()).toBe(slotText);
@@ -57,8 +58,8 @@ describe("Dialog.vue", () => {
       const slotText = "footerText";
       const wrapper = factory({
         slots: {
-          footer: slotText
-        }
+          footer: slotText,
+        },
       });
       expect(wrapper.find(".el-dialog__footer").text()).toBe(slotText);
     });
@@ -152,17 +153,14 @@ describe("Dialog.vue", () => {
       const wrapper = shallowFactory();
       wrapper.vm.$emit("open");
 
-      expect(wrapper.emitted("open")).toBeTruthy();
-      expect(wrapper.emitted("open").length).toBe(1);
+      checkOneCalledEmitted(wrapper, "open");
     });
 
     // close emitが動作する
     it("close emit works", () => {
       const wrapper = shallowFactory();
       wrapper.vm.$emit("close");
-
-      expect(wrapper.emitted("close")).toBeTruthy();
-      expect(wrapper.emitted("close").length).toBe(1);
+      checkOneCalledEmitted(wrapper, "close");
     });
 
     // iconButtton をクリックしたとき close emitが動作する
@@ -170,9 +168,7 @@ describe("Dialog.vue", () => {
       const wrapper = shallowFactory();
       const iconButton = wrapper.find(IconButton);
       iconButton.vm.$emit("click");
-
-      expect(wrapper.emitted("close")).toBeTruthy();
-      expect(wrapper.emitted("close").length).toBe(1);
+      checkOneCalledEmitted(wrapper, "close");
     });
   });
 });
