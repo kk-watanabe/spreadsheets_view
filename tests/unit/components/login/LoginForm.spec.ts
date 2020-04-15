@@ -1,20 +1,21 @@
 import { shallowMount } from "@vue/test-utils";
 import { LoginInfo } from "@/models/Login";
+import { checkEmittedValue } from "@test-utils/test-util";
 import Vue from "vue";
 import LoginForm from "@/components/login/LoginForm.vue";
 import InputPart from "@/components/atoms/form/InputPart.vue";
 
 const loginInfo: LoginInfo = {
   name: "サンプルテキスト",
-  id: "sampletext1234"
+  id: "sampletext1234",
 };
 
 const factory = () => {
   return shallowMount(LoginForm, {
     propsData: {
       loginInfo,
-      disabledLogin: false
-    }
+      disabledLogin: false,
+    },
   });
 };
 
@@ -47,9 +48,12 @@ describe("LoginForm.vue", () => {
       const updateId = "testtest";
       inputPart.at(0).vm.$emit("input", updateId);
       await Vue.nextTick();
-      expect(wrapper.emitted("input")).toBeTruthy();
-      expect(wrapper.emitted("input").length).toBe(1);
-      expect(wrapper.emitted("input")[0][0].id).toEqual(updateId);
+
+      const result = {
+        id: updateId,
+        name: loginInfo.name,
+      };
+      checkEmittedValue(wrapper, "input", result);
     });
 
     // input emitが動作する
@@ -60,9 +64,12 @@ describe("LoginForm.vue", () => {
       const updateName = "sampletext456";
       inputPart.at(1).vm.$emit("input", updateName);
       await Vue.nextTick();
-      expect(wrapper.emitted("input")).toBeTruthy();
-      expect(wrapper.emitted("input").length).toBe(1);
-      expect(wrapper.emitted("input")[0][0].name).toEqual(updateName);
+
+      const result = {
+        id: loginInfo.id,
+        name: updateName,
+      };
+      checkEmittedValue(wrapper, "input", result);
     });
   });
 });

@@ -6,7 +6,7 @@ import LoginForm from "@/components/login/LoginForm.vue";
 
 const loginInfo: LoginInfo = {
   name: "サンプルテキスト",
-  id: "sampletext1234"
+  id: "sampletext1234",
 };
 
 storiesOf("Login/LoginForm", module).add(
@@ -17,16 +17,16 @@ storiesOf("Login/LoginForm", module).add(
     },
     props: {
       disabledLogin: {
-        default: boolean("Disabled Login", false)
-      }
+        default: boolean("Disabled Login", false),
+      },
     },
     components: { LoginForm },
     methods: { input: action("input") },
-    template: `<LoginForm v-model="loginInfo" :disabled-login="disabledLogin" @input="input" />`
+    template: `<LoginForm v-model="loginInfo" :disabled-login="disabledLogin" @input="input" />`,
   }),
   {
     info: {
-      summary: "Simple LoginForm component"
-    }
+      summary: "Simple LoginForm component",
+    },
   }
 );

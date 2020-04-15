@@ -8,14 +8,14 @@ storiesOf("Common/Footer", module).add(
     components: { Footer },
     props: {
       loggedIn: {
-        default: boolean("Logged in", false)
-      }
+        default: boolean("Logged in", false),
+      },
     },
-    template: `<Footer :logged-in="loggedIn"/>`
+    template: `<Footer :logged-in="loggedIn"/>`,
   }),
   {
     info: {
-      summary: "Simple Footer component"
-    }
+      summary: "Simple Footer component",
+    },
   }
 );

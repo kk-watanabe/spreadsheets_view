@@ -3,7 +3,7 @@ import Footer from "@/components/common/Footer.vue";
 
 const factory = (values = {}) => {
   return shallowMount(Footer, {
-    propsData: { ...values }
+    propsData: { ...values },
   });
 };
 
@@ -12,7 +12,7 @@ describe("Footer.vue", () => {
     // loggedIn prop が false の時 footer__pagetop が表示されない
     it("Has loggedIn prop is false to 'footer__pagetop' is show", () => {
       const wrapper = factory({
-        loggedIn: false
+        loggedIn: false,
       });
       expect(wrapper.find(".footer__pagetop").exists()).toBe(false);
     });
@@ -20,7 +20,7 @@ describe("Footer.vue", () => {
     // loggedIn prop が true の時 footer__pagetop が表示される
     it("Has loggedIn prop is true to 'footer__pagetop' is hidden", () => {
       const wrapper = factory({
-        loggedIn: true
+        loggedIn: true,
       });
       expect(wrapper.find(".footer__pagetop").exists()).toBe(true);
     });

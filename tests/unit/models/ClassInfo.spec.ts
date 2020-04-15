@@ -8,7 +8,7 @@ const inputClassInfo: inputClassInfo = {
   className: ".test",
   description: "テスト",
   displayExample: "<div class='test1'>test</div>",
-  code: "<div class='test1'>test</div>"
+  code: "<div class='test1'>test</div>",
 };
 
 describe("ClassInfo", () => {

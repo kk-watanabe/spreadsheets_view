@@ -48,8 +48,8 @@ import IconButton from "@/components/atoms/IconButton.vue";
 @Component({
   components: {
     ElDialog,
-    IconButton
-  }
+    IconButton,
+  },
 })
 export default class Dialog extends Vue {
   buttonType = ButtonType;

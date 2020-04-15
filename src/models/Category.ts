@@ -14,7 +14,7 @@ export const CategoryType: { [kye: string]: number } = {
   table: 7,
   column: 8,
   content: 9,
-  other: 10
+  other: 10,
 };
 
 export class Category {

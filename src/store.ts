@@ -15,7 +15,7 @@ export interface RootState {
 const actions = <ActionTree<RootState, RootState>>{
   async initialize({ dispatch }) {
     await Promise.all([dispatch("auth/fetchLoginInfos")]);
-  }
+  },
 };
 
 export default new Vuex.Store<RootState>({
@@ -23,6 +23,6 @@ export default new Vuex.Store<RootState>({
   modules: {
     api,
     auth,
-    category
-  }
+    category,
+  },
 });

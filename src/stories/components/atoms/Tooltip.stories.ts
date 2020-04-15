@@ -14,32 +14,32 @@ storiesOf("Atom | Tooltip", module)
             "Placement",
             TooltipPlacement,
             TooltipPlacement["Top"]
-          )
+          ),
         },
         content: {
-          default: text("Content", "Tooltip text!")
+          default: text("Content", "Tooltip text!"),
         },
         color: {
-          default: select("Color", TooltipColor, TooltipColor["Dark"])
+          default: select("Color", TooltipColor, TooltipColor["Dark"]),
         },
         addShadow: {
-          default: boolean("Add Shadow", false)
+          default: boolean("Add Shadow", false),
         },
         show: {
-          default: boolean("Show", false)
+          default: boolean("Show", false),
         },
         disabled: {
-          default: boolean("Disabled", false)
+          default: boolean("Disabled", false),
         },
         offset: {
-          default: number("Offset", 0)
+          default: number("Offset", 0),
         },
         visibleArrow: {
-          default: boolean("Visible Arrow", true)
+          default: boolean("Visible Arrow", true),
         },
         enterable: {
-          default: boolean("Enterable", false)
-        }
+          default: boolean("Enterable", false),
+        },
       },
       template: `<div style='padding: 50px;'>
         <Tooltip
@@ -57,12 +57,12 @@ storiesOf("Atom | Tooltip", module)
           Mouse over text!<br>
           Mouse over text!
         </Tooltip>
-      </div>`
+      </div>`,
     }),
     {
       info: {
-        summary: "Simple tooltip component"
-      }
+        summary: "Simple tooltip component",
+      },
     }
   )
   .add(
@@ -75,32 +75,32 @@ storiesOf("Atom | Tooltip", module)
             "Placement",
             TooltipPlacement,
             TooltipPlacement["Top"]
-          )
+          ),
         },
         content: {
-          default: text("Content", "Multi\ncontent\ntext")
+          default: text("Content", "Multi\ncontent\ntext"),
         },
         color: {
-          default: select("Color", TooltipColor, TooltipColor["Dark"])
+          default: select("Color", TooltipColor, TooltipColor["Dark"]),
         },
         addShadow: {
-          default: boolean("Add Shadow", false)
+          default: boolean("Add Shadow", false),
         },
         show: {
-          default: boolean("Show", false)
+          default: boolean("Show", false),
         },
         disabled: {
-          default: boolean("Disabled", false)
+          default: boolean("Disabled", false),
         },
         offset: {
-          default: number("Offset", 0)
+          default: number("Offset", 0),
         },
         visibleArrow: {
-          default: boolean("Visible Arrow", true)
+          default: boolean("Visible Arrow", true),
         },
         enterable: {
-          default: boolean("Enterable", false)
-        }
+          default: boolean("Enterable", false),
+        },
       },
       template: `<div style='padding: 50px;'>
         <Tooltip
@@ -119,11 +119,11 @@ storiesOf("Atom | Tooltip", module)
 
           <div slot="content" class="newLine">{{ content }}</div>
         </Tooltip>
-      </div>`
+      </div>`,
     }),
     {
       info: {
-        summary: "Multi content tooltip"
-      }
+        summary: "Multi content tooltip",
+      },
     }
   );

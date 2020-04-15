@@ -1,5 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 import { ButtonType } from "@/const/Button";
+import { checkOneCalledEmitted } from "@test-utils/test-util";
 import Vue from "vue";
 import Button from "@/components/atoms/Button.vue";
 
@@ -14,8 +15,8 @@ describe("Button.vue", () => {
       const defaultText = "SlotText";
       const wrapper = factory({
         slots: {
-          default: defaultText
-        }
+          default: defaultText,
+        },
       });
       expect(wrapper.text()).toBe(defaultText);
     });
@@ -41,8 +42,8 @@ describe("Button.vue", () => {
     it("Has disabled prop is add disabled class", () => {
       const wrapper = factory({
         propsData: {
-          disabled: true
-        }
+          disabled: true,
+        },
       });
       expect(wrapper.classes()).toContain("button--disabled");
     });
@@ -53,10 +54,7 @@ describe("Button.vue", () => {
     it("Click emit works", () => {
       const wrapper = factory();
       wrapper.trigger("click");
-
-      expect(wrapper.emitted("click")).toBeTruthy();
-      expect(wrapper.emitted("click").length).toBe(1);
-      expect(wrapper.emitted("click")[0][0] instanceof MouseEvent).toBe(true);
+      checkOneCalledEmitted(wrapper, "click");
     });
   });
 });

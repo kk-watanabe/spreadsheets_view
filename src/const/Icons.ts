@@ -211,5 +211,5 @@ export enum Icons {
   Chrome = "icon-chrome",
   Firefox = "icon-firefox",
   Ie = "icon-IE",
-  Edge = "icon-edge"
+  Edge = "icon-edge",
 }

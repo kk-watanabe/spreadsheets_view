@@ -7,7 +7,7 @@ import { CategoryClassInfos } from "@/store/modules/category";
 
 const initLoginInfo: LoginInfo = {
   id: "",
-  name: ""
+  name: "",
 };
 
 describe("auth", () => {
@@ -27,7 +27,7 @@ describe("auth", () => {
     const {
       setLoggedInInfo,
       setDisabledLogin,
-      setSaveLoginInfos
+      setSaveLoginInfos,
     } = auth.mutations;
 
     it("setLoggedInInfo set given data to loggedInInfo of state", () => {
@@ -49,12 +49,12 @@ describe("auth", () => {
       const saveLoginInfos: LoginInfo[] = [
         {
           id: "sample1234",
-          name: "サンプル1"
+          name: "サンプル1",
         },
         {
           id: "sample5678",
-          name: "サンプル2"
-        }
+          name: "サンプル2",
+        },
       ];
       expect(state.saveLoginInfos).toEqual([]);
       setSaveLoginInfos(state, saveLoginInfos);
@@ -80,7 +80,7 @@ describe("auth", () => {
       it("'loggedIn' returns true", () => {
         state.loggedInInfo = {
           id: "test1234",
-          name: ""
+          name: "",
         };
 
         const loggedInState: boolean = loggedIn(
@@ -121,12 +121,12 @@ describe("auth", () => {
         table: [],
         column: [],
         content: [],
-        other: []
+        other: [],
       };
 
       const loginInfo: LoginInfo = {
         id: "test1234",
-        name: "テスト"
+        name: "テスト",
       };
 
       describe("error", () => {
@@ -135,7 +135,7 @@ describe("auth", () => {
         getCategory.mockReturnValue(mockValue);
         const rootState = ({
           api: { category: { getCategory } },
-          category: { categoryClassInfos }
+          category: { categoryClassInfos },
         } as unknown) as RootState;
         it("action calls API once", async () => {
           await login(
@@ -166,7 +166,7 @@ describe("auth", () => {
           className: ".test",
           description: "テスト",
           displayExample: "<div class='test1'>test</div>",
-          code: "<div class='test1'>test</div>"
+          code: "<div class='test1'>test</div>",
         };
         const textInputClassInfo: inputClassInfo = {
           id: "1",
@@ -175,7 +175,7 @@ describe("auth", () => {
           className: ".test",
           description: "テスト",
           displayExample: "<div class='test1'>test</div>",
-          code: "<div class='test1'>test</div>"
+          code: "<div class='test1'>test</div>",
         };
         const buttonInputClassInfo: inputClassInfo = {
           id: "1",
@@ -184,7 +184,7 @@ describe("auth", () => {
           className: ".test",
           description: "テスト",
           displayExample: "<div class='test1'>test</div>",
-          code: "<div class='test1'>test</div>"
+          code: "<div class='test1'>test</div>",
         };
         const boxInputClassInfo: inputClassInfo = {
           id: "1",
@@ -193,21 +193,21 @@ describe("auth", () => {
           className: ".test",
           description: "テスト",
           displayExample: "<div class='test1'>test</div>",
-          code: "<div class='test1'>test</div>"
+          code: "<div class='test1'>test</div>",
         };
         const mockValue: categoryResults = {
           results: [
             titleInputClassInfo,
             textInputClassInfo,
             buttonInputClassInfo,
-            boxInputClassInfo
-          ]
+            boxInputClassInfo,
+          ],
         };
         getCategory.mockReturnValue(mockValue);
 
         const rootState = ({
           api: { category: { getCategory } },
-          category: { categoryClassInfos }
+          category: { categoryClassInfos },
         } as unknown) as RootState;
 
         it("action calls API once", async () => {
@@ -234,7 +234,7 @@ describe("auth", () => {
             "category/fetchCategoryClassInfo",
             loginInfo.id,
             {
-              root: true
+              root: true,
             }
           );
           expect(dispatch).toHaveBeenCalledWith("addLoginInfo", loginInfo);
@@ -245,7 +245,7 @@ describe("auth", () => {
     describe("logout", () => {
       const logout = (auth.actions as ActionTree<AuthState, RootState>)
         .logout as ({
-        commit
+        commit,
       }: ActionContext<AuthState, RootState>) => Promise<void>;
 
       describe("success", () => {
@@ -266,14 +266,14 @@ describe("auth", () => {
 
       const loginInfo: LoginInfo = {
         id: "test1234",
-        name: "テスト"
+        name: "テスト",
       };
 
       const saveLoginInfos: LoginInfo[] = [];
 
       describe("success", () => {
         const rootState = ({
-          auth: { saveLoginInfos }
+          auth: { saveLoginInfos },
         } as unknown) as RootState;
 
         it("action calls commit with a list of 'setSaveLoginInfos'", () => {
@@ -290,7 +290,7 @@ describe("auth", () => {
     describe("fetchLoginInfos", () => {
       const fetchLoginInfos = (auth.actions as ActionTree<AuthState, RootState>)
         .fetchLoginInfos as ({
-        commit
+        commit,
       }: ActionContext<AuthState, RootState>) => Promise<void>;
 
       describe("success", () => {
@@ -310,19 +310,19 @@ describe("auth", () => {
 
       const loginInfo: LoginInfo = {
         id: "test1234",
-        name: "テスト"
+        name: "テスト",
       };
 
       const loginInfo2: LoginInfo = {
         id: "test",
-        name: "sub"
+        name: "sub",
       };
 
       const saveLoginInfos: LoginInfo[] = [loginInfo, loginInfo2];
 
       describe("success", () => {
         const rootState = ({
-          auth: { saveLoginInfos }
+          auth: { saveLoginInfos },
         } as unknown) as RootState;
 
         it("action calls commit with a list of 'setSaveLoginInfos'", () => {
@@ -332,7 +332,7 @@ describe("auth", () => {
           );
           expect(commit).toHaveBeenCalledTimes(1);
           expect(commit).toHaveBeenCalledWith("setSaveLoginInfos", [
-            loginInfo2
+            loginInfo2,
           ]);
         });
       });

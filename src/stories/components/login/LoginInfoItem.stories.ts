@@ -6,7 +6,7 @@ import LoginInfoItem from "@/components/login/LoginInfoItem.vue";
 
 const loginInfo: LoginInfo = {
   name: "サンプルテキスト",
-  id: "sampletext1234"
+  id: "sampletext1234",
 };
 
 storiesOf("Login/LoginInfoItem", module).add(
@@ -14,16 +14,16 @@ storiesOf("Login/LoginInfoItem", module).add(
   () => ({
     props: {
       loginInfo: {
-        default: () => object("LoginInfo", loginInfo)
-      }
+        default: () => object("LoginInfo", loginInfo),
+      },
     },
     components: { LoginInfoItem },
     methods: { onLogin: action("onLogin"), onDelete: action("onDelete") },
-    template: `<LoginInfoItem :login-info="loginInfo" @login="onLogin" @delete="onDelete" />`
+    template: `<LoginInfoItem :login-info="loginInfo" @login="onLogin" @delete="onDelete" />`,
   }),
   {
     info: {
-      summary: "Simple LoginInfoItem component"
-    }
+      summary: "Simple LoginInfoItem component",
+    },
   }
 );

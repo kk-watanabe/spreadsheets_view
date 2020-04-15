@@ -10,15 +10,15 @@ storiesOf("Atom/Icon", module)
       components: { Icon },
       props: {
         icon: {
-          default: select("Icon", Icons, Icons.Home)
-        }
+          default: select("Icon", Icons, Icons.Home),
+        },
       },
-      template: `<Icon :icon="icon" />`
+      template: `<Icon :icon="icon" />`,
     }),
     {
       info: {
-        summary: "Simple Icon component"
-      }
+        summary: "Simple Icon component",
+      },
     }
   )
   .add(
@@ -34,11 +34,11 @@ storiesOf("Atom/Icon", module)
         <Icon :icon="icon" />
         <div style="font-size: 12px; color: #666; align-self: flex-end;">{{icon}}</div>
       </div>
-    </div>`
+    </div>`,
     }),
     {
       info: {
-        summary: "All Icon"
-      }
+        summary: "All Icon",
+      },
     }
   );

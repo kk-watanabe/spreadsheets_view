@@ -11,23 +11,23 @@ storiesOf("Atom/IconButton", module).add(
     components: { IconButton },
     props: {
       icon: {
-        default: select("Icon", Icons, Icons.Home)
+        default: select("Icon", Icons, Icons.Home),
       },
       color: {
-        default: select("Color", ButtonType, ButtonType.Dark)
+        default: select("Color", ButtonType, ButtonType.Dark),
       },
       size: {
-        default: number("Size", 60)
+        default: number("Size", 60),
       },
       iconSize: {
-        default: number("Icon size", 26)
+        default: number("Icon size", 26),
       },
       iconOffset: {
-        default: text("Icon offset", "0px")
+        default: text("Icon offset", "0px"),
       },
       disabled: {
-        default: boolean("Disabled", false)
-      }
+        default: boolean("Disabled", false),
+      },
     },
     template: `<IconButton
      :icon="icon"
@@ -37,11 +37,11 @@ storiesOf("Atom/IconButton", module).add(
      :icon-offset="iconOffset"
      :disabled="disabled"
      @click="action" />`,
-    methods: { action: action("clicked") }
+    methods: { action: action("clicked") },
   }),
   {
     info: {
-      summary: "Simple IconButton component"
-    }
+      summary: "Simple IconButton component",
+    },
   }
 );

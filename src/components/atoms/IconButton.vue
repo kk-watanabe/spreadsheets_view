@@ -17,7 +17,7 @@ import { Icons } from "@/const/Icons";
 import Icon from "@/components/atoms/Icon.vue";
 
 @Component({
-  components: { Icon }
+  components: { Icon },
 })
 export default class IconButton extends Vue {
   @Prop({ type: String, required: true })
@@ -39,19 +39,19 @@ export default class IconButton extends Vue {
   disabled!: boolean;
 
   @Emit("click")
-  onClick(event: MouseEvent) {}
+  onClick() {}
 
   get style() {
     return {
       width: this.size + "px",
-      height: this.size + "px"
+      height: this.size + "px",
     };
   }
 
   get iconStyle() {
     return {
       "font-size": this.iconSize + "px",
-      margin: this.iconOffset
+      margin: this.iconOffset,
     };
   }
 

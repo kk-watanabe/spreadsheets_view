@@ -8,14 +8,14 @@ module.exports = {
         .options({
           resources: [
             "./src/assets/scss/_vars.scss",
-            "./src/assets/scss/_functions.scss"
-          ]
+            "./src/assets/scss/_functions.scss",
+          ],
         })
         .end();
     });
   },
   productionSourceMap: true,
   css: {
-    sourceMap: true
-  }
+    sourceMap: true,
+  },
 };
