@@ -7,7 +7,7 @@ const MAX_LOGIN_INFO_LENGTH: number = 5;
 export class AuthState {
   loggedInInfo: LoginInfo = {
     id: "",
-    name: ""
+    name: "",
   };
   disabledLogin: boolean = false;
   saveLoginInfos: LoginInfo[] = [];
@@ -22,7 +22,7 @@ const mutations = <MutationTree<AuthState>>{
   },
   setSaveLoginInfos(state: AuthState, saveLoginInfos: LoginInfo[]) {
     state.saveLoginInfos = saveLoginInfos;
-  }
+  },
 };
 
 const getters = <GetterTree<AuthState, RootState>>{
@@ -32,7 +32,7 @@ const getters = <GetterTree<AuthState, RootState>>{
     }
 
     return false;
-  }
+  },
 };
 
 const actions = <ActionTree<AuthState, RootState>>{
@@ -47,7 +47,7 @@ const actions = <ActionTree<AuthState, RootState>>{
 
       loginInfos.push({
         id: info.id,
-        name: info.name
+        name: info.name,
       });
 
       commit("setSaveLoginInfos", loginInfos);
@@ -58,7 +58,7 @@ const actions = <ActionTree<AuthState, RootState>>{
     if (sessionStorage.spreadSheetsId) {
       const loginInfo: LoginInfo = {
         id: sessionStorage.spreadSheetsId,
-        name: sessionStorage.spreadSheetsName
+        name: sessionStorage.spreadSheetsName,
       };
 
       commit("setLoggedInInfo", loginInfo);
@@ -106,7 +106,7 @@ const actions = <ActionTree<AuthState, RootState>>{
 
     sessionStorage.removeItem("spreadSheetsId");
     sessionStorage.removeItem("spreadSheetsName");
-  }
+  },
 };
 
 export const auth = {
@@ -114,5 +114,5 @@ export const auth = {
   state: new AuthState(),
   mutations: mutations,
   getters: getters,
-  actions: actions
+  actions: actions,
 };

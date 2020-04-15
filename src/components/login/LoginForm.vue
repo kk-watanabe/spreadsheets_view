@@ -32,8 +32,8 @@ import InputPart from "@/components/atoms/form/InputPart.vue";
 
 @Component({
   components: {
-    InputPart
-  }
+    InputPart,
+  },
 })
 export default class LoginForm extends Vue {
   @Model("input", { type: Object, required: true })
@@ -48,7 +48,7 @@ export default class LoginForm extends Vue {
   onUpdateId(id: string) {
     const updateLoginInfo: LoginInfo = {
       id,
-      name: this.loginInfo.name
+      name: this.loginInfo.name,
     };
 
     this.onInput(updateLoginInfo);
@@ -57,7 +57,7 @@ export default class LoginForm extends Vue {
   onUpdateName(name: string) {
     const updateLoginInfo: LoginInfo = {
       id: this.loginInfo.id,
-      name
+      name,
     };
 
     this.onInput(updateLoginInfo);

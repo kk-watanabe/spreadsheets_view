@@ -40,8 +40,8 @@ import GlobalNavi from "@/views/common/GlobalNavi.vue";
     Footer,
     IconButton,
     Tooltip,
-    GlobalNavi
-  }
+    GlobalNavi,
+  },
 })
 export default class App extends Vue {
   buttonType = ButtonType;

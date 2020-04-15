@@ -19,7 +19,7 @@ export class CategoryState {
     table: [],
     column: [],
     content: [],
-    other: []
+    other: [],
   };
 }
 
@@ -32,7 +32,7 @@ const mutations = <MutationTree<CategoryState>>{
     categoryClassInfos: CategoryClassInfos
   ) {
     state.categoryClassInfos = categoryClassInfos;
-  }
+  },
 };
 
 const actions = <ActionTree<CategoryState, RootState>>{
@@ -58,12 +58,12 @@ const actions = <ActionTree<CategoryState, RootState>>{
 
     commit("setCategoryClassInfo", categoryClassInfos);
     commit("setCategories", categories);
-  }
+  },
 };
 
 export const category = {
   namespaced: true,
   state: new CategoryState(),
   mutations: mutations,
-  actions: actions
+  actions: actions,
 };

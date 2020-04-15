@@ -27,8 +27,8 @@ import IconButton from "@/components/atoms/IconButton.vue";
 
 @Component({
   components: {
-    IconButton
-  }
+    IconButton,
+  },
 })
 export default class LoginInfoItem extends Vue {
   @Prop({ type: Object, required: true })

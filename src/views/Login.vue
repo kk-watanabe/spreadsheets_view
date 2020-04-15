@@ -71,7 +71,7 @@ import LoginInfoItem from "@/components/login/LoginInfoItem.vue";
 
 const initLoginInfo: LoginInfo = {
   id: "",
-  name: ""
+  name: "",
 };
 
 @Component({
@@ -80,8 +80,8 @@ const initLoginInfo: LoginInfo = {
     Button,
     Dialog,
     LoginForm,
-    LoginInfoItem
-  }
+    LoginInfoItem,
+  },
 })
 export default class Login extends Vue {
   loginInfo = initLoginInfo;

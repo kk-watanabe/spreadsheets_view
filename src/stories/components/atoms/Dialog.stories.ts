@@ -10,35 +10,35 @@ storiesOf("Atom/Dialog", module)
       components: { Dialog },
       props: {
         visible: {
-          default: boolean("Visible", true, "Dialog props")
+          default: boolean("Visible", true, "Dialog props"),
         },
         title: {
-          default: text("Title", "Title", "Dialog props")
+          default: text("Title", "Title", "Dialog props"),
         },
         width: {
-          default: text("Width", "50%", "Dialog props")
+          default: text("Width", "50%", "Dialog props"),
         },
         top: {
-          default: text("Top", "15vh", "Dialog props")
+          default: text("Top", "15vh", "Dialog props"),
         },
         appendToBody: {
-          default: boolean("Append To Body", true, "Dialog props")
+          default: boolean("Append To Body", true, "Dialog props"),
         },
         closeOnClickModal: {
-          default: boolean("Close On Click Modal", true, "Dialog props")
+          default: boolean("Close On Click Modal", true, "Dialog props"),
         },
         showCloseButton: {
-          default: boolean("Show Close Button", true, "Dialog props")
+          default: boolean("Show Close Button", true, "Dialog props"),
         },
         center: {
-          default: boolean("Center", true, "Dialog props")
+          default: boolean("Center", true, "Dialog props"),
         },
         destroyOnClose: {
-          default: boolean("Destroy on close", true, "Dialog props")
+          default: boolean("Destroy on close", true, "Dialog props"),
         },
         contentSlot: {
-          default: text("Content Slot", "Default slot")
-        }
+          default: text("Content Slot", "Default slot"),
+        },
       },
       methods: { open: action("open"), close: action("close") },
       template: `
@@ -56,12 +56,12 @@ storiesOf("Atom/Dialog", module)
        @close="close"
       >
         {{ contentSlot }}
-      </Dialog>`
+      </Dialog>`,
     }),
     {
       info: {
-        summary: "Simple Dialog component"
-      }
+        summary: "Simple Dialog component",
+      },
     }
   )
   .add(
@@ -70,38 +70,38 @@ storiesOf("Atom/Dialog", module)
       components: { Dialog },
       props: {
         visible: {
-          default: boolean("Visible", true, "Dialog props")
+          default: boolean("Visible", true, "Dialog props"),
         },
         width: {
-          default: text("Width", "50%", "Dialog props")
+          default: text("Width", "50%", "Dialog props"),
         },
         top: {
-          default: text("Top", "15vh", "Dialog props")
+          default: text("Top", "15vh", "Dialog props"),
         },
         appendToBody: {
-          default: boolean("Append To Body", true, "Dialog props")
+          default: boolean("Append To Body", true, "Dialog props"),
         },
         closeOnClickModal: {
-          default: boolean("Close On Click Modal", true, "Dialog props")
+          default: boolean("Close On Click Modal", true, "Dialog props"),
         },
         showCloseButton: {
-          default: boolean("Show Close Button", true, "Dialog props")
+          default: boolean("Show Close Button", true, "Dialog props"),
         },
         center: {
-          default: boolean("Center", true, "Dialog props")
+          default: boolean("Center", true, "Dialog props"),
         },
         destroyOnClose: {
-          default: boolean("Destroy on close", true, "Dialog props")
+          default: boolean("Destroy on close", true, "Dialog props"),
         },
         contentSlot: {
-          default: text("Content Slot", "Default slot")
+          default: text("Content Slot", "Default slot"),
         },
         titleSlot: {
-          default: text("Title Slot", "Title slot")
+          default: text("Title Slot", "Title slot"),
         },
         footerSlot: {
-          default: text("Footer Slot", "Footer slot")
-        }
+          default: text("Footer Slot", "Footer slot"),
+        },
       },
       methods: { open: action("open"), close: action("close") },
       template: `
@@ -120,11 +120,11 @@ storiesOf("Atom/Dialog", module)
         <div slot="title">{{ titleSlot }}</div>
         {{ contentSlot }}
         <div slot="footer">{{ footerSlot }}</div>
-      </Dialog>`
+      </Dialog>`,
     }),
     {
       info: {
-        summary: "header and footer slot"
-      }
+        summary: "header and footer slot",
+      },
     }
   );

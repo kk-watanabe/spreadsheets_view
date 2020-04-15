@@ -5,7 +5,7 @@ import { Category } from "@/models/Category";
 import {
   category,
   CategoryState,
-  CategoryClassInfos
+  CategoryClassInfos,
 } from "@/store/modules/category";
 
 describe("category", () => {
@@ -20,7 +20,7 @@ describe("category", () => {
     table: [],
     column: [],
     content: [],
-    other: []
+    other: [],
   };
   let state!: CategoryState;
 
@@ -38,7 +38,7 @@ describe("category", () => {
     new Category(7, "table", false),
     new Category(8, "column", false),
     new Category(9, "content", false),
-    new Category(10, "other", false)
+    new Category(10, "other", false),
   ];
 
   const updateCategoryClassInfos: CategoryClassInfos = {
@@ -49,7 +49,7 @@ describe("category", () => {
         description: "テスト",
         displayExample: "<div class='test1'>test</div>",
         id: 1,
-        rowIndex: 0
+        rowIndex: 0,
       },
       {
         className: ".test",
@@ -57,8 +57,8 @@ describe("category", () => {
         description: "テスト",
         displayExample: "<div class='test1'>test</div>",
         id: 1,
-        rowIndex: 0
-      }
+        rowIndex: 0,
+      },
     ],
     button: [
       {
@@ -67,7 +67,7 @@ describe("category", () => {
         description: "テスト",
         displayExample: "<div class='test1'>test</div>",
         id: 1,
-        rowIndex: 0
+        rowIndex: 0,
       },
       {
         className: ".test",
@@ -75,8 +75,8 @@ describe("category", () => {
         description: "テスト",
         displayExample: "<div class='test1'>test</div>",
         id: 1,
-        rowIndex: 0
-      }
+        rowIndex: 0,
+      },
     ],
     column: [],
     content: [],
@@ -91,7 +91,7 @@ describe("category", () => {
         description: "テスト",
         displayExample: "<div class='test1'>test</div>",
         id: 1,
-        rowIndex: 0
+        rowIndex: 0,
       },
       {
         className: ".test",
@@ -99,8 +99,8 @@ describe("category", () => {
         description: "テスト",
         displayExample: "<div class='test1'>test</div>",
         id: 1,
-        rowIndex: 0
-      }
+        rowIndex: 0,
+      },
     ],
     title: [
       {
@@ -109,7 +109,7 @@ describe("category", () => {
         description: "テスト",
         displayExample: "<div class='test1'>test</div>",
         id: 1,
-        rowIndex: 0
+        rowIndex: 0,
       },
       {
         className: ".test",
@@ -117,9 +117,9 @@ describe("category", () => {
         description: "テスト",
         displayExample: "<div class='test1'>test</div>",
         id: 1,
-        rowIndex: 0
-      }
-    ]
+        rowIndex: 0,
+      },
+    ],
   };
 
   it("Check state", () => {
@@ -144,7 +144,7 @@ describe("category", () => {
         table: [],
         column: [],
         content: [],
-        other: []
+        other: [],
       });
       setCategoryClassInfo(state, updateCategoryClassInfos);
       expect(state.categoryClassInfos).toEqual(updateCategoryClassInfos);
@@ -174,7 +174,7 @@ describe("category", () => {
         className: ".test",
         description: "テスト",
         displayExample: "<div class='test1'>test</div>",
-        code: "<div class='test1'>test</div>"
+        code: "<div class='test1'>test</div>",
       };
       const textInputClassInfo: inputClassInfo = {
         id: "1",
@@ -183,7 +183,7 @@ describe("category", () => {
         className: ".test",
         description: "テスト",
         displayExample: "<div class='test1'>test</div>",
-        code: "<div class='test1'>test</div>"
+        code: "<div class='test1'>test</div>",
       };
       const buttonInputClassInfo: inputClassInfo = {
         id: "1",
@@ -192,7 +192,7 @@ describe("category", () => {
         className: ".test",
         description: "テスト",
         displayExample: "<div class='test1'>test</div>",
-        code: "<div class='test1'>test</div>"
+        code: "<div class='test1'>test</div>",
       };
       const boxInputClassInfo: inputClassInfo = {
         id: "1",
@@ -201,21 +201,21 @@ describe("category", () => {
         className: ".test",
         description: "テスト",
         displayExample: "<div class='test1'>test</div>",
-        code: "<div class='test1'>test</div>"
+        code: "<div class='test1'>test</div>",
       };
       const mockValue: categoryResults = {
         results: [
           titleInputClassInfo,
           textInputClassInfo,
           buttonInputClassInfo,
-          boxInputClassInfo
-        ]
+          boxInputClassInfo,
+        ],
       };
       getCategory.mockReturnValue(mockValue);
 
       const rootState = ({
         api: { category: { getCategory } },
-        category: { categoryClassInfos }
+        category: { categoryClassInfos },
       } as unknown) as RootState;
 
       it("action calls API once", async () => {

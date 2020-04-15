@@ -10,21 +10,21 @@ storiesOf("Atom/Button", module).add(
     components: { Button },
     props: {
       text: {
-        default: text("Text", "Hello!")
+        default: text("Text", "Hello!"),
       },
       color: {
-        default: select("Color", ButtonType, ButtonType.Dark)
+        default: select("Color", ButtonType, ButtonType.Dark),
       },
       disabled: {
-        default: boolean("Disabled", false)
-      }
+        default: boolean("Disabled", false),
+      },
     },
     template: `<Button :color="color" :disabled="disabled" @click="action">{{ text }}</Button>`,
-    methods: { action: action("clicked") }
+    methods: { action: action("clicked") },
   }),
   {
     info: {
-      summary: "Simple Button component"
-    }
+      summary: "Simple Button component",
+    },
   }
 );

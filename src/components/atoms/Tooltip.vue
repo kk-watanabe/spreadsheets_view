@@ -25,7 +25,7 @@ import { TooltipPlacement, TooltipColor } from "@/const/Tooltip";
 import { Tooltip as ElTooltip } from "element-ui";
 
 @Component({
-  components: { ElTooltip }
+  components: { ElTooltip },
 })
 export default class Tooltip extends Vue {
   @Prop({ type: String, default: TooltipPlacement.Top })

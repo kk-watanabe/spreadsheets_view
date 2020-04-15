@@ -8,5 +8,5 @@ export class ApiState {
 
 export const api = {
   namespaced: true,
-  state: new ApiState()
+  state: new ApiState(),
 };

@@ -12,14 +12,14 @@ localVue.use(ElementUI);
 const shallowFactory = (values = {}) => {
   return shallowMount(Tooltip, {
     localVue,
-    ...values
+    ...values,
   });
 };
 
 const factory = (values = {}) => {
   return mount(Tooltip, {
     localVue,
-    ...values
+    ...values,
   });
 };
 
@@ -29,8 +29,8 @@ describe("Tooltip.vue", () => {
     it("Renders default slot", () => {
       const wrapper = shallowFactory({
         slots: {
-          default: DEFAULT_TEXT
-        }
+          default: DEFAULT_TEXT,
+        },
       });
       expect(wrapper.text()).toBe(DEFAULT_TEXT);
     });
@@ -40,8 +40,8 @@ describe("Tooltip.vue", () => {
       const contentText = "contentText";
       const wrapper = shallowFactory({
         slots: {
-          content: contentText
-        }
+          content: contentText,
+        },
       });
       const content = wrapper.vm.$slots.content;
 
@@ -107,8 +107,8 @@ describe("Tooltip.vue", () => {
       const contentText = "contentText";
       const wrapper = shallowFactory({
         propsData: {
-          content: contentText
-        }
+          content: contentText,
+        },
       });
       expect(wrapper.props().content).toBe(contentText);
     });
@@ -128,8 +128,8 @@ describe("Tooltip.vue", () => {
     it("Has addShadow prop", () => {
       const wrapper = shallowFactory({
         propsData: {
-          addShadow: true
-        }
+          addShadow: true,
+        },
       });
       expect(wrapper.props().addShadow).toBe(true);
     });
@@ -138,8 +138,8 @@ describe("Tooltip.vue", () => {
       const show = true;
       const wrapper = shallowFactory({
         propsData: {
-          show
-        }
+          show,
+        },
       });
 
       expect(wrapper.props().show).toBe(show);
@@ -150,8 +150,8 @@ describe("Tooltip.vue", () => {
     it("Has disabled prop ", () => {
       const wrapper = shallowFactory({
         propsData: {
-          disabled: true
-        }
+          disabled: true,
+        },
       });
       expect(wrapper.props().disabled).toBe(true);
     });
@@ -160,8 +160,8 @@ describe("Tooltip.vue", () => {
       const offset = 100;
       const wrapper = shallowFactory({
         propsData: {
-          offset
-        }
+          offset,
+        },
       });
       expect(wrapper.props().offset).toBe(offset);
     });
@@ -169,8 +169,8 @@ describe("Tooltip.vue", () => {
     it("Has visibleArroow prop ", () => {
       const wrapper = shallowFactory({
         propsData: {
-          visibleArrow: false
-        }
+          visibleArrow: false,
+        },
       });
       expect(wrapper.props().visibleArroow).not.toBe(true);
     });
@@ -178,8 +178,8 @@ describe("Tooltip.vue", () => {
     it("Has enterable prop ", () => {
       const wrapper = shallowFactory({
         propsData: {
-          enterable: true
-        }
+          enterable: true,
+        },
       });
       expect(wrapper.props().enterable).toBe(true);
     });

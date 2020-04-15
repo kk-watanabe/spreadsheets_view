@@ -12,9 +12,9 @@ describe("Footer.vue", () => {
       const naviText = "SlotText";
       const wrapper = factory({
         slots: {
-          navi: naviText
+          navi: naviText,
         },
-        propsData: { loggedIn: false }
+        propsData: { loggedIn: false },
       });
 
       expect(wrapper.text()).toContain(naviText);
@@ -25,7 +25,7 @@ describe("Footer.vue", () => {
     // loggedIn prop が false の時 footer__pagetop が表示されない
     it("Has loggedIn prop is false to 'header__sheet-name' is hidden", () => {
       const wrapper = factory({
-        propsData: { loggedIn: false }
+        propsData: { loggedIn: false },
       });
       expect(wrapper.find(".footer__pagetop").exists()).toBe(false);
     });
@@ -33,7 +33,7 @@ describe("Footer.vue", () => {
     // loggedIn prop が true の時 footer__pagetop が表示される
     it("Has loggedIn prop is true to 'header__sheet-name' is show and add class", () => {
       const wrapper = factory({
-        propsData: { loggedIn: true }
+        propsData: { loggedIn: true },
       });
       expect(wrapper.find(".header__inner").classes()).toContain(
         "header__inner--logged-in"
@@ -48,7 +48,7 @@ describe("Footer.vue", () => {
     it("Has title prop", async () => {
       const name = "titleText";
       const wrapper = factory({
-        propsData: { loggedIn: true, name }
+        propsData: { loggedIn: true, name },
       });
 
       expect(wrapper.props().name).toBe(name);

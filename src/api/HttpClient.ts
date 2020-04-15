@@ -23,7 +23,7 @@ export default class HttpClient {
     config.headers = {
       "api-version": API_VERSION,
       accept: "application/json, text/plain, */*",
-      "If-Modified-Since": "Thu, 01 Jun 1970 00:00:00 GMT"
+      "If-Modified-Since": "Thu, 01 Jun 1970 00:00:00 GMT",
     };
 
     const res: AxiosResponse<T> = await Axios.post<T>(url, params, config);

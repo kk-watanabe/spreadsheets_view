@@ -10,7 +10,7 @@ const InputType = {
   Url: "url",
   Email: "email",
   Password: "password",
-  Number: "number"
+  Number: "number",
 };
 
 storiesOf("Atom/Form/InputPart", module).add(
@@ -22,17 +22,17 @@ storiesOf("Atom/Form/InputPart", module).add(
     },
     props: {
       type: {
-        default: select("Type", InputType, InputType.Text)
+        default: select("Type", InputType, InputType.Text),
       },
       placeholder: {
-        default: text("Placeholder", "Sample text")
+        default: text("Placeholder", "Sample text"),
       },
       disabled: {
-        default: boolean("Disabled", false)
+        default: boolean("Disabled", false),
       },
       error: {
-        default: boolean("Error", false)
-      }
+        default: boolean("Error", false),
+      },
     },
     template: `<InputPart
      v-model="value"
@@ -42,11 +42,11 @@ storiesOf("Atom/Form/InputPart", module).add(
      :error="error"
      @input="input"
      @focus="focus" />`,
-    methods: { input: action("input"), focus: action("focus") }
+    methods: { input: action("input"), focus: action("focus") },
   }),
   {
     info: {
-      summary: "Simple InputPart component"
-    }
+      summary: "Simple InputPart component",
+    },
   }
 );

@@ -8,19 +8,19 @@ storiesOf("Common/Header", module).add(
     components: { Header },
     props: {
       loggedIn: {
-        default: boolean("Logged in", false)
+        default: boolean("Logged in", false),
       },
       name: {
-        default: text("Name", "sample text")
-      }
+        default: text("Name", "sample text"),
+      },
     },
     template: `<Header :logged-in="loggedIn" :name="name">
       <template v-slot:navi>navi slot</template>
-    </Header>`
+    </Header>`,
   }),
   {
     info: {
-      summary: "Simple Header component"
-    }
+      summary: "Simple Header component",
+    },
   }
 );

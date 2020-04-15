@@ -13,17 +13,17 @@ export default new Router({
     {
       path: "/home",
       name: "home",
-      component: Home
+      component: Home,
     },
     {
       path: "/login",
       name: "login",
-      component: Login
+      component: Login,
     },
     {
       path: "/styleguide",
       name: "style-gude",
-      component: StyleGuide
-    }
-  ]
+      component: StyleGuide,
+    },
+  ],
 });

@@ -10,10 +10,10 @@ export enum TooltipPlacement {
   BottomEnd = "bottom-end",
   Left = "left",
   LeftStart = "left-start",
-  LeftEnd = "left-end"
+  LeftEnd = "left-end",
 }
 
 export enum TooltipColor {
   Dark = "dark",
-  Light = "light"
+  Light = "light",
 }
