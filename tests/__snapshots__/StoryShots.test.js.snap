@@ -2880,7 +2880,7 @@ exports[`Storyshots Common/Footer default 1`] = `
   <small
     class="footer__copyright"
   >
-    © 2019 Style guide views.
+    © 2020 Spreadsheets View.
   </small>
 </div>
 `;
@@ -2896,7 +2896,7 @@ exports[`Storyshots Common/Header default 1`] = `
       class="header__logo"
     >
       
-      Style guide views
+      Spreadsheets View
     
     </h1>
      
