@@ -1,19 +1,20 @@
 import { shallowMount } from "@vue/test-utils";
 import { LoginInfo } from "@/models/Login";
+import { checkOneCalledEmitted } from "@test-utils/test-util";
 import Vue from "vue";
 import LoginInfoItem from "@/components/login/LoginInfoItem.vue";
 import IconButton from "@/components/atoms/IconButton.vue";
 
 const loginInfo: LoginInfo = {
   name: "サンプルテキスト",
-  id: "sampletext1234"
+  id: "sampletext1234",
 };
 
 const factory = () => {
   return shallowMount(LoginInfoItem, {
     propsData: {
-      loginInfo
-    }
+      loginInfo,
+    },
   });
 };
 
@@ -24,7 +25,7 @@ describe("LoginInfoItem.vue", () => {
       const wrapper = factory();
       const noLoginName: LoginInfo = {
         name: "",
-        id: "sampletext1234"
+        id: "sampletext1234",
       };
       wrapper.setProps({ loginInfo: noLoginName });
       await Vue.nextTick();
@@ -47,9 +48,7 @@ describe("LoginInfoItem.vue", () => {
       const wrapper = factory();
       const iconButton = wrapper.find(IconButton);
       iconButton.vm.$emit("click");
-
-      expect(wrapper.emitted("delete")).toBeTruthy();
-      expect(wrapper.emitted("delete").length).toBe(1);
+      checkOneCalledEmitted(wrapper, "delete");
     });
 
     // login emitが動作する
@@ -57,9 +56,7 @@ describe("LoginInfoItem.vue", () => {
       const wrapper = factory();
       const loginInfoItemText = wrapper.find(".login-info-item__text");
       loginInfoItemText.trigger("click");
-
-      expect(wrapper.emitted("login")).toBeTruthy();
-      expect(wrapper.emitted("login").length).toBe(1);
+      checkOneCalledEmitted(wrapper, "login");
     });
   });
 });
