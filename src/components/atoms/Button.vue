@@ -22,7 +22,7 @@ export default class Button extends Vue {
   disabled!: boolean;
 
   @Emit("click")
-  onClick(event: MouseEvent) {}
+  onClick() {}
 
   get isColorClass(): string {
     return "button--" + this.color;
