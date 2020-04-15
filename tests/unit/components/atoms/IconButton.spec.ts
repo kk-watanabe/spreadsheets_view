@@ -1,5 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 import { ButtonType } from "@/const/Button";
+import { checkOneCalledEmitted } from "@test-utils/test-util";
 import { Icons } from "@/const/Icons";
 import Vue from "vue";
 import IconButton from "@/components/atoms/IconButton.vue";
@@ -8,8 +9,8 @@ const factory = (values = {}) => {
   return shallowMount(IconButton, {
     propsData: {
       icon: Icons.Books,
-      ...values
-    }
+      ...values,
+    },
   });
 };
 
@@ -19,7 +20,7 @@ describe("IconButton.vue", () => {
     it("Has icon prop is add icon props to `icon-button__icon`", () => {
       const icon = Icons.Facebook;
       const wrapper = factory({
-        icon
+        icon,
       });
       expect(wrapper.find(".icon-button__icon").props().icon).toContain(icon);
     });
@@ -44,7 +45,7 @@ describe("IconButton.vue", () => {
     it("Has size prop is add width and height style", () => {
       const size = 30;
       const wrapper = factory({
-        size
+        size,
       });
       expect(wrapper.attributes().style).toContain("width: " + size + "px;");
       expect(wrapper.attributes().style).toContain("height: " + size + "px;");
@@ -54,7 +55,7 @@ describe("IconButton.vue", () => {
     it("Has icon-size prop is add font-size style to `icon-button__icon`", () => {
       const iconSize = 20;
       const wrapper = factory({
-        iconSize
+        iconSize,
       });
       expect(wrapper.find(".icon-button__icon").attributes().style).toContain(
         "font-size: " + iconSize + "px;"
@@ -65,7 +66,7 @@ describe("IconButton.vue", () => {
     it("Has icon-offset prop is add margin style to `icon-button__icon`", () => {
       const iconOffset = "0px 5px 5px 0px";
       const wrapper = factory({
-        iconOffset
+        iconOffset,
       });
       expect(wrapper.find(".icon-button__icon").attributes().style).toContain(
         "margin: " + iconOffset
@@ -75,7 +76,7 @@ describe("IconButton.vue", () => {
     // Disabled propがある時 disabled classが付与する
     it("Has disabled prop is add disabled class", () => {
       const wrapper = factory({
-        disabled: true
+        disabled: true,
       });
       expect(wrapper.classes()).toContain("icon-button--disabled");
     });
@@ -87,9 +88,7 @@ describe("IconButton.vue", () => {
       const wrapper = factory();
       wrapper.trigger("click");
 
-      expect(wrapper.emitted("click")).toBeTruthy();
-      expect(wrapper.emitted("click").length).toBe(1);
-      expect(wrapper.emitted("click")[0][0] instanceof MouseEvent).toBe(true);
+      checkOneCalledEmitted(wrapper, "click");
     });
   });
 });
