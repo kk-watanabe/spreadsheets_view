@@ -1,4 +1,10 @@
-# spreadsheets_view
+# Vue template compoonents
+
+## 開発環境構築
+
+Vue + TypeScript + sass を使用している template となる Component を作成しました。
+unit test は jest を使用しています。
+Component の確認には Storybook を使用しています。
 
 ## Project setup
 
@@ -18,12 +24,6 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
-
-```
-npm run test
-```
-
 ### Lints and fixes files
 
 ```
@@ -35,7 +35,3 @@ npm run lint
 ```
 npm run test:unit
 ```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
