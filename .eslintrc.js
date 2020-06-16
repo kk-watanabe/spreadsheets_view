@@ -16,6 +16,7 @@ module.exports = {
       "error",
       {
         trailingComma: "es5",
+        arrowParens: "always",
       },
     ],
   },
