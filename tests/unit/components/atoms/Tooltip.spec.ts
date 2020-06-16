@@ -1,24 +1,18 @@
 import { shallowMount, mount, createLocalVue } from "@vue/test-utils";
 import { TooltipPlacement, TooltipColor } from "@/const/Tooltip";
 import Vue from "vue";
-import ElementUI from "element-ui";
 import Tooltip from "@/components/atoms/Tooltip.vue";
 
 const DEFAULT_TEXT = "SlotText";
 
-const localVue = createLocalVue();
-localVue.use(ElementUI);
-
 const shallowFactory = (values = {}) => {
   return shallowMount(Tooltip, {
-    localVue,
     ...values,
   });
 };
 
 const factory = (values = {}) => {
   return mount(Tooltip, {
-    localVue,
     ...values,
   });
 };

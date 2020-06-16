@@ -1,18 +1,13 @@
 import { shallowMount, mount, createLocalVue } from "@vue/test-utils";
 import { checkOneCalledEmitted } from "@test-utils/test-util";
 import Vue from "vue";
-import ElementUI from "element-ui";
 import Dialog from "@/components/atoms/Dialog.vue";
 import IconButton from "@/components/atoms/IconButton.vue";
-
-const localVue = createLocalVue();
-localVue.use(ElementUI);
 
 const DEFAULT_VISIBLE = true;
 
 const shallowFactory = (slot = {}) => {
   return shallowMount(Dialog, {
-    localVue,
     ...slot,
     propsData: {
       visible: DEFAULT_VISIBLE,
@@ -22,7 +17,6 @@ const shallowFactory = (slot = {}) => {
 
 const factory = (slot = {}) => {
   return mount(Dialog, {
-    localVue,
     ...slot,
     propsData: {
       visible: DEFAULT_VISIBLE,

@@ -1,5 +1,5 @@
 <template>
-  <ElDialog
+  <div
     class="dialog"
     :class="{ 'dialog--no-header': noHeader }"
     :visible="visible"
@@ -34,12 +34,11 @@
       :size="45"
       @click="onClose"
     />
-  </ElDialog>
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Model, Prop, Emit } from "vue-property-decorator";
-import { Dialog as ElDialog } from "element-ui";
 import { ButtonType } from "@/const/Button";
 import { Icons } from "@/const/Icons";
 import { WidthProperty, MarginTopProperty } from "csstype";
@@ -47,7 +46,6 @@ import IconButton from "@/components/atoms/IconButton.vue";
 
 @Component({
   components: {
-    ElDialog,
     IconButton,
   },
 })
