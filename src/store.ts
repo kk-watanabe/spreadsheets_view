@@ -3,16 +3,11 @@ import Vuex, { ActionContext, ActionTree } from "vuex";
 
 Vue.use(Vuex);
 
-export interface RootState {
+export interface RootState {}
 
-const actions = <ActionTree<RootState, RootState>>{
-  async initialize({ dispatch }) {
-    await Promise.all([dispatch("auth/fetchLoginInfos")]);
-  },
-};
+const actions = <ActionTree<RootState, RootState>>{};
 
 export default new Vuex.Store<RootState>({
   actions: actions,
-  modules: {
-  },
+  modules: {},
 });

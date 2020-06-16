@@ -20,7 +20,7 @@ describe("Icon.vue", () => {
     // Icons const で指定された class 全てが付与される
     it("Has icon prop is add icon class to all Icons const", () => {
       const icons = Object.entries(Icons);
-      icons.forEach(icon => {
+      icons.forEach((icon) => {
         const wrapper = factory({
           icon: icon[1],
         });
