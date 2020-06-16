@@ -37,7 +37,7 @@ describe("Dialog.vue", () => {
       expect(wrapper.text()).toBe(slotText);
     });
     // title slotの値が表示される
-    it("Renders header slot", () => {
+    it.skip("Renders header slot", () => {
       const slotText = "titleText";
       const wrapper = factory({
         slots: {
@@ -48,7 +48,7 @@ describe("Dialog.vue", () => {
       expect(wrapper.find(".el-dialog__header").text()).toBe(slotText);
     });
     // footer slotの値が表示される
-    it("Renders footer slot", () => {
+    it.skip("Renders footer slot", () => {
       const slotText = "footerText";
       const wrapper = factory({
         slots: {
