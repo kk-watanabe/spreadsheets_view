@@ -27,6 +27,8 @@
 import { Component, Prop, Emit, Vue } from "vue-property-decorator";
 import { TooltipPlacement, TooltipColor } from "@/const/Tooltip";
 
+const FIXED_ARROW_POSITION = 10;
+
 @Component
 export default class TooltipPopup extends Vue {
   @Prop({ type: String, default: "" })
@@ -47,6 +49,9 @@ export default class TooltipPopup extends Vue {
   @Prop({ type: Number, default: 0 })
   arrowPosition!: number;
 
+  @Prop({ type: Boolean, default: false })
+  fixedArrowPosition!: boolean;
+
   @Emit("mouse-enter")
   onMouseEnter() {}
 
@@ -62,8 +67,51 @@ export default class TooltipPopup extends Vue {
   }
 
   get arrowPositionStyle() {
-    const position = this.arrowPosition + "px";
+    if (this.fixedArrowPosition) {
+      if (
+        this.placement.indexOf("top") !== -1 ||
+        this.placement.indexOf("bottom") !== -1
+      ) {
+        if (this.placement.indexOf("start") !== -1) {
+          return {
+            left: FIXED_ARROW_POSITION + "px",
+          };
+        }
 
+        if (this.placement.indexOf("end") !== -1) {
+          return {
+            right: FIXED_ARROW_POSITION * 2 + "px",
+          };
+        }
+
+        return {
+          left: "calc(50% - 7px)",
+        };
+      }
+
+      if (
+        this.placement.indexOf("left") !== -1 ||
+        this.placement.indexOf("right") !== -1
+      ) {
+        if (this.placement.indexOf("start") !== -1) {
+          return {
+            top: FIXED_ARROW_POSITION + "px",
+          };
+        }
+
+        if (this.placement.indexOf("end") !== -1) {
+          return {
+            bottom: FIXED_ARROW_POSITION * 2 + "px",
+          };
+        }
+
+        return {
+          top: "calc(50% - 7px)",
+        };
+      }
+    }
+
+    const position = this.arrowPosition + "px";
     if (
       this.placement.indexOf("top") !== -1 ||
       this.placement.indexOf("bottom") !== -1

@@ -26,6 +26,9 @@ storiesOf("Atom/tooltip/TooltipPopup", module).add(
       arrowPosition: {
         default: number("arrowPosition", 0),
       },
+      fixedArrowPosition: {
+        default: boolean("fixedArrowPosition", false),
+      },
     },
     template: `
       <TooltipPopup
@@ -34,6 +37,8 @@ storiesOf("Atom/tooltip/TooltipPopup", module).add(
         :color="color"
         :add-shadow="addShadow"
         :show-arrow="showArrow"
+        :arrow-position="arrowPosition"
+        :fixed-arrow-position="fixedArrowPosition"
       />`,
   }),
   {
