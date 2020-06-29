@@ -123,13 +123,8 @@ export default class Popup extends Vue {
 <style scoped lang="scss">
 .popup {
   position: relative;
-  padding: 5px 10px;
   border: 1px solid;
   border-radius: $border_radius;
-  font-weight: normal;
-  font-size: 12px;
-
-  overflow-wrap: break-word;
 
   // color
   &--dark {
