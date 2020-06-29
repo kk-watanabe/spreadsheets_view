@@ -1,4 +1,4 @@
-export enum TooltipPlacement {
+export enum PopupPlacement {
   Top = "top",
   TopStart = "top-start",
   TopEnd = "top-end",
@@ -13,7 +13,7 @@ export enum TooltipPlacement {
   LeftEnd = "left-end",
 }
 
-export enum TooltipColor {
+export enum PopupColor {
   Dark = "dark",
   Light = "light",
 }
