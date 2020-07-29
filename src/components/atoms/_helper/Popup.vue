@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { Component, Prop, Emit, Vue } from "vue-property-decorator";
-import { PopupPlacement, PopupColor } from "@/const/Popup";
+import { PopupPlacement, PopupColor, POPUP_ARROW_SIZE } from "@/const/Popup";
 
 const FIXED_ARROW_POSITION = 10;
 
@@ -37,12 +37,6 @@ export default class Popup extends Vue {
   @Prop({ type: Boolean, default: true })
   showArrow!: boolean;
 
-  @Prop({ type: Number, default: 0 })
-  arrowPosition!: number;
-
-  @Prop({ type: Boolean, default: false })
-  fixedArrowPosition!: boolean;
-
   @Emit("mouse-enter")
   onMouseEnter() {}
 
@@ -54,57 +48,24 @@ export default class Popup extends Vue {
   }
 
   get arrowPositionStyle() {
-    if (this.fixedArrowPosition) {
-      if (
-        this.placement.indexOf("top") !== -1 ||
-        this.placement.indexOf("bottom") !== -1
-      ) {
-        if (this.placement.indexOf("start") !== -1) {
-          return {
-            left: FIXED_ARROW_POSITION + "px",
-          };
-        }
-
-        if (this.placement.indexOf("end") !== -1) {
-          return {
-            right: FIXED_ARROW_POSITION * 2 + "px",
-          };
-        }
-
-        return {
-          left: "calc(50% - 7px)",
-        };
-      }
-
-      if (
-        this.placement.indexOf("left") !== -1 ||
-        this.placement.indexOf("right") !== -1
-      ) {
-        if (this.placement.indexOf("start") !== -1) {
-          return {
-            top: FIXED_ARROW_POSITION + "px",
-          };
-        }
-
-        if (this.placement.indexOf("end") !== -1) {
-          return {
-            bottom: FIXED_ARROW_POSITION * 2 + "px",
-          };
-        }
-
-        return {
-          top: "calc(50% - 7px)",
-        };
-      }
-    }
-
-    const position = this.arrowPosition + "px";
     if (
       this.placement.indexOf("top") !== -1 ||
       this.placement.indexOf("bottom") !== -1
     ) {
+      if (this.placement.indexOf("start") !== -1) {
+        return {
+          left: FIXED_ARROW_POSITION + "%",
+        };
+      }
+
+      if (this.placement.indexOf("end") !== -1) {
+        return {
+          right: FIXED_ARROW_POSITION * 2 + "%",
+        };
+      }
+
       return {
-        left: position,
+        left: "calc(50% - " + POPUP_ARROW_SIZE / 2 + "px)",
       };
     }
 
@@ -112,8 +73,20 @@ export default class Popup extends Vue {
       this.placement.indexOf("left") !== -1 ||
       this.placement.indexOf("right") !== -1
     ) {
+      if (this.placement.indexOf("start") !== -1) {
+        return {
+          top: FIXED_ARROW_POSITION + "%",
+        };
+      }
+
+      if (this.placement.indexOf("end") !== -1) {
+        return {
+          bottom: FIXED_ARROW_POSITION * 2 + "%",
+        };
+      }
+
       return {
-        top: position,
+        top: "calc(50% - " + POPUP_ARROW_SIZE / 2 + ")",
       };
     }
   }
@@ -156,11 +129,11 @@ export default class Popup extends Vue {
     }
 
     &::before {
-      border-width: 7px;
+      border-width: 6px;
     }
 
     &::after {
-      border-width: 6px;
+      border-width: 5px;
     }
 
     // color
@@ -169,25 +142,25 @@ export default class Popup extends Vue {
       &[class*="--top"] {
         &::before,
         &::after {
-          border-bottom-color: $is_color_gray900;
+          border-top-color: $is_color_gray900;
         }
       }
       &[class*="--right"] {
         &::before,
         &::after {
-          border-left-color: $is_color_gray900;
+          border-right-color: $is_color_gray900;
         }
       }
       &[class*="--bottom"] {
         &::before,
         &::after {
-          border-top-color: $is_color_gray900;
+          border-bottom-color: $is_color_gray900;
         }
       }
       &[class*="--left"] {
         &::before,
         &::after {
-          border-right-color: $is_color_gray900;
+          border-left-color: $is_color_gray900;
         }
       }
     }
@@ -196,24 +169,6 @@ export default class Popup extends Vue {
       // Placement
       &[class*="--top"] {
         &::before {
-          border-bottom-color: $is_color_gray400;
-        }
-
-        &::after {
-          border-bottom-color: $is_color_white;
-        }
-      }
-      &[class*="--right"] {
-        &::before {
-          border-left-color: $is_color_gray400;
-        }
-
-        &::after {
-          border-left-color: $is_color_white;
-        }
-      }
-      &[class*="--bottom"] {
-        &::before {
           border-top-color: $is_color_gray400;
         }
 
@@ -221,7 +176,7 @@ export default class Popup extends Vue {
           border-top-color: $is_color_white;
         }
       }
-      &[class*="--left"] {
+      &[class*="--right"] {
         &::before {
           border-right-color: $is_color_gray400;
         }
@@ -230,39 +185,57 @@ export default class Popup extends Vue {
           border-right-color: $is_color_white;
         }
       }
+      &[class*="--bottom"] {
+        &::before {
+          border-bottom-color: $is_color_gray400;
+        }
+
+        &::after {
+          border-bottom-color: $is_color_white;
+        }
+      }
+      &[class*="--left"] {
+        &::before {
+          border-left-color: $is_color_gray400;
+        }
+
+        &::after {
+          border-left-color: $is_color_white;
+        }
+      }
     }
 
     // Placement
     &[class*="--top"] {
-      top: -14px;
-
-      &::after {
-        margin-top: 2px;
-        margin-left: 1px;
-      }
-    }
-    &[class*="--right"] {
-      right: 0;
-
-      &::after {
-        margin-top: 1px;
-        margin-right: 2px;
-      }
-    }
-    &[class*="--bottom"] {
       bottom: 0;
 
       &::after {
-        margin-bottom: 2px;
-        margin-left: 1px;
+        top: 0;
+        left: 1px;
+      }
+    }
+    &[class*="--right"] {
+      left: -12px;
+
+      &::after {
+        top: 1px;
+        left: 2px;
+      }
+    }
+    &[class*="--bottom"] {
+      top: -12px;
+
+      &::after {
+        top: 2px;
+        left: 1px;
       }
     }
     &[class*="--left"] {
-      left: -14px;
+      right: 0;
 
       &::after {
-        margin-top: 1px;
-        margin-left: 2px;
+        top: 1px;
+        left: 0;
       }
     }
   }

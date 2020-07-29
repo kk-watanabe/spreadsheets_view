@@ -20,12 +20,6 @@ storiesOf("_helper/Popup", module).add(
       showArrow: {
         default: boolean("Show Arrow", true),
       },
-      arrowPosition: {
-        default: number("arrowPosition", 0),
-      },
-      fixedArrowPosition: {
-        default: boolean("fixedArrowPosition", false),
-      },
     },
     template: `
       <Popup
@@ -33,8 +27,6 @@ storiesOf("_helper/Popup", module).add(
         :color="color"
         :add-shadow="addShadow"
         :show-arrow="showArrow"
-        :arrow-position="arrowPosition"
-        :fixed-arrow-position="fixedArrowPosition"
       >
         default slot
       </Popup>`,
