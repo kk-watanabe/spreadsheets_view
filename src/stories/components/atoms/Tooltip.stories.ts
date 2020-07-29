@@ -1,61 +1,42 @@
 import { storiesOf } from "@storybook/vue";
 import { text, select, boolean, number } from "@storybook/addon-knobs";
-import { TooltipPlacement, TooltipColor } from "@/const/Tooltip";
+import { PopupPlacement, PopupColor } from "@/const/Popup";
 import Tooltip from "@/components/atoms/Tooltip.vue";
 
-storiesOf("Atom | Tooltip", module)
+storiesOf("Atom/Tooltip", module)
   .add(
     "default",
     () => ({
       components: { Tooltip },
       props: {
-        placement: {
-          default: select(
-            "Placement",
-            TooltipPlacement,
-            TooltipPlacement["Top"]
-          ),
+        text: {
+          default: text("text", "smaple text\nsmaple text smaple\nsmaple text"),
         },
         content: {
           default: text("Content", "Tooltip text!"),
         },
+        placement: {
+          default: select("Placement", PopupPlacement, PopupPlacement["Top"]),
+        },
         color: {
-          default: select("Color", TooltipColor, TooltipColor["Dark"]),
+          default: select("Color", PopupColor, PopupColor["Dark"]),
         },
         addShadow: {
           default: boolean("Add Shadow", false),
         },
-        show: {
-          default: boolean("Show", false),
-        },
-        disabled: {
-          default: boolean("Disabled", false),
-        },
-        offset: {
-          default: number("Offset", 0),
-        },
-        visibleArrow: {
-          default: boolean("Visible Arrow", true),
-        },
-        enterable: {
-          default: boolean("Enterable", false),
+        showArrow: {
+          default: boolean("Show Arrow", true),
         },
       },
-      template: `<div style='padding: 50px;'>
+      template: `<div style='padding: 50px 100px;'>
         <Tooltip
-          :color="color"
           :content="content"
           :placement="placement"
-          :show="show"
-          :disabled="disabled"
-          :offset="offset"
-          :visible-arrow="visibleArrow"
+          :color="color"
           :add-shadow="addShadow"
-          :enterable="enterable"
+          :show-arrow="showArrow"
         >
-          Mouse over text!<br>
-          Mouse over text!<br>
-          Mouse over text!
+          <span class="newLine box">{{ text }}</span>
         </Tooltip>
       </div>`,
     }),
@@ -70,39 +51,29 @@ storiesOf("Atom | Tooltip", module)
     () => ({
       components: { Tooltip },
       props: {
-        placement: {
-          default: select(
-            "Placement",
-            TooltipPlacement,
-            TooltipPlacement["Top"]
-          ),
+        text: {
+          default: text("text", "smaple text\nsmaple text smaple\nsmaple text"),
         },
         content: {
-          default: text("Content", "Multi\ncontent\ntext"),
+          default: text(
+            "Content",
+            "Tooltip text!\nsmaple text smaple\nsmaple text"
+          ),
+        },
+        placement: {
+          default: select("Placement", PopupPlacement, PopupPlacement["Top"]),
         },
         color: {
-          default: select("Color", TooltipColor, TooltipColor["Dark"]),
+          default: select("Color", PopupColor, PopupColor["Dark"]),
         },
         addShadow: {
           default: boolean("Add Shadow", false),
         },
-        show: {
-          default: boolean("Show", false),
-        },
-        disabled: {
-          default: boolean("Disabled", false),
-        },
-        offset: {
-          default: number("Offset", 0),
-        },
-        visibleArrow: {
-          default: boolean("Visible Arrow", true),
-        },
-        enterable: {
-          default: boolean("Enterable", false),
+        showArrow: {
+          default: boolean("Show Arrow", true),
         },
       },
-      template: `<div style='padding: 50px;'>
+      template: `<div style='padding: 50px 100px;'>
         <Tooltip
           :color="color"
           :placement="placement"
@@ -113,9 +84,9 @@ storiesOf("Atom | Tooltip", module)
           :add-shadow="addShadow"
           :enterable="enterable"
         >
-          Mouse over text!<br>
-          Mouse over text!<br>
-          Mouse over text!
+          <span class="newLine box">
+            {{ text }}
+          </span>
 
           <div slot="content" class="newLine">{{ content }}</div>
         </Tooltip>
