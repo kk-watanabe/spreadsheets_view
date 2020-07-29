@@ -24,12 +24,6 @@ storiesOf("_helper/TooltipPopup", module)
         showArrow: {
           default: boolean("Show Arrow", true),
         },
-        arrowPosition: {
-          default: number("arrowPosition", 0),
-        },
-        fixedArrowPosition: {
-          default: boolean("fixedArrowPosition", false),
-        },
       },
       template: `
       <TooltipPopup
@@ -38,8 +32,6 @@ storiesOf("_helper/TooltipPopup", module)
         :color="color"
         :add-shadow="addShadow"
         :show-arrow="showArrow"
-        :arrow-position="arrowPosition"
-        :fixed-arrow-position="fixedArrowPosition"
       />`,
     }),
     {
@@ -68,9 +60,6 @@ storiesOf("_helper/TooltipPopup", module)
         arrowPosition: {
           default: number("arrowPosition", 0),
         },
-        fixedArrowPosition: {
-          default: boolean("fixedArrowPosition", false),
-        },
       },
       template: `
       <TooltipPopup
@@ -78,8 +67,6 @@ storiesOf("_helper/TooltipPopup", module)
         :color="color"
         :add-shadow="addShadow"
         :show-arrow="showArrow"
-        :arrow-position="arrowPosition"
-        :fixed-arrow-position="fixedArrowPosition"
       >
         <template v-slot:content>
           <div>

@@ -5,8 +5,6 @@
     :color="color"
     :add-shadow="addShadow"
     :show-arrow="showArrow"
-    :arrow-position="arrowPosition"
-    :fixed-arrow-position="fixedArrowPosition"
     @mouseenter="onMouseEnter"
     @mouseleave="onMouseLeave"
   >
@@ -42,12 +40,6 @@ export default class TooltipPopup extends Vue {
 
   @Prop({ type: Boolean, default: true })
   showArrow!: boolean;
-
-  @Prop({ type: Number, default: 0 })
-  arrowPosition!: number;
-
-  @Prop({ type: Boolean, default: false })
-  fixedArrowPosition!: boolean;
 
   @Emit("mouse-enter")
   onMouseEnter() {}
