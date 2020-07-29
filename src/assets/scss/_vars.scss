@@ -50,7 +50,6 @@ $is_base_color300: desaturate($is_base_color200, 15%);
 $is_base_color100: saturate($is_base_color200, 15%);
 
 $is_sub1_color200: #b02828;
-
 //上記ベース以外の追加カラー
 $is_color_white: #fff;
 $is_color_gray50: #fafafa;
@@ -65,20 +64,22 @@ $is_color_gray800: #424242;
 $is_color_gray900: #212121;
 $is_color_black: #111;
 
+$is_overlay: rgba(0, 0, 0, 0.4);
+
 //サイトで基本となるテキストカラー
 $is_text_color: $is_color_gray900;
 
 //サイトで使用するテキストリンクカラー
-$is_link_color: $is_base_color100;
+$is_link_color: $is_color_gray800;
 
 //テキストリンクho
-$is_link_hover_color: $is_base_color100;
+$is_link_hover_color: $is_color_gray800;
 
 //テキストリンクactive
-$is_link_active_color: $is_base_color100;
+$is_link_active_color: $is_color_gray800;
 
 //テキストリンクvisited
-$is_link_visited_color: $is_base_color100;
+$is_link_visited_color: $is_color_gray800;
 
 /*------------------------------------------------------------
 * z-index定義
