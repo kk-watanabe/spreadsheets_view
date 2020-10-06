@@ -39,4 +39,14 @@ describe("Overlay.vue", () => {
       expect(wrapper.attributes().style).toBe("z-index: 4000;");
     });
   });
+
+  describe("Emit", () => {
+    it("Click for return Emit.", () => {
+      const wrapper = factory();
+
+      wrapper.trigger("click");
+
+      checkOneCalledEmitted(wrapper, "click");
+    });
+  });
 });
