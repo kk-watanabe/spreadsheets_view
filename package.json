@@ -14,10 +14,11 @@
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11",
+    "vue": "^2.6.12",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^8.5.0",
     "vue-router": "^3.3.4",
+    "vue-server-renderer": "^2.6.12",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
@@ -39,6 +40,7 @@
     "@vue/cli-service": "^4.4.4",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^5.0.2",
+    "@vue/server-test-utils": "^1.1.0",
     "@vue/test-utils": "1.0.3",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
@@ -54,6 +56,6 @@
     "ts-jest": "^26.1.0",
     "typescript": "^3.9.5",
     "vue-cli-plugin-storybook": "^1.2.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.12"
   }
 }
