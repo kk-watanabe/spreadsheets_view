@@ -1,8 +1,3 @@
 module.exports = {
-  presets: ["@vue/app"],
-  env: {
-    test: {
-      plugins: ["require-context-hook"],
-    },
-  },
+  presets: ["@vue/cli-plugin-babel/preset"]
 };
