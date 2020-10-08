@@ -1,4 +1,4 @@
-import { render, renderToString } from "@vue/server-test-utils";
+// import { render, renderToString } from "@vue/server-test-utils";
 import { checkOneCalledEmitted } from "@test-utils/test-util";
 import Vue from "vue";
 import Dialog from "@/components/atoms/Dialog.vue";
@@ -9,18 +9,17 @@ const DEFAULT_VISIBLE = true;
 const renderFactory = async (values = {}) => {
   // const element = document.createElement("div");
   // element.id = "body";
-
-  const wrapper = await render(Dialog, {
-    slots: {
-      default: "default slot",
-      header: "header slot",
-      footer: "footer slot",
-    },
-    propsData: {
-      value: true,
-      ...values,
-    },
-  });
+  // const wrapper = await render(Dialog, {
+  //   slots: {
+  //     default: "default slot",
+  //     header: "header slot",
+  //     footer: "footer slot",
+  //   },
+  //   propsData: {
+  //     value: true,
+  //     ...values,
+  //   },
+  // });
 };
 
 describe.skip("Dialog.vue", () => {
