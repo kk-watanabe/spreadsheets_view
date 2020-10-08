@@ -1,4 +1,4 @@
-import Vue from "vue";
+import Vue, { VNode, CreateElement } from "vue";
 import { Wrapper } from "@vue/test-utils";
 
 /**
@@ -30,3 +30,13 @@ export function checkEmittedValue(
   checkOneCalledEmitted(wrapper, event);
   expect(emitted[0]).toEqual([value]);
 }
+
+/**
+ * <Transition />をStubする
+ */
+export const transitionStub = () => ({
+  render(h: CreateElement): VNode {
+    const options = (this as any).$options;
+    return options._renderChildren;
+  },
+});

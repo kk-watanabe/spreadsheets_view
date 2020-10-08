@@ -3,6 +3,7 @@
     type="button"
     class="button"
     :class="[isColorClass, { 'button--disabled': disabled }]"
+    :style="style"
     @click="onClick"
   >
     <slot></slot>
@@ -11,6 +12,7 @@
 
 <script lang="ts">
 import { Component, Prop, Emit, Vue } from "vue-property-decorator";
+import { HeightProperty, PaddingProperty } from "csstype";
 import { ButtonType } from "@/const/Button";
 
 @Component
@@ -21,8 +23,21 @@ export default class Button extends Vue {
   @Prop({ type: Boolean, default: false })
   disabled!: boolean;
 
+  @Prop({ type: String, default: "40px" })
+  height!: HeightProperty<0>;
+
+  @Prop({ type: String, default: "0 10px" })
+  padding!: PaddingProperty<0>;
+
   @Emit("click")
   onClick() {}
+
+  get style() {
+    return {
+      height: this.height,
+      padding: this.padding,
+    };
+  }
 
   get isColorClass(): string {
     return "button--" + this.color;
@@ -35,9 +50,7 @@ export default class Button extends Vue {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 10px;
   width: 100%;
-  height: 40px;
   border: 1px solid;
   border-radius: $border_radius;
   transition: border-color $anime_base_duration ease,

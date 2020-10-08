@@ -1,82 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots _helper/DialogBase default 1`] = `
+<div
+  class="dialog-base dialog-base--not-center"
+  style="width: 50%; top: 15vh; display: none;"
+>
+  <div
+    class="dialog-base__header"
+  >
+    header
+  </div>
+   
+  <div
+    class="dialog-base__body"
+  >
+     
+    <div>
+      contentSlot
+    </div>
+  </div>
+   
+  <div
+    class="dialog-base__footer"
+  >
+    footer
+  </div>
+   
+  <div
+    class="icon-button dialog-base__close-button icon-button--light"
+    style="width: 40px; height: 40px;"
+  >
+    <i
+      class="icon-button__icon icon-cross"
+      style="font-size: 16px; margin: 0px;"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots _helper/Overlay default 1`] = `
+<div
+  class="overlay"
+  style="z-index: 2000; display: none;"
+/>
+`;
+
+exports[`Storyshots _helper/Popup default 1`] = `
+<div
+  class="popup popup--dark"
+>
+  
+        default slot
+       
+  <div
+    class="popup__arrow popup__arrow--dark popup__arrow--top"
+  />
+</div>
+`;
+
 exports[`Storyshots Atom/Button default 1`] = `
 <button
   class="button button--dark"
+  style="height: 40px; padding: 0px 10px;"
   type="button"
 >
-  Hello!
+  
+        Hello!
+      
 </button>
-`;
-
-exports[`Storyshots Atom/Dialog default 1`] = `
-<div
-  append-to-body="true"
-  center="true"
-  class="dialog dialog"
-  close-on-click-modal="true"
-  destroy-on-close="true"
-  modal="true"
-  title="Title"
-  top="15vh"
-  visible="visible"
-  width="50%"
->
-  <template />
-   
-        Default slot
-       
-  <template />
-   
-  <div
-    class="icon-button dialog__close-button icon-button--light"
-    style="width: 45px; height: 45px;"
-  >
-    <i
-      class="icon-button__icon icon-cross"
-      style="font-size: 16px; margin: 0px;"
-    />
-  </div>
-</div>
-`;
-
-exports[`Storyshots Atom/Dialog header and footer slot 1`] = `
-<div
-  append-to-body="true"
-  center="true"
-  class="dialog dialog dialog--no-header"
-  close-on-click-modal="true"
-  destroy-on-close="true"
-  modal="true"
-  title=""
-  top="15vh"
-  visible="visible"
-  width="50%"
->
-  <template>
-    <div>
-      Title slot
-    </div>
-  </template>
-   
-        Default slot
-         
-  <template>
-    <div>
-      Footer slot
-    </div>
-  </template>
-   
-  <div
-    class="icon-button dialog__close-button icon-button--light"
-    style="width: 45px; height: 45px;"
-  >
-    <i
-      class="icon-button__icon icon-cross"
-      style="font-size: 16px; margin: 0px;"
-    />
-  </div>
-</div>
 `;
 
 exports[`Storyshots Atom/Form/InputPart default 1`] = `
@@ -2878,5 +2869,18 @@ exports[`Storyshots Atom/IconButton default 1`] = `
     class="icon-button__icon icon-home"
     style="font-size: 26px; margin: 0px;"
   />
+</div>
+`;
+
+exports[`Storyshots atom/Dialog default 1`] = `
+<div>
+  <label>
+    <input
+      type="checkbox"
+    />
+    Open Dialog
+  </label>
+   
+  <!---->
 </div>
 `;

@@ -1,64 +1,18 @@
-<template>
-  <div
-    class="dialog"
-    :class="{ 'dialog--no-header': noHeader }"
-    :visible="visible"
-    :title="title"
-    :width="width"
-    :top="top"
-    :modal="true"
-    :append-to-body="appendToBody"
-    :close-on-click-modal="closeModel"
-    :show-close="false"
-    :center="center"
-    :destroy-on-close="destroyOnClose"
-    @open="onOpen"
-    @close="onClose"
-    @mousedown.native="onMouseDown"
-  >
-    <template slot="title">
-      <slot name="title"></slot>
-    </template>
-
-    <slot></slot>
-
-    <template slot="footer">
-      <slot name="footer"></slot>
-    </template>
-
-    <IconButton
-      v-if="showCloseButton"
-      class="dialog__close-button"
-      :icon="icons.Cross"
-      :color="buttonType.Light"
-      :size="45"
-      @click="onClose"
-    />
-  </div>
-</template>
-
 <script lang="ts">
-import { Component, Vue, Model, Prop, Emit } from "vue-property-decorator";
-import { ButtonType } from "@/const/Button";
-import { Icons } from "@/const/Icons";
+import { VNode, CreateElement } from "vue";
+import { Component, Vue, Prop, Emit } from "vue-property-decorator";
 import { WidthProperty, MarginTopProperty } from "csstype";
-import IconButton from "@/components/atoms/IconButton.vue";
+import DialogBase from "@/components/atoms/_helper/DialogBase.vue";
+import Overlay from "@/components/atoms/_helper/Overlay.vue";
 
-@Component({
-  components: {
-    IconButton,
-  },
-})
+let zIndexs: number[] = [];
+let latestZIndex: number = 2000;
+let rendering: boolean = false;
+
+@Component
 export default class Dialog extends Vue {
-  buttonType = ButtonType;
-  icons = Icons;
-  closeModel: boolean = true;
-
-  @Model("toggle", { type: Boolean, required: true })
-  visible!: boolean;
-
-  @Prop({ type: String, default: "" })
-  title!: string;
+  @Prop({ type: Boolean, required: true })
+  value!: boolean;
 
   @Prop({ type: String, default: "50%" })
   width!: WidthProperty<0>;
@@ -66,57 +20,190 @@ export default class Dialog extends Vue {
   @Prop({ type: String, default: "10vh" })
   top!: MarginTopProperty<0>;
 
-  //モーダルを入れ子にする場合はtrueにする
-  @Prop({ type: Boolean, default: true })
-  appendToBody!: boolean;
+  @Prop({ type: String, default: "" })
+  title!: string;
 
-  @Prop({ type: Boolean, default: true })
-  closeOnClickModal!: boolean;
+  @Prop({ type: Boolean, default: false })
+  isCenter!: boolean;
 
-  @Prop({ type: Boolean, default: true })
-  showCloseButton!: boolean;
-
-  @Prop({ type: Boolean, default: true })
-  center!: boolean;
-
-  @Prop({ type: Boolean, default: true })
-  destroyOnClose!: boolean;
+  @Emit("input")
+  onInput(value: boolean) {}
 
   @Emit("open")
-  onOpen() {}
-
-  @Emit("close")
-  onClose() {}
-
-  //titleが無いときに余計なpaddingを消す
-  get noHeader(): boolean {
-    if (this.title.length === 0) {
-      return true;
-    }
-
-    return false;
+  onOpen(value: boolean) {
+    this.onInput(value);
   }
 
-  // To avoid close model when mouse press and release outside
-  onMouseDown(event: MouseEvent) {
-    const target = event.target as HTMLElement;
-    if (target.className.match("el-dialog__wrapper")) {
-      this.closeModel = true;
-    } else {
-      this.closeModel = false;
+  @Emit("close")
+  onClose(value: boolean) {
+    this.onInput(value);
+  }
+
+  showDialogIds: string[] = [];
+  zIndex = 0;
+
+  beforeCreate() {
+    if (!rendering) {
+      zIndexs.forEach((z) => {
+        const element = document.getElementById("dialog" + String(z));
+        if (element !== null) {
+          element.remove();
+        }
+      });
     }
 
-    if (!this.closeOnClickModal) {
-      this.closeModel = false;
+    Vue.nextTick(() => {
+      // Create id
+      this.zIndex = latestZIndex + 2;
+      zIndexs.push(this.zIndex);
+      latestZIndex = this.zIndex;
+      rendering = true;
+
+      const that = this;
+
+      if (this.notExistDialog(this.zIndex)) {
+        // @ts-ignore
+        this._el = document.body.appendChild(document.createElement("div"));
+
+        // @ts-ignore
+        this._vm = new Vue({
+          methods: {
+            forseRender() {
+              this.$forceUpdate();
+            },
+          },
+          render(createElement) {
+            return that.createDialog(that);
+          },
+          // @ts-ignore
+        }).$mount(this._el);
+      }
+    });
+  }
+
+  created() {
+    Vue.nextTick(() => {
+      rendering = false;
+    });
+  }
+
+  destroyed() {
+    if (!rendering) {
+      this.resetDialogs();
     }
+  }
+
+  render(h: CreateElement) {
+    // @ts-ignore
+    const vm = this._vm;
+    if (vm) {
+      vm.forseRender();
+    }
+  }
+
+  notExistDialog(zIndex: number): boolean {
+    const id = document.getElementById("dialog" + String(zIndex));
+    return id === null;
+  }
+
+  resetDialogs() {
+    const dialogs = document.getElementsByClassName("dialogs");
+    const oldZIndexs: string[] = [];
+
+    for (const d of dialogs) {
+      oldZIndexs.push(d.id);
+    }
+
+    oldZIndexs.forEach((z) => {
+      const element = document.getElementById(z);
+      if (element !== null) {
+        element.remove();
+      }
+    });
+  }
+
+  createDialog(component: this): VNode {
+    return component.$createElement(
+      "div",
+      {
+        key: "dialog" + String(this.zIndex),
+        attrs: {
+          id: "dialog" + String(this.zIndex),
+          class: "dialogs",
+        },
+      },
+      [
+        component.$createElement(Overlay, {
+          props: {
+            value: component.value,
+            zIndex: this.zIndex,
+          },
+          on: {
+            click: () => {
+              Vue.nextTick(() => {
+                component.onClose(false);
+              });
+            },
+          },
+          key: "overlay" + String(this.zIndex),
+          ref: "overlay" + String(this.zIndex),
+          attrs: {
+            id: "overlay" + String(this.zIndex),
+          },
+        }),
+        component.$createElement(
+          DialogBase,
+          {
+            props: {
+              value: component.value,
+              title: component.title,
+              width: component.width,
+              top: component.top,
+              isCenter: component.isCenter,
+            },
+            style: {
+              zIndex: this.zIndex,
+            },
+            on: {
+              open: () => {
+                Vue.nextTick(() => {
+                  component.onOpen(true);
+                });
+              },
+              close: () => {
+                Vue.nextTick(() => {
+                  component.onClose(false);
+                });
+              },
+            },
+            key: "dialogContent" + String(this.zIndex),
+            ref: "dialogContent" + String(this.zIndex),
+            attrs: {
+              id: "dialogContent" + String(this.zIndex),
+            },
+          },
+          [
+            component.$slots.default,
+            component.$createElement(
+              "template",
+              {
+                slot: "header",
+              },
+              component.$slots.header
+            ),
+            component.$createElement(
+              "template",
+              {
+                slot: "footer",
+              },
+              component.$slots.footer
+            ),
+          ]
+        ),
+      ]
+    );
   }
 }
 </script>
 
-<style scoped lang="scss">
-.dialog__close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-</style>
+<style scoped lang="scss"></style>
