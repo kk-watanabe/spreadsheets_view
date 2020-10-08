@@ -146,6 +146,7 @@ export default class Dialog extends Vue {
             },
           },
           key: "overlay" + String(this.zIndex),
+          ref: "overlay" + String(this.zIndex),
           attrs: {
             id: "overlay" + String(this.zIndex),
           },
@@ -176,6 +177,7 @@ export default class Dialog extends Vue {
               },
             },
             key: "dialogContent" + String(this.zIndex),
+            ref: "dialogContent" + String(this.zIndex),
             attrs: {
               id: "dialogContent" + String(this.zIndex),
             },
