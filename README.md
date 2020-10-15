@@ -41,3 +41,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 そのため、 `@storybook/vue": "^6.0.26` は使用せずに [`@andoshin11/storybook-vue3`](https://www.npmjs.com/package/@andoshin11/storybook-vue3) を使用しました。
 
 Strorybook が Vue3 に対応した場合、ライブラリの切り替えが必要になります。
+
+`@storybook/addon-storyshots` も `@storybook/vue` が無いと使えないため、一旦中止です。
